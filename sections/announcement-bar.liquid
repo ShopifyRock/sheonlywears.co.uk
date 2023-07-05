@@ -1,1 +1,37 @@
-<h1>Hello</h1>
+{%- if section.settings.show_announcement != blank -%}
+  {% if section.settings.image != blank %}
+    <div class="announcement-bar">
+      <a href="{{ section.settings.link }}">
+        <img
+          src="{{ section.settings.image | img_url: 'master' }}"
+          alt="announcement bar"
+          height=""
+          width="1920"
+          class="lazyload"
+          loading="lazy" />
+      </a>
+    </div>
+  {% endif %}
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Announcement bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Show announcement",
+        "default": false
+      }, {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Announcement Image"
+      }, {
+        "type": "url",
+        "id": "link",
+        "label": "Announcement link"
+      }
+    ]
+  }
+{% endschema %}

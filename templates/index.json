@@ -1,11 +1,12 @@
 {
-    "sections": {
-      "announcement-bar": {
-        "type": "announcement-bar"
+  "sections": {
+    "image-section": {
+      "type": "image-section",
+      "settings": {
       }
-    },
-    "order": [
-      "announcement-bar"
-    ]
-  }
-  
+    }
+  },
+  "order": [
+    "image-section"
+  ]
+}
