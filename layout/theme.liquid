@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    ...
     {{ content_for_header }}
-    ...
+    {{ 'fonts.css' | asset_url | stylesheet_tag: preload: true }} 
+    {{ 'bootstrap.min.css' | asset_url | stylesheet_tag: preload: true }} 
+    {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }} 
   </head>
 
   <body>
-    ...
+    {% section 'announcement-bar' %}
+    {% section 'header' %}
     {{ content_for_layout }}
-    ...
   </body>
  </html>

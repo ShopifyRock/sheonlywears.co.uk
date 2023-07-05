@@ -1,0 +1,22 @@
+{
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+        }
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "show_announcement": true,
+          "image": "shopify:\/\/shop_images\/announcement-bar.jpg",
+          "link": "#"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+@font-face {
+	font-family: proxima_nova_altblack;
+	src: url(proxima_nova_alt_black.woff2) format("woff2"),url(proxima_nova_alt_black.woff) format("woff"),url(proxima_nova_alt_black.ttf) format("truetype"),url(proxima_nova_alt_black.svg) format("svg");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family:proxima_nova_altbold;src:url(proxima_nova_alt_bold.eot);src:url(proxima_nova_alt_bold.eot?#iefix) format("embedded-opentype"),url(proxima_nova_alt_bold.woff2) format("woff2"),url(proxima_nova_alt_bold.woff) format("woff"),url(proxima_nova_alt_bold.ttf) format("truetype"),url(proxima_nova_alt_bold.svg#proxima_nova_altbold) format("svg");font-weight:400;font-style:normal;
+}
+
+@font-face {
+	font-family:Proxima Nova;src:url(proxima_nova_alt_regular.eot);src:url(proxima_nova_alt_regular.eot?#iefix) format("embedded-opentype"),url(proxima_nova_alt_regular.woff) format("woff"),url(proxima_nova_alt_regular.ttf) format("truetype"),url(proxima_nova_alt_regular.svg#proxima_nova_altregular) format("svg");font-weight:400;font-style:normal;
+}
+
+@font-face {
+	font-family:proxima_nova_scosfthin;src:url(proxima_nova_ScOsf_thin.eot);src:url(proxima_nova_ScOsf_thin.eot?#iefix) format("embedded-opentype"),url(proxima_nova_ScOsf_thin.woff) format("woff"),url(proxima_nova_ScOsf_thin.ttf) format("truetype"),url(proxima_nova_ScOsf_thin.svg#proxima_nova_scosfthin) format("svg");font-weight:400;font-style:normal;
+}
+
+@font-face {
+	font-family:Proxima Nova;src:url(proxima_nova_semibold.eot);src:url(proxima_nova_semibold.eot?#iefix) format("embedded-opentype"),url(proxima_nova_semibold.woff2) format("woff2"),url(proxima_nova_semibold.svg#proxima_nova_ltsemibold) format("svg");font-weight:500;font-style:normal;
+}
+
+@font-face {
+	font-family:ProximaNovaSB;src:url(proxima_nova_semibold.eot);src:url(proxima_nova_semibold.eot?#iefix) format("embedded-opentype"),url(proxima_nova_semibold.woff2) format("woff2"),url(proxima_nova_semibold.svg#proxima_nova_ltsemibold) format("svg");font-weight:400;font-style:normal;
+}
+
+@font-face {
+	font-family:proxima_nova_ltthin;src:url(proxima_nova_thin.eot);src:url(proxima_nova_thin.eot?#iefix) format("embedded-opentype"),url(proxima_nova_thin.woff2) format("woff2"),url(proxima_nova_thin.woff) format("woff"),url(proxima_nova_thin.ttf) format("truetype"),url(proxima_nova_thin.svg#proxima_nova_ltthin) format("svg");font-weight:400;font-style:normal;
+}
