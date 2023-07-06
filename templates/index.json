@@ -4,9 +4,68 @@
       "type": "image-section",
       "settings": {
       }
+    },
+    "2b015cda-523a-441b-9ee4-be799f4b8175": {
+      "type": "featured_collection_list",
+      "blocks": {
+        "template--15884558368960__2b015cda-523a-441b-9ee4-be799f4b8175-16886298240e566e6a-0": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cat-1.png",
+            "btn_text": "SHOP MINI DRESSES",
+            "btn_link": "#"
+          }
+        },
+        "8db75d17-5322-40cf-b89c-8412b471545e": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cat-2.png",
+            "btn_text": "SHOP MINI DRESSES",
+            "btn_link": "#"
+          }
+        },
+        "e1d20638-ddd3-4a3e-99cd-242f4a84d422": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cat-3.png",
+            "btn_text": "SHOP MINI DRESSES",
+            "btn_link": "#"
+          }
+        },
+        "776d1830-efb1-4bf0-9cfb-bdc60c930922": {
+          "type": "featured_collection",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cat-4.png",
+            "btn_text": "SHOP MINI DRESSES",
+            "btn_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "template--15884558368960__2b015cda-523a-441b-9ee4-be799f4b8175-16886298240e566e6a-0",
+        "8db75d17-5322-40cf-b89c-8412b471545e",
+        "e1d20638-ddd3-4a3e-99cd-242f4a84d422",
+        "776d1830-efb1-4bf0-9cfb-bdc60c930922"
+      ],
+      "settings": {
+      }
+    },
+    "9859a107-9d67-434d-a902-5375e4f14081": {
+      "type": "top-seller-products",
+      "settings": {
+        "collection": "all-dresses"
+      }
+    },
+    "3a160135-cef5-4961-a26d-31af15b81f36": {
+      "type": "newsletter-subscribe",
+      "settings": {
+      }
     }
   },
   "order": [
-    "image-section"
+    "image-section",
+    "2b015cda-523a-441b-9ee4-be799f4b8175",
+    "9859a107-9d67-434d-a902-5375e4f14081",
+    "3a160135-cef5-4961-a26d-31af15b81f36"
   ]
 }

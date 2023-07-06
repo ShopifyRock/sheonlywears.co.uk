@@ -1,0 +1,36 @@
+<section class="footer-newsletter__wrapper">
+  <div class="footer-newsletter__container">
+      <div class="footer-newsletter__title">
+          <img src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/Join-Us-updated.png?v=1688643377" width="320" height="79" alt="Newsletter">
+      </div>
+      <div class="newsletter-form">
+          <form>
+              <div class="footer-newsletter-form__wrapper">
+                  <div class="floating-label-wrap">
+                      <input type="email" placeholder="Enter your email" class="footer__newsletter-input">
+                      <label class="floating-label">Your email address</label>
+                      <button type="submit" class="footer__newsletter-btn" title="join">join</button>
+                  </div>
+                  <div class="newsletter-form__check">
+                      <input type="checkbox" id="newsletter_footer_accept_terms" name="newsletter_footer_accept_terms" class="styled-checkbox">
+                      <label for="newsletter_footer_accept_terms" class="form-label">I consent to receive promotional
+                          communications related to my purchase history, website browsing activity, and/or engagement with
+                          marketing materials.</label>
+                  </div>            
+              </div>
+          </form>
+      </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Newsletter",
+    "settings": [],
+    "presets": [
+      {
+        "name": "Newsletter"
+      }
+    ]
+  }
+{% endschema %}

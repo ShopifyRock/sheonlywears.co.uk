@@ -1,15 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ shop.locale }}">
   <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% comment %} Page Title {% endcomment %}
+
+    {%- capture seo_title -%}
+      {%- if request.page_type == 'search' and search.performed == true -%}
+        {{ 'general.search.heading' | t: count: search.results_count }}: {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+      {%- else -%}
+        {{ page_title }}
+      {%- endif -%}
+      {%- if current_tags -%}
+        {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+      {%- endif -%}
+      {%- if current_page != 1 -%}
+        &ndash; {{ 'general.meta.page' | t: page: current_page }}
+      {%- endif -%}
+      {%- assign escaped_page_title = page_title | escape -%}
+      {%- unless escaped_page_title contains shop.name -%}
+        &ndash; {{ shop.name }}
+      {%- endunless -%}
+    {%- endcapture -%}
+    <title>{{ seo_title | strip }}</title>
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+    <meta name="google-site-verification" content="NQ91UJsztMTKAsq_LTK1Hg1Lf12VCxclAVBdY9bdJC8">
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="shortcut icon"
+        href="{{ settings.favicon | img_url: '32x32' }}"
+        type="image/png">
+    {%- endif -%}
+
+    {%- if canonical_url != blank -%}
+      <link rel="canonical" href="{{ canonical_url }}">
+    {%- endif -%}
+
     {{ content_for_header }}
-    {{ 'fonts.css' | asset_url | stylesheet_tag: preload: true }} 
-    {{ 'bootstrap.min.css' | asset_url | stylesheet_tag: preload: true }} 
-    {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }} 
+
+    {% comment %} CSS START {% endcomment %}
+
+    {{ 'fonts.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ 'bootstrap.min.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ 'slick.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+
+    {% comment %} CSS END {% endcomment %}
+
+    {% comment %} JS SECTION START {% endcomment %}
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    {{ 'slick.min.js' | asset_url | script_tag }}
+    {{ 'bootstrap.min.js' | asset_url | script_tag }}
+    {{ 'custom.js' | asset_url | script_tag }}
+
+    {% comment %} JS SECTION END {% endcomment %}
+
   </head>
 
   <body>
     {% section 'announcement-bar' %}
     {% section 'header' %}
     {{ content_for_layout }}
+{% comment %}
+    {% section 'top-seller-products' %}
+{% endcomment %}    
+    {% section 'site-footer' %}
   </body>
- </html>
+</html>
