@@ -1,0 +1,55 @@
+<section class="homepage-categories__wrapper">
+  <div class="container-fluid">
+    {% for block in section.blocks %}
+      <div class="homepage-categories__item">
+        <a href="{{ block.settings.btn_link }}">
+          <img
+            src="{{ block.settings.image | img_url: 'master' }}"
+            width="356"
+            height="533"
+            alt="category 4">
+          <span>{{ block.settings.btn_text }}</span>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Featured Collection List",
+    "settings": [],
+    "max_blocks": 4,
+    "blocks": [
+      {
+        "type": "featured_collection",
+        "name": "Featured Collection",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Select Collection image"
+          }, {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text"
+          }, {
+            "type": "url",
+            "id": "btn_link",
+            "label": "Button Link"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Collection List",
+        "blocks": [
+          {
+            "type": "featured_collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

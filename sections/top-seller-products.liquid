@@ -1,0 +1,50 @@
+<section class="top-seller-products__wrapper">
+  <div class="container-fluid">
+    <div class="top-seller-carousel__wrapper">
+      <h2>
+        <span>Top Sellers</span>
+      </h2>
+      <div class="top-seller-carousel">
+        {%- for product in collections[section.settings.collection].products -%}
+        <div>          
+            <div class="product__item">
+              <a href="{{ product.url | within: collection }}">
+                <div class="product-item__image">
+                  <img
+                    src="{{ product.featured_image | img_url: 'master' }}"
+                    height=""
+                    width=""
+                    alt="product_image"
+                    class="lazyload"
+                    loading="lazy" />
+                </div>
+                <h3 class="product__title">{{ product.title }}</h3>
+                <span class="product__price">{{ product.price }}</span>
+              </a>
+            </div>          
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+  {
+    "name": "Top seller",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Select collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Top seller"
+      }
+    ]
+  }
+{% endschema %}
