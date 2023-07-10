@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="top-seller-carousel__wrapper">
       <h2>
-        <span>Top Sellers</span>
+        <span>{{ section.settings.title | escape }}</span>
       </h2>
       <div class="top-seller-carousel">
         {%- for product in collections[section.settings.collection].products -%}
@@ -12,9 +12,9 @@
                 <div class="product-item__image">
                   <img
                     src="{{ product.featured_image | img_url: 'master' }}"
-                    height=""
-                    width=""
-                    alt="product_image"
+                    height="468"
+                    width="312"
+                    alt="{{ product.title }}"
                     class="lazyload"
                     loading="lazy" />
                 </div>
@@ -36,9 +36,15 @@
     "name": "Top seller",
     "settings": [
       {
+        "type": "text",
+        "id": "title",
+        "default": "t:sections.top-seller-products.settings.title.info",
+        "label": "t:sections.top-seller-products.settings.title.label"
+      },
+      {
         "type": "collection",
         "id": "collection",
-        "label": "Select collection"
+        "label": "t:sections.top-seller-products.settings.collection.label"
       }
     ],
     "presets": [
