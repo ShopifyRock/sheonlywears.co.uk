@@ -8,7 +8,7 @@
         {%- for product in collections[section.settings.collection].products -%}
         <div>          
             <div class="product__item">
-              <a href="{{ product.url | within: collection }}">
+              <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
                 <div class="product-item__image">
                   <img
                     src="{{ product.featured_image | img_url: 'master' }}"
@@ -38,7 +38,7 @@
       {
         "type": "text",
         "id": "title",
-        "default": "t:sections.top-seller-products.settings.title.info",
+        "default": "TOP SELLERS",
         "label": "t:sections.top-seller-products.settings.title.label"
       },
       {
