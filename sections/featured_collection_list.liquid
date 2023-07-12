@@ -2,12 +2,12 @@
   <div class="container-fluid">
     {% for block in section.blocks %}
       <div class="homepage-categories__item">
-        <a href="{{ block.settings.btn_link }}">
+        <a href="{{ block.settings.btn_link }}" title="{{ block.settings.btn_text }}">
           <img
             src="{{ block.settings.image | img_url: 'master' }}"
             width="356"
             height="533"
-            alt="category 4">
+            alt="{{ block.settings.btn_text }}">
           <span>{{ block.settings.btn_text }}</span>
         </a>
       </div>

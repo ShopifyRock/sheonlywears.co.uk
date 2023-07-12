@@ -1,44 +1,38 @@
 {% comment %} Main banner start {% endcomment %}
 
 <section class="main-banner__wrapper">
-  <img src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/NEW-SEASON-DRESSING_f619ac2a-6bd8-4639-9df4-aac4c9906b9c.jpg?v=1688707901" width="1780" height="890" alt="Banner image" class="desk-banner">
-  <img src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/mobile-banner.jpg?v=1688708108" width="660" height="660" alt="Banner image" class="mobile-banner">
+    <a href="{{ section.settings.link }}" title="Banner">
+        {% if section.settings.deskimg != blank %}
+            <img src="{{ section.settings.deskimg | img_url: 'master'}}" width="1780" height="890" alt="Banner image" class="desk-banner">
+        {% endif %}
+        {% if section.settings.mobimg != blank %}
+            <img src="{{ section.settings.mobimg | img_url: 'master'}}" width="660" height="660" alt="Banner image" class="mobile-banner">
+        {% endif %}
+    </a>
 </section>
 
 {% comment %} Main banner end {% endcomment %}
 
-{% comment %} Banner promotion bar start {% endcomment %}
-
-<section class="banner-promotion__wrapper">
-  <div class="promo-item">
-      <a href="#" title="Free Shipping On Orders Over $100"><strong>Free Shipping</strong>On Orders Over $100</a>
-  </div>
-  <div class="promo-item">
-      <div class="buy-now-paylater">
-          Wear Now. Pay Later
-          <a href="#" title="Afterpay">
-              <img src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/home---afterpay.svg?v=1688709315" alt="Afterpay" width="90" height="17" />
-          </a>
-          <a href="#" title="Klarna">
-              <img src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/klarna-logo_480x480_ca274228-04cf-43b2-a5c7-d8c219fa475c.svg?v=1688709377" alt="Klarna logo" width="59" height="13" />
-          </a>
-      </div>   
-  </div>
-  <div class="promo-item">
-      <a href="#" title="Students Get 10% Off With Unidays">
-          Students Get 10% Off With
-          <img src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/home---unidays.svg?v=1688709467" alt="Unidays" width="64" height="12" />
-      </a>
-  </div>
-</section>
-
-{% comment %} Banner promotion bar end {% endcomment %}
-
-
 {% schema %}
   {
     "name": "Banner",
-    "settings": [],
+    "settings": [
+      {
+         "type": "image_picker",
+         "id": "deskimg",
+         "label": "Desktop banner image"
+       },
+      {
+         "type": "image_picker",
+         "id": "mobimg",
+         "label": "Mobile banner image"
+       },
+            {
+          "type": "url",
+          "id": "link",
+          "label": "Banner url"
+        }
+    ],
     "presets": [
       {
         "name": "Banner"

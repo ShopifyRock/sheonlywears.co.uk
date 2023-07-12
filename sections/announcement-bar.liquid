@@ -1,7 +1,7 @@
 {%- if section.settings.show_announcement != blank -%}
   {% if section.settings.image != blank %}
     <div class="announcement-bar">
-      <a href="{{ section.settings.link }}">
+      <a href="{{ section.settings.link }}" title="Announcement bar">
         <img
           src="{{ section.settings.image | img_url: 'master' }}"
           alt="announcement bar"

@@ -3,7 +3,49 @@
     "sections": {
       "header": {
         "type": "header",
+        "blocks": {
+          "0f198de1-3e5c-43ec-ac1a-d4e20174503e": {
+            "type": "mega_1",
+            "settings": {
+              "menu_title_2": "TOP SELLERS",
+              "menu_title_link_2": "shopify:\/\/collections\/accessories",
+              "menu_style_2": "main-menu"
+            }
+          },
+          "903e561e-433f-48e4-8e7e-52074edf4b7c": {
+            "type": "mega_1",
+            "settings": {
+              "menu_title_2": "Most Wanted",
+              "menu_title_link_2": "",
+              "menu_style_2": "footer"
+            }
+          },
+          "fa25903d-36c3-47ca-9da8-a8dc17a2b344": {
+            "type": "mega_1",
+            "settings": {
+              "menu_title_2": "Clothing",
+              "menu_title_link_2": "shopify:\/\/collections\/clothing",
+              "menu_style_2": "let-us-help-you"
+            }
+          },
+          "70db1b00-be16-4746-9816-16cb190cdd18": {
+            "type": "mega_1",
+            "settings": {
+              "menu_title_2": "Dresses",
+              "menu_title_link_2": "shopify:\/\/collections\/dresses",
+              "menu_style_2": ""
+            }
+          }
+        },
+        "block_order": [
+          "0f198de1-3e5c-43ec-ac1a-d4e20174503e",
+          "903e561e-433f-48e4-8e7e-52074edf4b7c",
+          "fa25903d-36c3-47ca-9da8-a8dc17a2b344",
+          "70db1b00-be16-4746-9816-16cb190cdd18"
+        ],
         "settings": {
+          "logo": "shopify:\/\/shop_images\/logo-main.png",
+          "menu": "main-menu"
         }
       },
       "announcement-bar": {
@@ -12,6 +54,13 @@
           "show_announcement": true,
           "image": "shopify:\/\/shop_images\/announcement-bar.jpg",
           "link": "#"
+        }
+      },
+      "site-footer": {
+        "type": "site-footer",
+        "settings": {
+          "payment_enable": true,
+          "menu": "footer"
         }
       }
     },

@@ -3,6 +3,26 @@
     "image-section": {
       "type": "image-section",
       "settings": {
+        "deskimg": "shopify:\/\/shop_images\/NEW-SEASON-DRESSING_f619ac2a-6bd8-4639-9df4-aac4c9906b9c.jpg",
+        "mobimg": "shopify:\/\/shop_images\/mobile-banner.jpg",
+        "link": "#"
+      }
+    },
+    "8d47e087-984b-419b-b091-55c843269e09": {
+      "type": "info-bar",
+      "settings": {
+        "bgclor": "#fae0e7",
+        "textcolor": "#000000",
+        "text1": "<strong>Free Shipping<\/strong>On Orders Over $100.",
+        "shipping_link": "",
+        "text2": "Wear Now. Pay Later",
+        "afterpayimg": "shopify:\/\/shop_images\/home---afterpay.svg",
+        "afterpay_link": "",
+        "Klarnaimg": "shopify:\/\/shop_images\/klarna-logo_480x480_ca274228-04cf-43b2-a5c7-d8c219fa475c.svg",
+        "Klarna_link": "",
+        "text3": "Students Get 10% Off With",
+        "discountimg": "shopify:\/\/shop_images\/home---unidays.svg",
+        "discount_link": ""
       }
     },
     "2b015cda-523a-441b-9ee4-be799f4b8175": {
@@ -53,17 +73,24 @@
     "9859a107-9d67-434d-a902-5375e4f14081": {
       "type": "top-seller-products",
       "settings": {
+        "title": "TOP SELLERS",
         "collection": "all-dresses"
       }
     },
     "3a160135-cef5-4961-a26d-31af15b81f36": {
       "type": "newsletter-subscribe",
       "settings": {
+        "headimg": "shopify:\/\/shop_images\/Join-Us-updated.png",
+        "email": "Your email address",
+        "emailbtn": "join",
+        "checkbox_enable": true,
+        "promosiontext": "I consent to receive promotional communications related to my purchase history, website browsing activity, and\/or engagement with marketing materials."
       }
     }
   },
   "order": [
     "image-section",
+    "8d47e087-984b-419b-b091-55c843269e09",
     "2b015cda-523a-441b-9ee4-be799f4b8175",
     "9859a107-9d67-434d-a902-5375e4f14081",
     "3a160135-cef5-4961-a26d-31af15b81f36"

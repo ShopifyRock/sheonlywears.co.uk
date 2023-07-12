@@ -1,7 +1,6 @@
 <footer class="site-footer">
     <div class="container">
-        <div class="footer-links">
-          
+        <div class="footer-links">          
             <ul>
               {%- for link in section.settings.menu.links -%}
                 <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
@@ -26,14 +25,14 @@
     
         <div class="footer__copyright caption">
             {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
-            {{ powered_by_link }}
+             {{ powered_by_link }}
             {%- if section.settings.show_policy -%}
             <ul class="policies list-unstyled">
                 {%- for policy in shop.policies -%}
                 {%- if policy != blank -%}
                     <li>
                     <small class="copyright__content"
-                        ><a href="{{ policy.url }}">{{ policy.title }}</a></small
+                        ><a href="{{ policy.url }}" title="{{ policy.title }}">{{ policy.title }}</a></small
                     >
                     </li>
                 {%- endif -%}
@@ -52,14 +51,14 @@
             "type": "checkbox",
             "id": "payment_enable",
             "default": true,
-            "label": "t:sections.footer.settings.payment_enable.label"
+            "label": "t:sections.site-footer.settings.payment_enable.label"
         },
       {
           "type": "link_list",
           "id": "menu",
           "default": "footer",
-          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
-          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+          "label": "t:sections.site-footer.settings.menu.label",
+          "info": "t:sections.site-footer.settings.menu.info"
         }
     ],
     "presets": [

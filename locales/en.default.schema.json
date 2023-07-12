@@ -943,7 +943,6 @@
       "name": "Top Sellers",
       "settings": {
         "title": {
-          "default": "TOP SELLERS",
           "label": "seaction hedaing"
         },
         "collection": {
@@ -1051,6 +1050,13 @@
         },
         "enable_follow_on_shop": {
           "label": "Enable Follow on Shop"
+        },
+        "heading": {
+          "label": "Heading"
+        },
+        "menu": {
+          "label": "Menu",
+          "info": "Displays only top-level menu items."
         }
       }
     },

@@ -1,0 +1,116 @@
+<section class="banner-promotion__wrapper" style="background-color:{{ section.settings.bgclor }};">
+  <div class="promo-item" >
+      <a href="{{ section.settings.shipping_link}}" title="Free Shipping On Orders Over $100" style="color:{{ section.settings.textcolor }};">{{ section.settings.text1 }}</a>
+  </div>
+  <div class="promo-item">
+      <div class="buy-now-paylater" style="color:{{ section.settings.textcolor }};">
+          {{ section.settings.text2 }}
+          {% if section.settings.afterpayimg != blank %}
+          <a href="{{ section.settings.afterpay_link}}" title="Afterpay" >
+              <img src="{{ section.settings.afterpayimg | img_url: 'master' }}" alt="Afterpay" width="90" height="17" />
+          </a>
+            {% endif %}
+            {% if section.settings.Klarnaimg != blank %}
+          <a href="{{ section.settings.Klarna_link}}" title="Klarna" style="color:{{ section.settings.textcolor }};">
+              <img src="{{ section.settings.Klarnaimg | img_url: 'master' }}" alt="Klarna logo" width="59" height="13" />
+          </a>
+        {% endif %}
+      </div>   
+  </div>
+  <div class="promo-item">
+      <a href="{{ section.settings.discount_link}}" title="Students Get 10% Off With Unidays" style="color:{{ section.settings.textcolor }};">
+          {{ section.settings.text3 }}
+          {% if section.settings.discountimg != blank %}
+          <img src="{{ section.settings.discountimg | img_url: 'master' }}" alt="Unidays" width="64" height="12" />
+        {% endif %}
+      </a>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Information Bar",
+    "settings": [
+     {
+       "type": "color",
+        "id": "bgclor",
+        "label": "Section background color",
+        "default": "#fae0e7"
+      },
+      {
+       "type": "color",
+        "id": "textcolor",
+        "label": "text color",
+        "default": "#000000"
+      },
+      {
+        "type": "header",
+        "content": "Shipping text"
+      },
+      {
+          "type": "html",
+          "id": "text1",
+          "label": "Free shipping text"
+        },
+      {
+          "type": "url",
+          "id": "shipping_link",
+          "label": "free shipping url"
+        },
+       {
+        "type": "header",
+        "content": "Pay Later Block"
+      },
+      {
+          "type": "text",
+          "id": "text2",
+          "default": "Wear Now. Pay Later",
+          "label": "after pay text"
+        },
+       {
+         "type": "image_picker",
+         "id": "afterpayimg",
+         "label": "afterpay image"
+       },
+      {
+          "type": "url",
+          "id": "afterpay_link",
+          "label": "afterpay url"
+        },
+      {
+         "type": "image_picker",
+         "id": "Klarnaimg",
+         "label": "Klarna image"
+       },
+      {
+          "type": "url",
+          "id": "Klarna_link",
+          "label": "Klarna url"
+        },
+      {
+        "type": "header",
+        "content": "Discount block"
+      },
+      {
+          "type": "text",
+          "id": "text3",
+          "default": "Students Get 10% Off With",
+          "label": "Discount text"
+        },
+       {
+         "type": "image_picker",
+         "id": "discountimg",
+         "label": "Discount image"
+       },
+      {
+          "type": "url",
+          "id": "discount_link",
+          "label": "Discount url"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Information Bar"
+      }
+    ]
+  }
+{% endschema %}
