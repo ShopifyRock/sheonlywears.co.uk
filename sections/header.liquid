@@ -2,6 +2,25 @@
     <header class="site-header">
         <div class="container-fluid">
             <div class="align-items-center d-flex justify-content-between">
+                <div class="mobile-header">
+                    <a class="nav-toggle" title="Navigation toggle" href="javascript:void()">
+                        <svg class="stack" width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.257143 0.5H17.7429" stroke="black" stroke-width="0.5" stroke-linecap="square"></path>
+                            <path d="M0.257143 7.5H17.7429" stroke="black" stroke-width="0.5" stroke-linecap="square"></path>
+                            <path d="M0.257143 14.5H17.7429" stroke="black" stroke-width="0.5" stroke-linecap="square"></path>
+                        </svg>
+                        <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="35px" height="35px">
+                            <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+                        </svg>
+                    </a>
+                    <a href="javascript:void(0)" title="Search" class="search-header search-header-mobile">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.77318 0.499878C11.7912 0.499878 15.0462 3.79888 15.0462 7.86788C15.0462 11.9369 11.7912 15.2359 7.77318 15.2359C3.75618 15.2359 0.500183 11.9369 0.500183 7.86788C0.500183 3.79888 3.75618 0.499878 7.77318 0.499878" stroke="#231F20"></path>
+                            <path d="M12.8728 13.12L19.0218 18.799" stroke="#231F20"></path>
+                        </svg>                   
+                    </a>
+                </div>
+                
                 <div class="header-logo">
                     <a class="logo" href="#" title="Welcome to SOW">
                         <img class="site-header__logo-link-primary" src="{{'logo.png' | asset_url }}" width="140" height="52" alt="Hello she only wears">
@@ -130,7 +149,7 @@
 
                 <div class="d-flex align-items-center header-right-icons">
                     <div class="header-search">
-                        <a href="#" class="search-header">
+                        <a href="javascript:void(0)" title="Search" class="search-header search-header-desk">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.77318 0.499878C11.7912 0.499878 15.0462 3.79888 15.0462 7.86788C15.0462 11.9369 11.7912 15.2359 7.77318 15.2359C3.75618 15.2359 0.500183 11.9369 0.500183 7.86788C0.500183 3.79888 3.75618 0.499878 7.77318 0.499878" stroke="#231F20"></path>
                                 <path d="M12.8728 13.12L19.0218 18.799" stroke="#231F20"></path>
@@ -138,13 +157,13 @@
                         </a>
                     </div>
                     <div class="header-account">
-                        <a class="account-header" onclick="accDropDown()" href="javascript:void(0)">
+                        <a href="javascript:void(0)" class="account-header" title="Login here">
                             <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M13.2776 5.08749C13.2776 7.62149 11.2236 9.67549 8.6906 9.67549C6.1566 9.67549 4.1026 7.62149 4.1026 5.08749C4.1026 2.55349 6.1566 0.500488 8.6906 0.500488C11.2236 0.500488 13.2776 2.55349 13.2776 5.08749Z" stroke="#231F20"></path>
                                 <path d="M8.69062 9.83557C15.3586 9.83557 17.4846 17.3506 16.7386 18.7896C16.4686 19.3096 15.9136 19.3636 15.4626 19.3816H1.91762C1.46662 19.3636 0.911618 19.3096 0.641618 18.7896C-0.104382 17.3506 2.02162 9.83557 8.69062 9.83557" stroke="#231F20"></path>
                             </svg>            
                         </a>
-                        <div class="account-dropdown" id="accountDropDown">
+                        <div class="account-dropdown">
                             <ul class="account-dropdown-list">
                                 <li class="item"><a href="#" title="login">login</a></li>
                                 <li class="item"><a href="#" title="sign up">sign up</a></li>
@@ -152,7 +171,7 @@
                         </div>
                     </div>
                     <div class="minicart">
-                        <a href="#" class="cart-icon" aria-controls="CartDrawer" data-icon="bag" aria-expanded="false">
+                        <a href="#" class="cart-icon" title="Minicart" aria-controls="CartDrawer" data-icon="bag" aria-expanded="false">
                             <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <defs>
                                     <style>
@@ -175,27 +194,142 @@
                     </div>
                 </div>                
             </div>
-            <div class="search-dropdown" style="display: none;">
-                search result
+            <div class="search-dropdown">
+                <div class="search-dropdown__wrapper">
+                    <input type="search" aria-label="search" name="Search" placeholder="SEARCH">
+                    <button type="submit" aria-label="submit" class="search-submit">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.77318 0.499878C11.7912 0.499878 15.0462 3.79888 15.0462 7.86788C15.0462 11.9369 11.7912 15.2359 7.77318 15.2359C3.75618 15.2359 0.500183 11.9369 0.500183 7.86788C0.500183 3.79888 3.75618 0.499878 7.77318 0.499878" stroke="#231F20"></path>
+                            <path d="M12.8728 13.12L19.0218 18.799" stroke="#231F20"></path>
+                        </svg>
+                    </button>
+                    <a href="javascript:void(0)" class="search-close" title="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="35px" height="35px"><path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"/></svg>
+                    </a>
+                </div>
             </div>     
         </div>
     </header>
 </div>
 
-<script type="text/javascript">
-    function accDropDown() {
-        document.getElementById("accountDropDown").classList.toggle("show");
-    }
-    window.onclick = function(event) {
-        if (!event.target.matches('.account-header')) {
-            var dropdowns = document.getElementsByClassName("account-dropdown");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>
+{% comment %} Mobile menu {% endcomment %}
+
+<div class="mobile-nav">
+    <nav class="navigation">
+        <ul>
+            <li class="hassubmenu">
+                <a href="#" title="New In"><span>New In</span></a>
+                <div class="submenu">
+                    <div class="container">
+                        <ul>
+                            <li class="sub-item">
+                                <a href="#" title="cloth"><div>cloth</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Printed Dresses"><div>Printed Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Backless Dresses"><div>Backless Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Off The Shoulder Dresses"><div>Off The Shoulder Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Long Sleeve Dresses"><div>Long Sleeve Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Party Dresses"><div>Party Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Lace Dresses"><div>Lace Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Festival"><div>Festival</div></a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="sub-item">
+                                <a href="#" title="Bodycon Dresses"><div>Bodycon Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Sequin Dresses"><div>Sequin Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Slip Dresses"><div>Slip Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Maxi Dresses"><div>Maxi Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Midi Dresses"><div>Midi Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Mini Dresses"><div>Mini Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="All Dresses"><div>All Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Bridesmaid & Wedding"><div>Bridesmaid & Wedding</div></a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="sub-item">
+                                <a href="#" title="Formal & Cocktail"><div>Formal & Cocktail</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Beach & Holiday"><div>Beach & Holiday</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Brunch"><div>Brunch</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Date Night"><div>Date Night</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Day Dresses"><div>Day Dresses</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="Work"><div>Work</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="New fancy drees"><div>New fancy drees</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="New items"><div>New items</div></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>        
+            <li class="hassubmenu">
+                <a href="#" title="Most Wanted"><span>Most Wanted</span></a>
+                <div class="submenu">
+                    <div class="container">
+                        <ul>
+                            <li class="sub-item">
+                                <a href="#" title="Most wanted clothing"><div>Most wanted clothing</div></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li> 
+            <li class="hassubmenu">
+                <a href="#" title="Clothing"><span>Clothing</span></a>
+                <div class="submenu">
+                    <div class="container">
+                        <ul>
+                            <li class="sub-item">
+                                <a href="#" title="New in clothing"><div>New in clothing</div></a>
+                            </li>
+                            <li class="sub-item">
+                                <a href="#" title="New in dress"><div>New in dress</div></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" title="Dresses"><span>Dresses</span></a></li>        
+        </ul>
+    </nav>
+</div>

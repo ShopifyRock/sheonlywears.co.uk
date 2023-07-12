@@ -1,10 +1,67 @@
-Footer
-
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-links">
+          
+            <ul>
+              {%- for link in section.settings.menu.links -%}
+                <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+        </div>
+    
+        <div class="payment-icons">
+            {%- if section.settings.payment_enable -%}
+            <div class="footer__payment">
+                <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+                <ul class="list list-payment" role="list">
+                {%- for type in shop.enabled_payment_types -%}
+                    <li class="list-payment__item">
+                    {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                    </li>
+                {%- endfor -%}
+                </ul>
+            </div>
+            {%- endif -%}
+        </div>
+    
+        <div class="footer__copyright caption">
+            {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
+            {{ powered_by_link }}
+            {%- if section.settings.show_policy -%}
+            <ul class="policies list-unstyled">
+                {%- for policy in shop.policies -%}
+                {%- if policy != blank -%}
+                    <li>
+                    <small class="copyright__content"
+                        ><a href="{{ policy.url }}">{{ policy.title }}</a></small
+                    >
+                    </li>
+                {%- endif -%}
+                {%- endfor -%}
+            </ul>
+            {%- endif -%}
+        </div>
+    </div>
+</footer>
 
 {% schema %}
   {
     "name": "Footer",
-    "settings": [],
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "payment_enable",
+            "default": true,
+            "label": "t:sections.footer.settings.payment_enable.label"
+        },
+      {
+          "type": "link_list",
+          "id": "menu",
+          "default": "footer",
+          "label": "t:sections.footer.blocks.link_list.settings.menu.label",
+          "info": "t:sections.footer.blocks.link_list.settings.menu.info"
+        }
+    ],
     "presets": [
       {
         "name": "Footer"
