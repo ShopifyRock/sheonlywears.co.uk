@@ -5,7 +5,7 @@
       "settings": {
         "deskimg": "shopify:\/\/shop_images\/NEW-SEASON-DRESSING_f619ac2a-6bd8-4639-9df4-aac4c9906b9c.jpg",
         "mobimg": "shopify:\/\/shop_images\/mobile-banner.jpg",
-        "link": "#"
+        "link": "shopify:\/\/collections"
       }
     },
     "8d47e087-984b-419b-b091-55c843269e09": {
@@ -31,33 +31,33 @@
         "template--15884558368960__2b015cda-523a-441b-9ee4-be799f4b8175-16886298240e566e6a-0": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify:\/\/shop_images\/cat-1.png",
-            "btn_text": "SHOP MINI DRESSES",
-            "btn_link": "#"
+            "image": "shopify:\/\/shop_images\/CARGOS.jpg",
+            "btn_text": "SHOP CARGO",
+            "btn_link": "shopify:\/\/collections"
           }
         },
         "8db75d17-5322-40cf-b89c-8412b471545e": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify:\/\/shop_images\/cat-2.png",
-            "btn_text": "SHOP MINI DRESSES",
-            "btn_link": "#"
+            "image": "shopify:\/\/shop_images\/TOPS1.jpg",
+            "btn_text": "SHOP TOPS",
+            "btn_link": "shopify:\/\/collections\/tops"
           }
         },
         "e1d20638-ddd3-4a3e-99cd-242f4a84d422": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify:\/\/shop_images\/cat-3.png",
-            "btn_text": "SHOP MINI DRESSES",
-            "btn_link": "#"
+            "image": "shopify:\/\/shop_images\/DRESSES.jpg",
+            "btn_text": "SHOP DRESSES",
+            "btn_link": "shopify:\/\/collections\/dresses"
           }
         },
         "776d1830-efb1-4bf0-9cfb-bdc60c930922": {
           "type": "featured_collection",
           "settings": {
-            "image": "shopify:\/\/shop_images\/cat-4.png",
-            "btn_text": "SHOP MINI DRESSES",
-            "btn_link": "#"
+            "image": "shopify:\/\/shop_images\/CO-ORDS.jpg",
+            "btn_text": "SHOP CO-ORDS",
+            "btn_link": "shopify:\/\/collections\/co-ords"
           }
         }
       },

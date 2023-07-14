@@ -3,11 +3,71 @@
   "sections": {
     "main": {
       "type": "product",
+      "blocks": {
+        "75a82853-64d5-4c06-818d-8e22a910d20b": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "91916fc3-1134-4bd8-9564-1b8ff17fe6d7": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "749eafd2-b6a3-4678-af5d-4c1cc37de4fb": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "61f360cc-12a2-4d5c-82f7-651d4c687669": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "8d75dd5c-6a26-42ef-b168-3bb7a8b67cd0": {
+          "type": "inventory",
+          "disabled": true,
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
+        "259af0dc-2345-4a8a-adb0-71e20029fa36": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        }
+      },
+      "block_order": [
+        "75a82853-64d5-4c06-818d-8e22a910d20b",
+        "91916fc3-1134-4bd8-9564-1b8ff17fe6d7",
+        "749eafd2-b6a3-4678-af5d-4c1cc37de4fb",
+        "61f360cc-12a2-4d5c-82f7-651d4c687669",
+        "8d75dd5c-6a26-42ef-b168-3bb7a8b67cd0",
+        "259af0dc-2345-4a8a-adb0-71e20029fa36"
+      ],
       "settings": {
+        "couponcode": "up to 40% off almost everything* newbie? extra 10% off code:\n            <strong>NEW10<\/strong>",
+        "nextday": "Get Unlimited Free Next Day Delivery For a Year for only £9.99",
+        "delreturn": "delivery-and-returns"
+      }
+    },
+    "d7a3752e-c112-4fce-9b7e-e1fde0f1fc2c": {
+      "type": "related-product",
+      "settings": {
+        "show_product_recommendations": true,
+        "heading": "You might like",
+        "heading2": "Shop The Look",
+        "collection": "all-new-in"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "d7a3752e-c112-4fce-9b7e-e1fde0f1fc2c"
   ]
 }

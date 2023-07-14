@@ -1,6 +1,6 @@
 <style>
   .newsletter-form__message.newsletter-form__message--success {
-    letter-spacing: .2px;
+    letter-spacing: 0.2px;
     margin-bottom: 0;
     font-size: 15px;
     line-height: 14px;
@@ -10,10 +10,10 @@
     color: green;
     justify-content: center;
     margin-top: 25px;
-    outline:none;
-}
-  .newsletter-form__message..error-message{
-    letter-spacing: .2px;
+    outline: none;
+  }
+  .newsletter-form__message..error-message {
+    letter-spacing: 0.2px;
     margin-bottom: 0;
     font-size: 15px;
     line-height: 14px;
@@ -23,80 +23,94 @@
     color: red;
     justify-content: center;
     margin-top: 25px;
-}
+  }
 </style>
 <section class="footer-newsletter__wrapper">
   <div class="footer-newsletter__container">
-      <div class="footer-newsletter__title">
-        {% if section.settings.headimg != blank %}
-          <img src="{{ section.settings.headimg | img_url: 'master' }}" width="320" height="79" alt="Newsletter">
-          {% endif %}
-      </div>
-      <div class="newsletter-form">
-          {% form 'customer', class: 'newsletter-form' %}
-            <div class="footer-newsletter-form__wrapper">
-            <input type="hidden" name="contact[tags]" value="newsletter">
-                <div class="floating-label-wrap">
-                  
-<!--                     <input type="email" value="{{ form.email }}"
-                  aria-required="true"
-                  autocorrect="off"
-                  autocapitalize="off"
-                  autocomplete="email"
-                  {% if form.errors %}
-                    autofocus
-                    aria-invalid="true"
-                    aria-describedby="Newsletter-error--{{ section.id }}"
-                  {% elsif form.posted_successfully? %}
-                    aria-describedby="Newsletter-success--{{ section.id }}"
-                  {% endif %}
-                      placeholder="Enter your email" class="footer__newsletter-input"> -->
-                  <input type="email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
-          name="contact[email]"
-          id="{{ formId }}-email"
-          class="footer__newsletter-input"
-          value="{{ form.email }}"
-           placeholder="Enter your email"
-          aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
-          aria-required="true"
-          autocorrect="off"
-          autocapitalize="off"       
-          {% if form.errors %}
+    <div class="footer-newsletter__title">
+      {% if section.settings.headimg != blank %}
+        <img
+          src="{{ section.settings.headimg | img_url: 'master' }}"
+          width="320"
+          height="79"
+          alt="Newsletter">
+      {% endif %}
+    </div>
+    <div class="newsletter-form">
+      {% form 'customer', class: 'newsletter-form' %}
+        <div class="footer-newsletter-form__wrapper">
+          <input
+            type="hidden"
+            name="contact[tags]"
+            value="newsletter">
+          <div class="floating-label-wrap">
+
+            <!--                     <input type="email" value="{{ form.email }}"
+            aria-required="true"
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="email"
+            {% if form.errors %}
+            autofocus
             aria-invalid="true"
-            aria-describedby="{{ formId }}-email-error"
-            data-form-status
-          {% endif %}
-            required
-          >
-                    <label class="floating-label">{{ section.settings.email }}</label>
-                    <button type="submit" class="footer__newsletter-btn" title="join">{{ section.settings.emailbtn }}</button>
-                </div>
-              {% if section.settings.checkbox_enable %}
-                <div class="newsletter-form__check">
-                    <input type="checkbox" id="newsletter_footer_accept_terms" name="newsletter_footer_accept_terms" class="styled-checkbox">
-                    <label for="newsletter_footer_accept_terms" class="form-label">{{ section.settings.promosiontext }}</label>
-                </div> 
-                {% endif %}
-            {%- if form.errors -%}
-                <small class="newsletter-form__message form__message error-message" id="Newsletter-error--{{ section.id }}">
-                  {{- form.errors.translated_fields.email | capitalize }}
-                  {{ form.errors.messages.email -}}
-                </small>
-              {%- endif -%}
-            {%- if form.posted_successfully? -%}
-              <h3
-                class="newsletter-form__message newsletter-form__message--success form__message"
-                id="Newsletter-success--{{ section.id }}"
-                tabindex="-1"
-                autofocus
-              >
-                {{- 'newsletter.success' | t }}
-              </h3>
-            {%- endif -%}
-            
+            aria-describedby="Newsletter-error--{{ section.id }}"
+            {% elsif form.posted_successfully? %}
+            aria-describedby="Newsletter-success--{{ section.id }}"
+            {% endif %}
+            placeholder="Enter your email" class="footer__newsletter-input"> -->
+            <input
+              type="email"
+              pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+              name="contact[email]"
+              id="{{ formId }}-email"
+              class="footer__newsletter-input"
+              value="{{ form.email }}"
+              placeholder="Enter your email"
+              aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              {% if form.errors %}
+              aria-invalid="true"
+              aria-describedby="{{ formId }}-email-error"
+              data-form-status
+              {% endif %}
+              required>
+            <label class="floating-label">{{ section.settings.email }}</label>
+            <button
+              type="submit"
+              class="footer__newsletter-btn"
+              title="join">{{ section.settings.emailbtn }}</button>
+          </div>
+          {% if section.settings.checkbox_enable %}
+            <div class="newsletter-form__check">
+              <input
+                type="checkbox"
+                id="newsletter_footer_accept_terms"
+                name="newsletter_footer_accept_terms"
+                class="styled-checkbox">
+              <label for="newsletter_footer_accept_terms" class="form-label">{{ section.settings.promosiontext }}</label>
             </div>
-        {% endform %}
-      </div>
+          {% endif %}
+          {%- if form.errors -%}
+            <small class="newsletter-form__message form__message error-message" id="Newsletter-error--{{ section.id }}">
+              {{- form.errors.translated_fields.email | capitalize }}
+              {{ form.errors.messages.email -}}
+            </small>
+          {%- endif -%}
+          {%- if form.posted_successfully? -%}
+            <h3
+              class="newsletter-form__message newsletter-form__message--success form__message"
+              id="Newsletter-success--{{ section.id }}"
+              tabindex="-1"
+              autofocus>
+              {{- 'newsletter.success' | t }}
+            </h3>
+          {%- endif -%}
+
+        </div>
+      {% endform %}
+    </div>
   </div>
 </section>
 
@@ -104,35 +118,34 @@
   {
     "name": "Newsletter",
     "settings": [
-       {
-         "type": "image_picker",
-         "id": "headimg",
-         "label": "heading image"
-       },
       {
-          "type": "text",
-          "id": "email",
+        "type": "image_picker",
+        "id": "headimg",
+        "label": "heading image"
+      },
+      {
+        "type": "text",
+        "id": "email",
         "default": "Your email address",
         "label": "Email Placeholder"
       },
       {
-          "type": "text",
-          "id": "emailbtn",
+        "type": "text",
+        "id": "emailbtn",
         "default": "join",
         "label": "Button text"
       },
       {
-            "type": "checkbox",
-            "id": "checkbox_enable",
-            "default": true,
-            "label": "enable promosional checkbox"
-        },
-      {
-          "type": "textarea",
-          "id": "promosiontext",
-          "default": "I consent to receive promotional communications related to my purchase history, website browsing activity, and/or engagement with marketing materials.",
-          "label": "promotion terms"
-        }
+        "type": "checkbox",
+        "id": "checkbox_enable",
+        "default": true,
+        "label": "enable promosional checkbox"
+      }, {
+        "type": "textarea",
+        "id": "promosiontext",
+        "default": "I consent to receive promotional communications related to my purchase history, website browsing activity, and/or engagement with marketing materials.",
+        "label": "promotion terms"
+      }
     ],
     "presets": [
       {

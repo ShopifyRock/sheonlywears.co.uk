@@ -26,11 +26,13 @@
       {%- endunless -%}
     {%- endcapture -%}
     <title>{{ seo_title | strip }}</title>
-    {%- if page_description -%}
-      <meta name="description" content="{{ page_description | escape }}">
-    {%- endif -%}
+    <meta name="description" content="Description text here">
+
     <meta name="google-site-verification" content="NQ91UJsztMTKAsq_LTK1Hg1Lf12VCxclAVBdY9bdJC8">
-      <link rel="shortcut icon" href="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/favicon.ico?v=1688711481" type="image/png">
+    <link
+      rel="shortcut icon"
+      href="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/favicon.ico?v=1688711481"
+      type="image/png">
 
     {%- if canonical_url != blank -%}
       <link rel="canonical" href="{{ canonical_url }}">
@@ -39,23 +41,41 @@
     {{ content_for_header }}
 
     {% comment %} CSS START {% endcomment %}
-  
-    {{ 'base.css' | asset_url | stylesheet_tag }}  
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
     {{ 'fonts.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'slick.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ 'mobile-nav.css' | asset_url | stylesheet_tag: preload: true }}    
     {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
     {% comment %} CSS END {% endcomment %}
-    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>    
+    <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {% comment %} JS SECTION START {% endcomment %}
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"></script>
+
     {{ 'slick.min.js' | asset_url | script_tag }}
     {{ 'bootstrap.min.js' | asset_url | script_tag }}
+    {{ 'mobile-nav.js' | asset_url | script_tag }}
     {{ 'custom.js' | asset_url | script_tag }}
 
     {% comment %} JS SECTION END {% endcomment %}
+
+    <script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+
+    <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+
+    {{ 'component-cart-drawer.css' | asset_url | stylesheet_tag }}
+    {{ 'component-cart.css' | asset_url | stylesheet_tag }}
+    {{ 'component-totals.css' | asset_url | stylesheet_tag }}
+    {{ 'component-price.css' | asset_url | stylesheet_tag }}
+    {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+    {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+    {{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
 
   </head>
 
@@ -63,10 +83,11 @@
     {% section 'announcement-bar' %}
     {% section 'header' %}
     {{ content_for_layout }}
-{% comment %}
+    {% comment %}
     {% section 'top-seller-products' %}
-{% endcomment %}    
+    {% endcomment %}
     {% section 'site-footer' %}
+    {%- render 'cart-drawer' -%}
     <script>
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
@@ -74,27 +95,28 @@
         cart_change_url: '{{ routes.cart_change_url }}',
         cart_update_url: '{{ routes.cart_update_url }}',
         cart_url: '{{ routes.cart_url }}',
-        predictive_search_url: '{{ routes.predictive_search_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}'
       };
 
       window.cartStrings = {
         error: `{{ 'sections.cart.cart_error' | t }}`,
-        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`,
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
       };
 
       window.variantStrings = {
         addToCart: `{{ 'products.product.add_to_cart' | t }}`,
         soldOut: `{{ 'products.product.sold_out' | t }}`,
         unavailable: `{{ 'products.product.unavailable' | t }}`,
-        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
+        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`
       };
 
       window.accessibilityStrings = {
         imageAvailable: `{{ 'products.product.media.image_available' | t: index: '[index]' }}`,
         shareSuccess: `{{ 'general.share.success_message' | t }}`,
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
-        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`,
+        playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`
       };
     </script>
+
   </body>
 </html>

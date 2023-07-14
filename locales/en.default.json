@@ -389,6 +389,7 @@
       "password": "Password",
       "title": "Login",
       "sign_in": "Sign in",
+      "sign_up": "Sign up",
       "submit": "Submit"
     },
     "order": {

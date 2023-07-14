@@ -1,0 +1,118 @@
+<div class="upsell-related-products">
+  <ul class="tabs">
+    <li>
+      <a href="#upsell-tab" title="{{ section.settings.heading }}">{{ section.settings.heading }}</a>
+    </li>
+    <li>
+      <a href="#shop-tab" title="{{ section.settings.heading2 }}">{{ section.settings.heading2 }}</a>
+    </li>
+  </ul>
+  <!-- Tab Contents -->
+  <div class="tabContents">
+    <div id="upsell-tab">
+      <div class="pdp-carousel__wrapper"></div>
+      <div class="pdp-carousel__wrapper">
+        <div class="upsell-carousel pdp-carousel">
+          {%- for products in collections.all.products limit: 8 -%}
+            {%- if product.id != products.id -%}
+              <div>
+                {% assign product = recommendation %}
+                <div class="product__item">
+                  <a href="{{ products.url | within: collection }}" title="{{ products.title }}">
+                    <div class="product-item__image">
+                      <img
+                        src="{{ products.featured_image | img_url: 'master' }}"
+                        height="468"
+                        width="312"
+                        alt="{{ products.title }}"
+                        class="lazyload"
+                        loading="lazy"
+                      >
+                    </div>
+                    <h3 class="product__title">{{ products.title }}</h3>
+                    <span class="product__price">{{ products.price | money }}</span>
+                  </a>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div id="shop-tab">
+      <div class="pdp-carousel__wrapper">
+        <div class="shop-carousel pdp-carousel">
+          {%- for product in collections[section.settings.collection].products -%}
+            <div>
+              <div class="product__item">
+                <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
+                  <div class="product-item__image">
+                    <img
+                      src="{{ product.featured_image | img_url: 'master' }}"
+                      height="468"
+                      width="312"
+                      alt="{{ product.title }}"
+                      class="lazyload"
+                      loading="lazy"
+                    >
+                  </div>
+                  <h3 class="product__title">{{ product.title }}</h3>
+                  <span class="product__price">{{ product.price | money }}</span>
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} PDP layout end {% endcomment %}
+
+{% schema %}
+{
+  "name": "Related Product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Recommended Product"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_recommendations",
+      "label": "Turn on product recommendations",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "You might like"
+    },
+    {
+      "type": "header",
+      "content": "Shop the look tab"
+    },
+    {
+      "type": "text",
+      "id": "heading2",
+      "label": "Heading",
+      "default": "Shop The Look"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.top-seller-products.settings.collection.label"
+    }
+  ],
+  "presets": [
+    {
+      "name": "realted Product"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
