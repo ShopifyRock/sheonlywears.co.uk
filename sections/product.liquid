@@ -1,423 +1,637 @@
+<script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+<style>
+    fieldset.js.product-form__input label {
+      font-size: 12px;
+      width: 48px;
+      transition: all .3s;
+      height: 48px;
+      display: flex;
+      text-transform: uppercase;
+      justify-content: center;
+      align-items: center;
+      color: #000;
+      border: solid 1px #000;
+      cursor: pointer;
+      margin: 10px 7px;
+      border-radius: 100%;
+      float: left;
+  }
+   fieldset.js.product-form__input input {
+      display: none;
+  }
+</style>
 {% comment %} PDP layout start {% endcomment %}
 {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
+{% assign current_variant = product.selected_or_first_available_variant %}
 <main class="product__main">
   <div class="container">
-      <div class="row">
-          <div class="col-12 col-md-6">
-              <div class="product-main-image__wrapper">
-                {% comment %}
-                {% render 'product-media-gallery', variant_images: variant_images %}
-                {% endcomment %}
-                  <div class="product-thumb">
-                      <div><img src="https://sheonlywears.co.uk/cdn/shop/files/cat-1.png?v=1688631322" width="118" height="177" alt="product image"></div>
-                      <div><img src="https://sheonlywears.co.uk/cdn/shop/files/cat-2.png?v=1688631322" width="118" height="177" alt="product image"></div>
-                      <div><img src="https://sheonlywears.co.uk/cdn/shop/files/cat-3.png?v=1688631321" width="118" height="177" alt="product image"></div>
-                      <div><img src="https://sheonlywears.co.uk/cdn/shop/files/cat-4.png?v=1688631330" width="118" height="177" alt="product image"></div>
-                      <div><img src="https://sheonlywears.co.uk/cdn/shop/files/06_06_SOW_0372.jpg?v=1686150648" width="118" height="177" alt="product image"></div>
-                  </div>  
-                  <div class="product-main-image">
-                      <div><img src="https://sheonlywears.co.uk/cdn/shop/files/cat-1.png?v=1688631322" width="500" height="750" alt="product image"></div>
-                      <div><img src="https://sheonlywears.co.uk/cdn/shop/files/cat-2.png?v=1688631322" width="500" height="750" alt="product image"></div>
-                      <div><img src="https://sheonlywears.co.uk/cdn/shop/files/cat-3.png?v=1688631321" width="500" height="750" alt="product image"></div>
-                      <div><img src="https://sheonlywears.co.uk/cdn/shop/files/cat-4.png?v=1688631330" width="500" height="750" alt="product image"></div>
-                      <div><img src="https://sheonlywears.co.uk/cdn/shop/files/06_06_SOW_0372.jpg?v=1686150648" width="500" height="750" alt="product image"></div>
-                  </div>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="product-main-image__wrapper">
+          {% comment %}
+            {% render 'product-media-gallery', variant_images: variant_images %}
+          {% endcomment %}
+          <div class="product-thumb">
+            {% for media in product.media %}
+              <div class="item-slick {{ media.alt | replace: '/', ''}}">
+                <img
+                  src="{{ media |img_url: ''   }}"
+                  alt="{{ media.alt }}"
+                >
               </div>
+            {% endfor %}
           </div>
-          <div class="col-12 col-md-6">
-              <div class="product-details__wrapper">
-                  <h1 class="product-main__title">{{ product.title }}</h1>
-                  <div class="product-main-price__wrapper">
-                      <div class="product__price">
-                          <div class="regular__price">
-                              <span class="price">{{ product.price | money }}</span>
-                          </div>                                
-                      </div> 
-                      <div class="product__price">
-                          <div class="old__price">
-                              <span class="price">{{ product.compare_at_price_max | money }}</span>
-                          </div>
-                          <div class="special__price">
-                              <span class="price">{{ product.compare_at_price_max | minus:product.price | difference:product.compare_at_price_max | money }}</span> ({{ product.compare_at_price_max | minus:product.price | times:100 | divided_by:product.compare_at_price_max }}% OFF)
-                          </div>
-                      </div> 
-                  </div>
-                  <div class="attribute-block__wrapper">
-                      <div class="attribute-block">
-                          <label class="swatch-heading">Color</label>
-                          <div class="swatch-options colors">
-                              <ul class="options">
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-chocolate">
-                                      <label for="color-chocolate" aria-label="color chocolate" title="color chocolate" style="background-color: #d2691e">chocolate</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-blue">
-                                      <label for="color-blue" aria-label="color blue" title="color blue" style="background-color: #0000ff;">blue</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-peru">
-                                      <label for="color-peru" aria-label="color peru" title="color peru" style="background-color: peru;">peru</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-azure">
-                                      <label for="color-azure" aria-label="color azure" title="color azure" style="background-color: #f0ffff;">azure</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-white">
-                                      <label for="color-white" aria-label="color white" title="color white" style="background-color: #fff;">white</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-black">
-                                      <label for="color-black" aria-label="color black" title="color black" style="background-color: #000;">black</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-violet">
-                                      <label for="color-violet" aria-label="color violet" title="color violet" style="background-color: #ee82ee;">violet</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-red">
-                                      <label for="color-red" aria-label="color red" title="color red" style="background-color: #f00;">red</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-thistle">
-                                      <label for="color-thistle" aria-label="color thistle" title="color thistle" style="background-color: #d8bfd8">thistle</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-cadetblue">
-                                      <label for="color-cadetblue" aria-label="color cadetblue" title="color cadetblue" style="background-color: #5f9ea0">cadetblue</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-green">
-                                      <label for="color-green" aria-label="color green" title="color green" style="background-color: #008000;">green</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-orange">
-                                      <label for="color-orange" aria-label="color orange" title="color orange" style="background-color: #ffa500;">orange</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="color-option" id="color-yellow">
-                                      <label for="color-yellow" aria-label="color yellow" title="color yellow" style="background-color: #ffff00;">yellow</label>
-                                  </li>
-                              </ul>
-                          </div>
-                      </div>
-                      <div class="attribute-block">
-                          <label class="swatch-heading">Size</label>
-                          <div class="swatch-options sizes">
-                              <ul class="options">
-                                  <li>
-                                      <input type="radio" name="size-option" id="size-xs">
-                                      <label aria-label="size xs" title="size xs" for="size-xs">xs</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="size-option" id="size-s">
-                                      <label aria-label="size s" title="size s" for="size-s">s</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="size-option" id="size-m">
-                                      <label for="size-m" aria-label="size m" title="size m">m</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="size-option" id="size-l">
-                                      <label for="size-l" aria-label="size l" title="size l">l</label>
-                                  </li>
-                                  <li>
-                                      <input type="radio" name="size-option" id="size-xl">
-                                      <label for="size-xl" aria-label="size xl" title="size l">xl</label>
-                                  </li>
-                              </ul>
-                              <a href="#" class="size-chart-btn" title="Full Size Guide">Full Size Guide</a>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="addtocart__block">
-                     <form method="post" action="/cart/add">
-                      <div class="addtocart__block__wrapper">
-                       
-  <input name="id" value="{{ product.variants.first.id }}" type="hidden" />
-                           <button  type="submit" name="add" title="Add to bag" aria-label="Add to bag" class="add-to-cart-btn">
-                              <span>Add to bag</span>
-                          </button>
-
-<!--                           <button title="Add to bag" aria-label="Add to bag" class="add-to-cart-btn">
-                              <span>Add to bag</span>
-                          </button> -->
-                          <a href="#" class="wishlist-btn" title="wishlist">
-                              <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181"/></svg>
-                          </a>
-                      </div>
-                                </form>
-                  </div>
-                  <div class="discount-code">up to 40% off almost everything* newbie? extra 10% off code: <strong>NEW10</strong></div>
-                  <div class="free-delivery-promotion__banner">
-                      <img src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/Vectorcrown.avif?v=1688994752" alt="Vectorcrown" width="25" height="20">
-                      Get Unlimited Free Next Day Delivery For a Year for only £9.99
-                      <img src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/Vectorcrown.avif?v=1688994752" alt="Vectorcrown" width="25" height="20">
-                  </div>
-                  {% assign current_variant = product.selected_or_first_available_variant %}
-                  <div class="product-sku">SKU: {{ current_variant.sku }}</div>
-                  <div class="product-decription">
-                    {{ product.description}}
-                     
-                  </div>
-                  <div class="pdp-accordion">
-                      <div class="tab">
-                          <button id="accordion-button-1" aria-label="size chart" aria-expanded="false"><span class="accordion-title">Size Chart</span><span class="icon" aria-hidden="true"></span></button>
-                          <div class="tab-content">
-                              <div class="tab-content-inner">
-                                  <div class="size-chart-wrapper">
-                                      <table class="size-chart">
-                                          <thead>
-                                              <tr>
-                                                  <th>SIZE</th>
-                                                  <th>AU</th>
-                                                  <th>US</th>
-                                                  <th>UK</th>
-                                                  <th>EUR</th>
-                                              </tr>
-                                          </thead>
-                                          <tbody>
-                                              <tr>
-                                                  <td>XS</td>
-                                                  <td>6</td>
-                                                  <td>2</td>
-                                                  <td>6</td>
-                                                  <td>34</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>S</td>
-                                                  <td>8</td>
-                                                  <td>4</td>
-                                                  <td>8</td>
-                                                  <td>36</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>M</td>
-                                                  <td>10</td>
-                                                  <td>6</td>
-                                                  <td>10</td>
-                                                  <td>38</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>L</td>
-                                                  <td>12</td>
-                                                  <td>8</td>
-                                                  <td>12</td>
-                                                  <td>40</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>XL</td>
-                                                  <td>14</td>
-                                                  <td>10</td>
-                                                  <td>14</td>
-                                                  <td>42</td>
-                                              </tr>
-                                          </tbody>
-                                      </table>                                           
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="tab">
-                          <button id="accordion-button-2" aria-label="Delivery &amp; Returns" aria-expanded="false"><span class="accordion-title">Delivery &amp; Returns</span><span class="icon" aria-hidden="true"></span></button>
-                          <div class="tab-content">
-                              <div class="tab-content-inner">
-                                  <p>The standard Lorem Ipsum passage, used since the 500s "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-
-                                  <p>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
-
-                                  <p>1914 translation by H. Rackham "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"</p>
-
-                                  <p>Section 1.10.33 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
-                                  "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="tab">
-                          <button id="accordion-button-3" aria-label="Model" aria-expanded="false">
-                              <span class="accordion-title">Model</span><span class="icon" aria-hidden="true"></span>
-                          </button>
-                          <div class="tab-content">
-                              <div class="tab-content-inner">
-                                  dummy text
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+          <div class="product-main-image">
+            {% for media in product.media %}
+              <div class="item-slick {{ media.alt | replace: '/', ''}}">
+                <img
+                  class="item-slick {{ media.alt | replace: '/', ''}}"
+                  src="{{ media |img_url: ''   }}"
+                  alt="{{ media.alt }}"
+                >
               </div>
+            {% endfor %}
           </div>
+        </div>
       </div>
-      <div class="upsell-related-products">
-          <ul class='tabs'>
-              <li><a href='#upsell-tab' title="you might like">you might like</a></li>
-              <li><a href='#shop-tab' title="Shop The Look">Shop The Look</a></li>                    
-          </ul>
-          <!-- Tab Contents -->
-          <div class="tabContents">
-              <div id='upsell-tab'>
-                  <div class="pdp-carousel__wrapper">
-                      <div class="upsell-carousel pdp-carousel">                                  
-                          <div>          
-                              <div class="product__item">
-                                  <a href="#" title="product">
-                                      <div class="product-item__image">
-                                          <img src="https://sheonlywears.co.uk/cdn/shop/files/cat-2.png?v=1688631322" height="468" width="312" alt="product">
-                                      </div>
-                                      <h3 class="product__title">test product</h3>
-                                      <span class="product__price">US$106.00</span>
-                                  </a>
-                              </div>          
-                          </div>
-                          <div>          
-                              <div class="product__item">
-                                  <a href="#" title="product">
-                                      <div class="product-item__image">
-                                          <img src="https://sheonlywears.co.uk/cdn/shop/files/cat-1.png?v=1688631322" height="468" width="312" alt="product">
-                                      </div>
-                                      <h3 class="product__title">test product</h3>
-                                      <span class="product__price">US$106.00</span>
-                                  </a>
-                              </div>          
-                          </div>
-                          <div>          
-                              <div class="product__item">
-                                  <a href="#" title="product">
-                                      <div class="product-item__image">
-                                          <img src="https://sheonlywears.co.uk/cdn/shop/files/cat-1.png?v=1688631322" height="468" width="312" alt="product">
-                                      </div>
-                                      <h3 class="product__title">test product</h3>
-                                      <span class="product__price">US$106.00</span>
-                                  </a>
-                              </div>          
-                          </div>
-                          <div>          
-                              <div class="product__item">
-                                  <a href="#" title="product">
-                                      <div class="product-item__image">
-                                          <img src="https://sheonlywears.co.uk/cdn/shop/files/cat-3.png?v=1688631321" height="468" width="312" alt="product">
-                                      </div>
-                                      <h3 class="product__title">test product</h3>
-                                      <span class="product__price">US$106.00</span>
-                                  </a>
-                              </div>          
-                          </div>
-                          <div>          
-                              <div class="product__item">
-                                  <a href="#" title="product">
-                                      <div class="product-item__image">
-                                          <img src="https://sheonlywears.co.uk/cdn/shop/files/cat-4.png?v=1688631330" height="468" width="312" alt="product">
-                                      </div>
-                                      <h3 class="product__title">test product</h3>
-                                      <span class="product__price">US$106.00</span>
-                                  </a>
-                              </div>          
-                          </div>                                 
-                      </div>
-                  </div>
+      <div class="col-12 col-md-6">
+        <div class="product-details__wrapper">
+          <h1 class="product-main__title">{{ product.title }}</h1>
+          <div class="product-main-price__wrapper">
+            <div class="product__price">
+              <div class="regular__price">
+                <span class="price">{{ current_variant.price | money_with_currency }}</span>
               </div>
-              <div id='shop-tab'>
-                  <div class="pdp-carousel__wrapper">
-                      <div class="shop-carousel pdp-carousel">                                  
-                          <div>          
-                              <div class="product__item">
-                                  <a href="#" title="product">
-                                      <div class="product-item__image">
-                                          <img src="https://sheonlywears.co.uk/cdn/shop/files/cat-2.png?v=1688631322" height="468" width="312" alt="product">
-                                      </div>
-                                      <h3 class="product__title">test product</h3>
-                                      <span class="product__price">US$106.00</span>
-                                  </a>
-                              </div>          
-                          </div>
-                          <div>          
-                              <div class="product__item">
-                                  <a href="#" title="product">
-                                      <div class="product-item__image">
-                                          <img src="https://sheonlywears.co.uk/cdn/shop/files/cat-1.png?v=1688631322" height="468" width="312" alt="product">
-                                      </div>
-                                      <h3 class="product__title">test product</h3>
-                                      <span class="product__price">US$106.00</span>
-                                  </a>
-                              </div>          
-                          </div>
-                          <div>          
-                              <div class="product__item">
-                                  <a href="#" title="product">
-                                      <div class="product-item__image">
-                                          <img src="https://sheonlywears.co.uk/cdn/shop/files/cat-1.png?v=1688631322" height="468" width="312" alt="product">
-                                      </div>
-                                      <h3 class="product__title">test product</h3>
-                                      <span class="product__price">US$106.00</span>
-                                  </a>
-                              </div>          
-                          </div>
-                          <div>          
-                              <div class="product__item">
-                                  <a href="#" title="product">
-                                      <div class="product-item__image">
-                                          <img src="https://sheonlywears.co.uk/cdn/shop/files/cat-3.png?v=1688631321" height="468" width="312" alt="product">
-                                      </div>
-                                      <h3 class="product__title">test product</h3>
-                                      <span class="product__price">US$106.00</span>
-                                  </a>
-                              </div>          
-                          </div>
-                          <div>          
-                              <div class="product__item">
-                                  <a href="#" title="product">
-                                      <div class="product-item__image">
-                                          <img src="https://sheonlywears.co.uk/cdn/shop/files/cat-4.png?v=1688631330" height="468" width="312" alt="product">
-                                      </div>
-                                      <h3 class="product__title">test product</h3>
-                                      <span class="product__price">US$106.00</span>
-                                  </a>
-                              </div>          
-                          </div>                                 
-                      </div>
-                  </div>
-              </div>                
+            </div>
+            <div class="product__price">
+              <div class="old__price">
+                <span class="price">{{ current_variant.compare_at_price | money_with_currency }}</span>
+              </div>
+              <div class="special__price">
+                <span class="price">
+                  {{-
+                    current_variant.compare_at_price
+                    | minus: current_variant.price
+                    | difference: product.compare_at_price_max
+                    | money_with_currency
+                  -}}
+                </span>
+                (
+                {{-
+                  current_variant.compare_at_price
+                  | minus: current_variant.price
+                  | times: 100
+                  | divided_by: current_variant.compare_at_price
+                -}}
+                % OFF)
+              </div>
+            </div>
           </div>
-      </div>            
-  </div>        
+          <div class="attribute-block__wrapper">
+            <select id="product-select" name="id">
+              {% for variant in product.variants %}
+                <option
+                  value="{{ variant.id }}"
+                  {% if variant == product.selected_or_first_available_variant %}
+                    selected="selected"
+                  {% endif %}
+                >
+                  {{ variant.title }} - {{ variant.price | money }}
+                </option>
+              {% endfor %}
+            </select>
+            {% if product.available and product.variants.size > 1 %}
+              {% render 'swatch' for product.options as swatch %}
+            {% endif %}
+            <div class="attribute-block">
+              <label class="swatch-heading">Color</label>
+              <div class="swatch-options colors">
+                <ul class="options">
+                  <li>
+                    <input type="radio" name="color-option" id="color-chocolate">
+                    <label
+                      for="color-chocolate"
+                      aria-label="color chocolate"
+                      title="color chocolate"
+                      style="background-color: #d2691e"
+                      >chocolate</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-blue">
+                    <label
+                      for="color-blue"
+                      aria-label="color blue"
+                      title="color blue"
+                      style="background-color: #0000ff;"
+                      >blue</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-peru">
+                    <label for="color-peru" aria-label="color peru" title="color peru" style="background-color: peru;"
+                      >peru</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-azure">
+                    <label
+                      for="color-azure"
+                      aria-label="color azure"
+                      title="color azure"
+                      style="background-color: #f0ffff;"
+                      >azure</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-white">
+                    <label
+                      for="color-white"
+                      aria-label="color white"
+                      title="color white"
+                      style="background-color: #fff;"
+                      >white</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-black">
+                    <label
+                      for="color-black"
+                      aria-label="color black"
+                      title="color black"
+                      style="background-color: #000;"
+                      >black</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-violet">
+                    <label
+                      for="color-violet"
+                      aria-label="color violet"
+                      title="color violet"
+                      style="background-color: #ee82ee;"
+                      >violet</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-red">
+                    <label for="color-red" aria-label="color red" title="color red" style="background-color: #f00;"
+                      >red</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-thistle">
+                    <label
+                      for="color-thistle"
+                      aria-label="color thistle"
+                      title="color thistle"
+                      style="background-color: #d8bfd8"
+                      >thistle</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-cadetblue">
+                    <label
+                      for="color-cadetblue"
+                      aria-label="color cadetblue"
+                      title="color cadetblue"
+                      style="background-color: #5f9ea0"
+                      >cadetblue</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-green">
+                    <label
+                      for="color-green"
+                      aria-label="color green"
+                      title="color green"
+                      style="background-color: #008000;"
+                      >green</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-orange">
+                    <label
+                      for="color-orange"
+                      aria-label="color orange"
+                      title="color orange"
+                      style="background-color: #ffa500;"
+                      >orange</label
+                    >
+                  </li>
+                  <li>
+                    <input type="radio" name="color-option" id="color-yellow">
+                    <label
+                      for="color-yellow"
+                      aria-label="color yellow"
+                      title="color yellow"
+                      style="background-color: #ffff00;"
+                      >yellow</label
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="attribute-block">
+              <label class="swatch-heading">Size</label>
+              <div class="swatch-options sizes">
+                <ul class="options">
+                  <li>
+                    <input type="radio" name="size-option" id="size-xs">
+                    <label aria-label="size xs" title="size xs" for="size-xs">xs</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="size-option" id="size-s">
+                    <label aria-label="size s" title="size s" for="size-s">s</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="size-option" id="size-m">
+                    <label for="size-m" aria-label="size m" title="size m">m</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="size-option" id="size-l">
+                    <label for="size-l" aria-label="size l" title="size l">l</label>
+                  </li>
+                  <li>
+                    <input type="radio" name="size-option" id="size-xl">
+                    <label for="size-xl" aria-label="size xl" title="size l">xl</label>
+                  </li>
+                </ul>
+                <a href="#" class="size-chart-btn" title="Full Size Guide">Full Size Guide</a>
+              </div>
+            </div>
+          </div>
+          {% render 'prod-block' %}
+          {% comment %}
+            <div class="addtocart__block">
+              <form method="post" action="/cart/add">
+                <div class="addtocart__block__wrapper">
+                  <input name="id" value="{{ product.variants.first.id }}" type="hidden">
+                  <button type="submit" name="add" title="Add to bag" aria-label="Add to bag" class="add-to-cart-btn">
+                    <span>Add to bag</span>
+                  </button>
+
+                  <!--
+                    <button title="Add to bag" aria-label="Add to bag" class="add-to-cart-btn">
+                        <span>Add to bag</span>
+                    </button>
+                  -->
+                  <a href="#" class="wishlist-btn" title="wishlist">
+                    <svg
+                      width="24"
+                      height="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                    >
+                      <path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181"/>
+                    </svg>
+                  </a>
+                </div>
+              </form>
+            </div>
+          {% endcomment %}
+          <div class="discount-code">
+            {{ section.settings.couponcode }}
+          </div>
+          <div class="free-delivery-promotion__banner">
+            <img
+              src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/Vectorcrown.avif?v=1688994752"
+              alt="Vectorcrown"
+              width="25"
+              height="20"
+            >
+            {{ section.settings.nextday }}
+            <img
+              src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/Vectorcrown.avif?v=1688994752"
+              alt="Vectorcrown"
+              width="25"
+              height="20"
+            >
+          </div>
+          {% assign current_variant = product.selected_or_first_available_variant %}
+          <div class="product-sku">SKU: {{ current_variant.sku }}</div>
+          <div class="product-decription">
+            {{ product.description }}
+          </div>
+          <div class="pdp-accordion">
+            <div class="tab">
+              <button id="accordion-button-1" aria-label="size chart" aria-expanded="false">
+                <span class="accordion-title">Size Chart</span><span class="icon" aria-hidden="true"></span>
+              </button>
+              <div class="tab-content">
+                <div class="tab-content-inner">
+                  <div class="size-chart-wrapper">
+                    <table class="size-chart">
+                      <thead>
+                        <tr>
+                          <th>SIZE</th>
+                          <th>AU</th>
+                          <th>US</th>
+                          <th>UK</th>
+                          <th>EUR</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>XS</td>
+                          <td>6</td>
+                          <td>2</td>
+                          <td>6</td>
+                          <td>34</td>
+                        </tr>
+                        <tr>
+                          <td>S</td>
+                          <td>8</td>
+                          <td>4</td>
+                          <td>8</td>
+                          <td>36</td>
+                        </tr>
+                        <tr>
+                          <td>M</td>
+                          <td>10</td>
+                          <td>6</td>
+                          <td>10</td>
+                          <td>38</td>
+                        </tr>
+                        <tr>
+                          <td>L</td>
+                          <td>12</td>
+                          <td>8</td>
+                          <td>12</td>
+                          <td>40</td>
+                        </tr>
+                        <tr>
+                          <td>XL</td>
+                          <td>14</td>
+                          <td>10</td>
+                          <td>14</td>
+                          <td>42</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <button id="accordion-button-2" aria-label="Delivery &amp; Returns" aria-expanded="false">
+                <span class="accordion-title">Delivery &amp; Returns</span><span class="icon" aria-hidden="true"></span>
+              </button>
+              <div class="tab-content">
+                <div class="tab-content-inner">
+                  {{ pages[section.settings.delreturn].content }}
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <button id="accordion-button-3" aria-label="Model" aria-expanded="false">
+                <span class="accordion-title">Model</span><span class="icon" aria-hidden="true"></span>
+              </button>
+              <div class="tab-content">
+                <div class="tab-content-inner">dummy text</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </main>
 
-
 <script>
-  
-// PDP accordion
+  // Remove active class from all thumbnail slides
+   $('.product-thumb .slick-slide').removeClass('slick-active');
 
-const items = document.querySelectorAll(".pdp-accordion button");
-function toggleAccordion() {
-  const itemToggle = this.getAttribute('aria-expanded');
-  for (i = 0; i < items.length; i++) {
-    items[i].setAttribute('aria-expanded', 'false');
+   // Set active class to first thumbnail slides
+   $('.product-thumb .slick-slide').eq(0).addClass('slick-active');
+
+   // On before slide change match active thumbnail to current slide
+   $('.product-main-image').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+       var mySlideNumber = nextSlide;
+       $('.product-thumb .slick-slide').removeClass('slick-active');
+       $('.product-thumb .slick-slide').eq(mySlideNumber).addClass('slick-active');
+   });
+
+   $('.color').click(function() {
+     $('.product-thumb').slick('slickUnfilter');
+     $('.product-main-image').slick('slickUnfilter');
+       var color = $(this).attr('data-value');
+     // alert(color);
+       var color_calss = '.color_' + color;
+       $(".product-thumb").slick('slickFilter', color_calss);
+       $('.product-thumb').slick('resize');
+       $(".product-main-image").slick('slickFilter', color_calss);
+       $('.product-main-image').slick('resize');
+
+   });
+</script>
+<script>
+  jQuery(function() {
+    jQuery('.swatch :radio').change(function() {
+      var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+      var optionValue = jQuery(this).val();
+      jQuery(this)
+        .closest('form')
+        .find('.single-option-selector')
+        .eq(optionIndex)
+        .val(optionValue)
+        .trigger('change');
+    });
+  });
+</script>
+<script>
+  // PDP accordion
+
+  const items = document.querySelectorAll(".pdp-accordion button");
+  function toggleAccordion() {
+    const itemToggle = this.getAttribute('aria-expanded');
+    for (i = 0; i < items.length; i++) {
+      items[i].setAttribute('aria-expanded', 'false');
+    }
+    if (itemToggle == 'false') {
+      this.setAttribute('aria-expanded', 'true');
+    }
   }
-  if (itemToggle == 'false') {
-    this.setAttribute('aria-expanded', 'true');
-  }
-}
-items.forEach(item => item.addEventListener('click', toggleAccordion));
+  items.forEach(item => item.addEventListener('click', toggleAccordion));
 </script>
 
 {% comment %} PDP layout end {% endcomment %}
 
 {% schema %}
-  {
-    "name": "Product",
-    "settings": [
-      
-    ],
-    "presets": [
-      {
-        "name": "Product"
-      }
-    ]
-  }
+{
+  "name": "Product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Coupon code block"
+    },
+    {
+       "type": "html",
+      "id": "couponcode",
+      "label": "coupon code text "
+    },
+    {
+      "type": "header",
+      "content": "Next Delevery block"
+    },
+    {
+       "type": "html",
+      "id": "nextday",
+      "label": "Next Delevery Text"
+    },
+    {
+      "type": "header",
+      "content": "Delevery return Block"
+    },
+    {
+       "type": "page",
+      "id": "delreturn",
+      "label": "Delevery and return"
+    }
+  ],
+   "blocks": [
+    {
+      "type": "@app"
+    },
+     {
+      "type": "title",
+      "name": "t:sections.main-product.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "price",
+      "name": "t:sections.main-product.blocks.price.name",
+      "limit": 1
+    },
+    {
+      "type": "sku",
+      "name": "t:sections.main-product.blocks.sku.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.main-product.blocks.sku.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.main-product.blocks.sku.settings.text_style.options__2.label"
+            },
+            {
+              "value": "uppercase",
+              "label": "t:sections.main-product.blocks.sku.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.main-product.blocks.sku.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "inventory",
+      "name": "t:sections.main-product.blocks.inventory.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__2.label"
+            },
+            {
+              "value": "uppercase",
+              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.main-product.blocks.inventory.settings.text_style.label"
+        },
+        {
+          "type": "range",
+          "id": "inventory_threshold",
+          "label": "t:sections.main-product.blocks.inventory.settings.inventory_threshold.label",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "info": "t:sections.main-product.blocks.inventory.settings.inventory_threshold.info",
+          "default": 10
+        },
+        {
+          "type": "checkbox",
+          "id": "show_inventory_quantity",
+          "label": "t:sections.main-product.blocks.inventory.settings.show_inventory_quantity.label",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "quantity_selector",
+      "name": "t:sections.main-product.blocks.quantity_selector.name",
+      "limit": 1
+    },
+    {
+      "type": "variant_picker",
+      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "button",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        }
+      ]
+    },
+    {
+      "type": "buy_buttons",
+      "name": "t:sections.main-product.blocks.buy_buttons.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_dynamic_checkout",
+          "default": true,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_gift_card_recipient",
+          "default": false,
+          "label": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.label",
+          "info": "t:sections.main-product.blocks.buy_buttons.settings.show_gift_card_recipient.info"
+        }
+      ]
+    }
+   ],
+  "presets": [
+    {
+      "name": "Product"
+    }
+  ]
+}
 {% endschema %}
 
 {% stylesheet %}
 {% endstylesheet %}
-
-{% javascript %}
-{% endjavascript %}

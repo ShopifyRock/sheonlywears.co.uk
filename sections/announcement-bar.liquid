@@ -1,13 +1,20 @@
 {%- if section.settings.show_announcement != blank -%}
-  {% if section.settings.image != blank %}
+  {% if section.settings.image_desk != blank or section.settings.image_mob != blank %}
     <div class="announcement-bar">
       <a href="{{ section.settings.link }}" title="Announcement bar">
         <img
-          src="{{ section.settings.image | img_url: 'master' }}"
+          src="{{ section.settings.image_desk | img_url: 'master' }}"
           alt="announcement bar"
           height="52"
           width="1550"
-          class="lazyload"
+          class="desk-announcement lazyload"
+          loading="lazy" />            
+        <img
+          src="{{ section.settings.image_mob | img_url: 'master' }}"
+          alt="announcement bar"
+          height="52"
+          width="720"
+          class="mob-announcement lazyload"
           loading="lazy" />
       </a>
     </div>
@@ -23,15 +30,22 @@
         "id": "show_announcement",
         "label": "Show announcement",
         "default": false
-      }, {
+      }, 
+      {
         "type": "image_picker",
-        "id": "image",
-        "label": "Announcement Image"
-      }, {
+        "id": "image_desk",
+        "label": "Announcement Image For Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mob",
+        "label": "Announcement Image For Mobile"
+      }, 
+      {
         "type": "url",
         "id": "link",
         "label": "Announcement link"
-      }
+      }      
     ]
   }
 {% endschema %}

@@ -16,7 +16,7 @@
             "type": "mega_1",
             "settings": {
               "menu_title_2": "Most Wanted",
-              "menu_title_link_2": "",
+              "menu_title_link_2": "shopify:\/\/collections",
               "menu_style_2": "footer"
             }
           },
@@ -45,14 +45,16 @@
         ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/logo-main.png",
-          "menu": "main-menu"
+          "menu": "main-menu",
+          "mobile_menu": "mobile-menu"
         }
       },
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
           "show_announcement": true,
-          "image": "shopify:\/\/shop_images\/announcement-bar.jpg",
+          "image_desk": "shopify:\/\/shop_images\/announcement-bar.jpg",
+          "image_mob": "shopify:\/\/shop_images\/pexels-markus-spiske-3806753.jpg",
           "link": "#"
         }
       },

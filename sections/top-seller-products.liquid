@@ -6,7 +6,7 @@
       </h2>
       <div class="top-seller-carousel">
         {%- for product in collections[section.settings.collection].products -%}
-        <div>          
+          <div>
             <div class="product__item">
               <a href="{{ product.url | within: collection }}" title="{{ product.title }}">
                 <div class="product-item__image">
@@ -19,11 +19,11 @@
                     loading="lazy" />
                 </div>
                 <h3 class="product__title">{{ product.title }}</h3>
-                <span class="product__price">{{ product.price }}</span>
+                <span class="product__price">{{ product.price | money_with_currency }}</span>
               </a>
-            </div>          
-        </div>
-      {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
   </div>
@@ -40,8 +40,7 @@
         "id": "title",
         "default": "TOP SELLERS",
         "label": "t:sections.top-seller-products.settings.title.label"
-      },
-      {
+      }, {
         "type": "collection",
         "id": "collection",
         "label": "t:sections.top-seller-products.settings.collection.label"
