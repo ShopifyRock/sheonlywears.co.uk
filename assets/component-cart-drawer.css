@@ -391,7 +391,7 @@
 }
 
 .drawer {
-  z-index: 10000;
+  z-index: 100002;
 }
 
 .site-header .header-right-icons>div.minicart .header__icon--cart {

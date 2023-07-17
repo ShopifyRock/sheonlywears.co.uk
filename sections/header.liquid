@@ -34,41 +34,40 @@
                 </div>
 
                 <div class="header-menu">
-                    <nav class="navigation">
+                    <nav class="navigation">                      
                         <ul>
-                          {% for block in section.blocks %}
-                          {% if block.type == 'mega_1' %}
-                            <li class="hassubmenu">                            
-                                <a href="{{ block.settings.menu_title_link_2 }}" title="{{ block.settings.menu_title_2 }}"><span>{{ block.settings.menu_title_2 }}</span></a>
+                           {% for link in linklists[section.settings.menu].links %}
+                             {% assign grand_child = false %}
+                                      {%- for child_link in link.links -%}   
+                                        {% if child_link.links.size > 0 %}
+                                          {% assign grand_child = true %}
+                                        {% endif %}
+                                      {% endfor %}
+                            <li class="{% if link.links != blank and grand_child %}hassubmenu{% else %}single-menu{% endif %}">
+                                <a href="#" title="{{ link.title }}"><span>{{ link.title }}</span></a>
+                               {%- if link.links != blank -%}
                                 <div class="submenu">
-                                    <div class="container">
-                                      {% for link in linklists[block.settings.menu_style_2].links %}
-                                        
-                                        <ul>
-                                            {%- assign three_level_nav = false -%}
-                                            {%- assign child_list_handle = link.title | handleize -%}
-                                            {% if linklists[child_list_handle].links != blank %}
-                                            {% for childlink in linklists[child_list_handle].links %}
-                                            {% assign grand_child_list_handle = childlink.title | handleize %}
-                                            {% if linklists[grand_child_list_handle].links != blank %}
-                                            {%- assign three_level_nav = true -%}
-                                            {% endif %}
-                                            {% endfor %}
-                                            {% endif %}
-                                            <li class="sub-item"><a href="{{ link.url }}" title="{{ block.settings.menu_title_2 }}"><span>{{ link.title }}</span></a></li>                              
-                                              {% for childlink in linklists[child_list_handle].links %} 
+                                    <div class="container">                                       
+                                        <ul class="{% if grand_child %} d-flex justify-content-around w-50 {% else %}single-menu{% endif %}">
+                                           {%- for child_link in link.links -%}
+                                           <li {% if child_link.links != blank %}class="hassubmenu" {% endif %}>
+                                                <a href="#" title="{{ child_link.title }}"><span>{{ child_link.title }}</span></a>
+                                               {%- if child_link.links != blank -%}
+                                             <ul>
+                                               {%- for grandchild_link in child_link.links -%}
                                                 <li class="sub-item">
-                                                  <a href="{{ childlink.url }}" title="{{ childlink.title }}"><div>{{ childlink.title }}</div></a>
+                                                    <a href="#" title="{{ grandchild_link.title }}"><div>{{ grandchild_link.title }}</div></a>
                                                 </li>
-                                              {% endfor %}
-                                             {% if linklists[child_list_handle].links != blank %}{% endif %}
-
-                                        </ul>
+                                               {% endfor %}
+                                              </ul>
+                                             {% endif %}
+                                            </li>
                                         {% endfor %}
+                                        </ul>
                                     </div>
                                 </div>
-                            </li> 
-                          {% endif %}
+                            {% endif %}
+                            </li>                        
                           {% endfor %}                          
                         </ul>
                     </nav>                    
@@ -227,29 +226,6 @@
       "id": "mobile_menu",
       "label": "Mobile menu"
     }    
-    ],
-"blocks": [
-     {
-       "name": "Mega menu",
-       "type": "mega_1",
-       "settings": [
-         {
-           "type": "text",
-           "id": "menu_title_2",
-           "label": "Menu Title"
-         },
-         {
-           "type": "url",
-           "id": "menu_title_link_2",
-           "label": "Menu Link"
-         },
-         {
-           "type": "link_list",
-           "id": "menu_style_2",
-           "label": "Select menu"
-         }
-       ]
-     }
     ]
   }
 {% endschema %}

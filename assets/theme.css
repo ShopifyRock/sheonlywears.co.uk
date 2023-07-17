@@ -179,12 +179,12 @@ img {
         }
   
         :root {
-          --font-body-family: Assistant, sans-serif;
+          --font-body-family: Proxima Nova,sans-serif!important;
           --font-body-style: normal;
           --font-body-weight: 400;
           --font-body-weight-bold: 700;
   
-          --font-heading-family: Assistant, sans-serif;
+          --font-heading-family: Proxima Nova,sans-serif!important;
           --font-heading-style: normal;
           --font-heading-weight: 400;
   
@@ -1566,8 +1566,21 @@ img {
     text-align: center;
     align-items: flex-end;
     margin-bottom: 10px;
+  margin-top: 10px;
 }
-
+.product-form__input.product-form__quantity {
+    display: block;
+    margin: 16px 0;
+}
+fieldset.js.product-form__input.color {
+    margin-bottom: 15px;
+}
+legend.form__label {
+    text-transform: uppercase;
+    padding-bottom: 0;
+    font-weight: 600;
+    font-size: 14px;
+}
 .product-details__wrapper .product__price .price {
     font-size: 16px;
     font-family: Proxima Nova,sans-serif;
@@ -1786,7 +1799,7 @@ img {
 }
 
 
-.product-details__wrapper .swatch-options.sizes {
+.swatch-options.sizes {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -1982,6 +1995,28 @@ fieldset.js.product-form__input input[type=radio].disabled+label {
 /*     pointer-events: none; */
 /*     cursor: not-allowed; */
 }
+label.Color-swatch[color-size="1"] {
+/*     cursor: not-allowed !important; */
+}
+ fieldset.js.product-form__input label {
+      font-size: 12px;
+      width: 48px;
+      transition: all .3s;
+      height: 48px;
+      display: flex;
+      text-transform: uppercase;
+      justify-content: center;
+      align-items: center;
+      color: #000;
+      border: solid 1px #000;
+      cursor: pointer;
+      margin: 10px 7px;
+      border-radius: 100%;
+      float: left;
+  }
+   fieldset.js.product-form__input input {
+      display: none;
+  }
 @media only screen and (min-width: 768px) {
     .pdp-carousel__wrapper {
         margin: 0 auto 30px;
@@ -2128,9 +2163,12 @@ body .newsletter-form__message.newsletter-form__message--success {
 }
 
 @media only screen and (min-width: 769px) {
-    .mob-announcement,
-    .mobile-nav-overlay {
+    .mob-announcement {
         display: none;
+    }
+    .mobile-nav-opened .mobile-nav-overlay,
+    .mobile-nav-overlay {
+        display: none !important;
     }
 }
 
@@ -2200,4 +2238,68 @@ body .newsletter-form__message.newsletter-form__message--success {
 .announcement-bar__announcement {
     position: relative;
     z-index: 100001;
+}
+variant-radios.no-js-hidden {
+    clear: both;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    display: block;
+}
+
+
+.navigation>ul>li>.submenu .container>ul {
+    margin-left: 0;
+}
+
+.navigation>ul>li>.submenu .container>ul >li.hassubmenu > ul {
+    list-style: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+.navigation>ul>li>.submenu li.hassubmenu > ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    margin-left: -5px;
+}
+
+.navigation>ul>li>.submenu li.hassubmenu > a {
+    font-weight: 700;
+}
+
+/* 17-07-23 */
+
+@media only screen and (min-width: 769px) {
+    .navigation>ul>li.single-menu {
+        position: relative;
+    }
+    
+    .navigation>ul>li.single-menu>.submenu {
+        width: 150px;
+        padding-top: 0;
+    }
+    .navigation>ul>li.single-menu>.submenu > .container {
+        padding: 0;
+    }
+    .navigation>ul>li.single-menu>.submenu li {
+        width: 100%;
+        display: inline-block;
+    }
+    .navigation>ul>li.single-menu>.submenu li a {
+        padding: 15px;
+        display: block;
+        border-bottom: 1px solid #ddd;
+        width: 100%;
+        transition: all 0.5s;
+    }
+    .navigation>ul>li.single-menu>.submenu li a:hover {
+        background: #fadfe5;
+    }
+    .navigation>ul>li.single-menu>.submenu li:last-child a {
+        border-bottom: 0;
+    }
 }

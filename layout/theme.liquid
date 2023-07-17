@@ -77,7 +77,11 @@
     {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
     {{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
 
-  </head>
+  
+
+
+{% render 'usf' %}
+</head>
 
   <body>
     {% section 'announcement-bar' %}
