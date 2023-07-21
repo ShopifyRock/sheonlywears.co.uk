@@ -1,4 +1,4 @@
-<div class="header-wrapper">
+<div class="header-wrapper section-header">
     <header class="site-header">
         <div class="container-fluid">
             <div class="align-items-center d-flex justify-content-between">
@@ -14,13 +14,7 @@
                         <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="35px" height="35px">
                             <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
                         </svg>
-                    </a>
-                    <a href="#" title="Search" class="search-header search-header-mobile">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.77318 0.499878C11.7912 0.499878 15.0462 3.79888 15.0462 7.86788C15.0462 11.9369 11.7912 15.2359 7.77318 15.2359C3.75618 15.2359 0.500183 11.9369 0.500183 7.86788C0.500183 3.79888 3.75618 0.499878 7.77318 0.499878" stroke="#231F20"></path>
-                            <path d="M12.8728 13.12L19.0218 18.799" stroke="#231F20"></path>
-                        </svg>                   
-                    </a>
+                    </a>                    
                 </div>
               
                 <div class="header-logo">
@@ -44,19 +38,19 @@
                                         {% endif %}
                                       {% endfor %}
                             <li class="{% if link.links != blank and grand_child %}hassubmenu{% else %}single-menu{% endif %}">
-                                <a href="#" title="{{ link.title }}"><span>{{ link.title }}</span></a>
+                                <a href="{{ link.url }}" title="{{ link.title }}"><span>{{ link.title }}</span></a>
                                {%- if link.links != blank -%}
                                 <div class="submenu">
                                     <div class="container">                                       
-                                        <ul class="{% if grand_child %} d-flex justify-content-around w-50 {% else %}single-menu{% endif %}">
+                                        <ul class="{% if grand_child %} d-flex {% else %}single-menu{% endif %}">
                                            {%- for child_link in link.links -%}
                                            <li {% if child_link.links != blank %}class="hassubmenu" {% endif %}>
-                                                <a href="#" title="{{ child_link.title }}"><span>{{ child_link.title }}</span></a>
+                                                <a href="{{ child_link.url }}" title="{{ child_link.title }}"><span>{{ child_link.title }}</span></a>
                                                {%- if child_link.links != blank -%}
                                              <ul>
                                                {%- for grandchild_link in child_link.links -%}
                                                 <li class="sub-item">
-                                                    <a href="#" title="{{ grandchild_link.title }}"><div>{{ grandchild_link.title }}</div></a>
+                                                    <a href="{{ grandchild_link.url }}" title="{{ grandchild_link.title }}"><div>{{ grandchild_link.title }}</div></a>
                                                 </li>
                                                {% endfor %}
                                               </ul>
@@ -74,14 +68,7 @@
                 </div>
 
                 <div class="d-flex align-items-center header-right-icons">
-                    <div class="header-search">
-                        <a href="#" title="Search" class="search-header search-header-desk">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7.77318 0.499878C11.7912 0.499878 15.0462 3.79888 15.0462 7.86788C15.0462 11.9369 11.7912 15.2359 7.77318 15.2359C3.75618 15.2359 0.500183 11.9369 0.500183 7.86788C0.500183 3.79888 3.75618 0.499878 7.77318 0.499878" stroke="#231F20"></path>
-                                <path d="M12.8728 13.12L19.0218 18.799" stroke="#231F20"></path>
-                            </svg>                   
-                        </a>
-                    </div>
+                  {% render 'header-search', input_id: 'Search-In-Modal' %}
                     <div class="header-account">
                         <a href="#" class="account-header" title="{%- if customer -%}Logout here{%- else -%}Login here{%- endif -%}">
                             <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,20 +88,18 @@
                             </ul>
                         </div>
                     </div>
-                    {% comment %} Wishlist {% endcomment %}
-
-                    <div class="wishlist-icon">
-                        <a href="/pages/wishlist" class="wk-link wk-empty" title="View Wishlist">
-                            <div class="wk-icon">
-                                <svg version="1.1" xmlns="https://www.w3.org/2000/svg" width="64px" height="60.833px" viewBox="0 0 64 60.833">
-                                    <path stroke="#000" stroke-width="5" stroke-miterlimit="10" fill-opacity="0" d="M45.684,2.654c-6.057,0-11.27,4.927-13.684,10.073 c-2.417-5.145-7.63-10.073-13.687-10.073c-8.349,0-15.125,6.776-15.125,15.127c0,16.983,17.134,21.438,28.812,38.231 c11.038-16.688,28.811-21.787,28.811-38.231C60.811,9.431,54.033,2.654,45.684,2.654z"></path>
-                                </svg>
-                            </div> 
-                            <span class="wk-count">0</span>
-                        </a>
-                    </div>
-
-                    {% comment %} Wishlist {% endcomment %}
+                  
+                            <div class="wishlist-icon">
+                                     <a href="javascript:void(0);" class="wk-link header__icon header__icon--wishlist link focus-inset" id="kp-wishlist_icon">
+                                        <div class="wk-icon">
+                                            <svg version="1.1" xmlns="https://www.w3.org/2000/svg" width="64px" height="60.833px" viewBox="0 0 64 60.833">
+                                                <path stroke="#000" stroke-width="5" stroke-miterlimit="10" fill-opacity="0" d="M45.684,2.654c-6.057,0-11.27,4.927-13.684,10.073 c-2.417-5.145-7.63-10.073-13.687-10.073c-8.349,0-15.125,6.776-15.125,15.127c0,16.983,17.134,21.438,28.812,38.231 c11.038-16.688,28.811-21.787,28.811-38.231C60.811,9.431,54.033,2.654,45.684,2.654z"></path>
+                                            </svg>
+                                        </div> 
+                                <div class="wk-count kp-wishlist_count"></div>
+                                </a>
+                            </div>
+                        
                     <div class="minicart">
                         <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset cart__contents cart-drawer__form cart-icon" id="cart-icon-bubble" title="Minicart" data-icon="bag" aria-expanded="false">
                             {%- liquid
@@ -136,23 +121,7 @@
                         </a>
                     </div>
                 </div>                
-            </div>
-            <div class="search-dropdown">
-               <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
-                <div class="search-dropdown__wrapper">
-                    <input type="search" aria-label="search" name="Search" placeholder="SEARCH">
-                    <button type="submit" aria-label="submit" class="search-submit">
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.77318 0.499878C11.7912 0.499878 15.0462 3.79888 15.0462 7.86788C15.0462 11.9369 11.7912 15.2359 7.77318 15.2359C3.75618 15.2359 0.500183 11.9369 0.500183 7.86788C0.500183 3.79888 3.75618 0.499878 7.77318 0.499878" stroke="#231F20"></path>
-                            <path d="M12.8728 13.12L19.0218 18.799" stroke="#231F20"></path>
-                        </svg>
-                    </button>
-                    <a href="#" class="search-close" title="Close">
-                        <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="35px" height="35px"><path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"/></svg>
-                    </a>
-                </div>
-               </form>
-            </div>     
+            </div>              
         </div>
     </header>
 </div>
@@ -200,7 +169,7 @@
     </ul>
     <div class="mobile-login">
         <div class="mobile-login__wrapper">
-            <a href="/account/login" class="mobile-link" title="login/register">login/register</a>
+            <a href="{{ routes.account_login_url }}" class="mobile-link" title="Login/Register">Login/Register</a>
         </div>
     </div>
 </div>	

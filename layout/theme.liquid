@@ -1,11 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ shop.locale }}">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     {% comment %} Page Title {% endcomment %}
 
     {%- capture seo_title -%}
@@ -46,7 +45,7 @@
     {{ 'fonts.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'bootstrap.min.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'slick.css' | asset_url | stylesheet_tag: preload: true }}
-    {{ 'mobile-nav.css' | asset_url | stylesheet_tag: preload: true }}    
+    {{ 'mobile-nav.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
     {% comment %} CSS END {% endcomment %}
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
@@ -76,14 +75,10 @@
     {{ 'component-discounts.css' | asset_url | stylesheet_tag }}
     {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
     {{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
+    {{ 'component-predictive-search.css' | asset_url | stylesheet_tag }}
+  </head>
 
-  
-
-
-{% render 'usf' %}
-</head>
-
-  <body>
+  <body class="{{ page.title }}">
     {% section 'announcement-bar' %}
     {% section 'header' %}
     {{ content_for_layout }}
@@ -93,6 +88,9 @@
     {% section 'site-footer' %}
     {%- render 'cart-drawer' -%}
     <script>
+
+
+
       window.shopUrl = '{{ request.origin }}';
       window.routes = {
         cart_add_url: '{{ routes.cart_add_url }}',
@@ -120,7 +118,19 @@
         pauseSlideshow: `{{ 'sections.slideshow.pause_slideshow' | t }}`,
         playSlideshow: `{{ 'sections.slideshow.play_slideshow' | t }}`
       };
-    </script>
 
-  </body>
-</html>
+
+      window.__kpWishlist = {
+        money_format: '{{ shop.money_format }}'
+      };
+    </script>
+    {% include 'size-chart' %}
+
+    <script>// $('#myModal').on('shown.bs.modal', function () {
+// $('#myInput').trigger('focus')
+// })
+  </script>
+  {{ 'kp-wishlist.js' | asset_url | script_tag }}
+  <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+</body></html>

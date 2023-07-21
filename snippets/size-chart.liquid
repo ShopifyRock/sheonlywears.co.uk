@@ -1,0 +1,1000 @@
+{{ 'size-chart.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <script type="text/javascript">
+        function showinch() {
+        jQuery(".tblcm").addClass("tblhide");
+        jQuery(".tblinch").removeClass("tblhide");
+        }
+
+        function showcm() {
+        jQuery(".tblinch").addClass("tblhide");
+        jQuery(".tblcm").removeClass("tblhide");
+        }
+      </script>
+      <style>
+        .tblheading {
+          border: 1px solid #DFDFDF !important;
+          color: #fff;
+          background-color: #222;
+          text-align: center !important;
+          padding: 5px;
+        }
+        td.tblheading {
+          text-align:center;
+        }
+        .dbltbl {
+          padding: 10px 5px !important;
+        }
+
+        .tblrow {
+          padding: 10px 5px !important;
+          border: 1px solid #DFDFDF !important;
+          text-align: center !important;
+        }
+
+        .tblgrey {
+          background-color: #eee;
+        }
+
+        .tbltext {
+          text-align: center !important;
+          text-transform: capitalize !important;
+        }
+
+        .tbltoggle {
+          margin-bottom: 5px;
+        }
+
+
+        .tblhide {
+          display: none !important
+        }
+      </style>
+      <div class="size-wrapper product-details__wrapper ">
+        <div class="size-flex-container">
+          <div class="size-header-close">&nbsp;</div>
+          <div class="size-flex-item">
+            <div class="size-content">
+              <div class="tbltoggle">
+                <span>Measurements in:</span>
+                <input id="tblinch1" onclick="showinch();" type="radio" checked="checked" name="cminchtoggle">
+                <label for="tblinch1">INCH</label>
+                <input id="tblcm1" style="margin-left: 10px;" onclick="showcm();" type="radio" name="cminchtoggle">
+                <label for="tblcm1">CM</label>
+              </div>
+              <div class="size-accordion size-content-details tables accordion-wrapper pdp-accordion">
+                <div class="size-accordion">
+                  <button id="accordion-button-31" aria-label="Model" aria-expanded="false">
+                    <div class="accordion-title">CLOTHING</div>
+                  </button>
+                  <div class="accordion-text tab-content">
+                    <div class="size-content-info size-content-clothing clothing">
+                      <div class="size-table">
+                        <table style="border-collapse: collapse; width: 100%;">
+                          <tbody class="page" style="font-size: 12px;">
+                            <tr class="tblheading">
+                              <td class="tblheading" style="width: 16%;" rowspan="2">Main Range</td>
+                              <td class="tblheading" style="width: 16%;">XS</td>
+                              <td class="tblheading" colspan="2" style="width: 16%;text-align:center;">S</td>
+                              <td class="tblheading" colspan="2" style="width: 16%;">M</td>
+                              <td class="tblheading" colspan="2" style="width: 16%;">L</td>
+                              <td class="tblheading" style="width: 16%;">XL</td>
+                            </tr>
+                            <tr class="tblheading"></tr>
+                            <tr>
+                              <td class="tblrow">UK</td>
+                              <td class="tblrow">4</td>
+                              <td class="tblrow">6</td>
+                              <td class="tblrow">8</td>
+                              <td class="tblrow">10</td>
+                              <td class="tblrow">12</td>
+                              <td class="tblrow">14</td>
+                              <td class="tblrow">16</td>
+                              <td class="tblrow">18</td>
+                            </tr>
+                            <tr class="tblgrey">
+                              <td class="tblrow">EU</td>
+                              <td class="tblrow ">4</td>
+                              <td class="tblrow ">6</td>
+                              <td class="tblrow ">8</td>
+                              <td class="tblrow ">10</td>
+                              <td class="tblrow ">12</td>
+                              <td class="tblrow ">14</td>
+                              <td class="tblrow ">16</td>
+                              <td class="tblrow ">18</td>
+                            </tr>
+                            <tr>
+                              <td class="tblrow">USA/CA</td>
+                              <td class="tblrow ">0</td>
+                              <td class="tblrow ">2</td>
+                              <td class="tblrow ">4</td>
+                              <td class="tblrow ">6</td>
+                              <td class="tblrow ">8</td>
+                              <td class="tblrow ">10</td>
+                              <td class="tblrow ">12</td>
+                              <td class="tblrow ">14</td>
+                            </tr>
+                            <tr class="tblgrey">
+                              <td class="tblrow">AUS</td>
+                              <td class="tblrow ">4</td>
+                              <td class="tblrow ">6</td>
+                              <td class="tblrow ">8</td>
+                              <td class="tblrow ">10</td>
+                              <td class="tblrow ">12</td>
+                              <td class="tblrow ">14</td>
+                              <td class="tblrow ">16</td>
+                              <td class="tblrow ">18</td>
+                            </tr>
+                            <tr>
+                              <td class="tblrow">FR</td>
+                              <td class="tblrow ">32</td>
+                              <td class="tblrow ">34</td>
+                              <td class="tblrow ">36</td>
+                              <td class="tblrow ">38</td>
+                              <td class="tblrow ">40</td>
+                              <td class="tblrow ">42</td>
+                              <td class="tblrow ">44</td>
+                              <td class="tblrow ">46</td>
+                            </tr>
+                            <tr class="tblgrey">
+                              <td class="tblrow">BUST</td>
+                              <td class="tblrow tblcm tblhide">78.5</td>
+                              <td class="tblrow tblinch">30.9</td>
+                              <td class="tblrow tblcm tblhide">81</td>
+                              <td class="tblrow tblinch">31.8</td>
+                              <td class="tblrow tblcm tblhide">86</td>
+                              <td class="tblrow tblinch">33.8</td>
+                              <td class="tblrow tblcm tblhide">91</td>
+                              <td class="tblrow tblinch">35.8</td>
+                              <td class="tblrow tblcm tblhide">96</td>
+                              <td class="tblrow tblinch">37.7</td>
+                              <td class="tblrow tblcm tblhide">101</td>
+                              <td class="tblrow tblinch">39.7</td>
+                              <td class="tblrow tblcm tblhide">106</td>
+                              <td class="tblrow tblinch">41.7</td>
+                              <td class="tblrow tblcm tblhide">112</td>
+                              <td class="tblrow tblinch">44</td>
+                            </tr>
+                            <tr>
+                              <td class="tblrow">WAIST</td>
+                              <td class="tblrow tblcm tblhide">60.5</td>
+                              <td class="tblrow tblinch">23.8</td>
+                              <td class="tblrow tblcm tblhide">63</td>
+                              <td class="tblrow tblinch">24.8</td>
+                              <td class="tblrow tblcm tblhide">68</td>
+                              <td class="tblrow tblinch">26.7</td>
+                              <td class="tblrow tblcm tblhide">73</td>
+                              <td class="tblrow tblinch">28.7</td>
+                              <td class="tblrow tblcm tblhide">78</td>
+                              <td class="tblrow tblinch">30.7</td>
+                              <td class="tblrow tblcm tblhide">83</td>
+                              <td class="tblrow tblinch">32.6</td>
+                              <td class="tblrow tblcm tblhide">88</td>
+                              <td class="tblrow tblinch">34.6</td>
+                              <td class="tblrow tblcm tblhide">94</td>
+                              <td class="tblrow tblinch">37</td>
+                            </tr>
+                            <tr class="tblgrey">
+                              <td class="tblrow">LOW HIP</td>
+                              <td class="tblrow tblcm tblhide">86.5</td>
+                              <td class="tblrow tblinch">34</td>
+                              <td class="tblrow tblcm tblhide">89</td>
+                              <td class="tblrow tblinch">35</td>
+                              <td class="tblrow tblcm tblhide">94</td>
+                              <td class="tblrow tblinch">37</td>
+                              <td class="tblrow tblcm tblhide">99</td>
+                              <td class="tblrow tblinch">38.9</td>
+                              <td class="tblrow tblcm tblhide">104</td>
+                              <td class="tblrow tblinch">40.9</td>
+                              <td class="tblrow tblcm tblhide">109</td>
+                              <td class="tblrow tblinch">42.9</td>
+                              <td class="tblrow tblcm tblhide">114</td>
+                              <td class="tblrow tblinch">44.8</td>
+                              <td class="tblrow tblcm tblhide">120</td>
+                              <td class="tblrow tblinch">47.2</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion">
+                  <div>
+                    <button id="accordion-button-32" aria-label="Model" aria-expanded="false">
+                      <div class="accordion-title">PETITE</div>
+                    </button>
+                    <div class="accordion-text  tab-content">
+                      <div class="size-content-info size-content-clothing clothing">
+                        <div class="size-table">
+                          <table style="border-collapse: collapse; width: 100%;">
+                            <tbody class="page" style="font-size: 12px;">
+                              <tr class="tblheading">
+                                <td class="tblheading" style="width: 16%;" rowspan="2">Petite</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">XS</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;text-align:center;">S</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">M</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">L</td>
+                              </tr>
+                              <tr class="tblheading"></tr>
+                              <tr>
+                                <td class="tblrow">UK</td>
+                                <td class="tblrow ">2</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">EU</td>
+                                <td class="tblrow ">2</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">USA/CA</td>
+                                <td class="tblrow ">00</td>
+                                <td class="tblrow ">0</td>
+                                <td class="tblrow ">2</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">AUS</td>
+                                <td class="tblrow ">2</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">FR</td>
+                                <td class="tblrow ">30</td>
+                                <td class="tblrow ">32</td>
+                                <td class="tblrow ">34</td>
+                                <td class="tblrow ">36</td>
+                                <td class="tblrow ">38</td>
+                                <td class="tblrow ">40</td>
+                                <td class="tblrow ">42</td>
+                                <td class="tblrow ">44</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">BUST</td>
+                                <td class="tblrow tblcm tblhide">76</td>
+                                <td class="tblrow tblinch">29.9</td>
+                                <td class="tblrow tblcm tblhide">78.5</td>
+                                <td class="tblrow tblinch">30.9</td>
+                                <td class="tblrow tblcm tblhide">81</td>
+                                <td class="tblrow tblinch">31.9</td>
+                                <td class="tblrow tblcm tblhide">86</td>
+                                <td class="tblrow tblinch">33.9</td>
+                                <td class="tblrow tblcm tblhide">91</td>
+                                <td class="tblrow tblinch">35.8</td>
+                                <td class="tblrow tblcm tblhide">96</td>
+                                <td class="tblrow tblinch">37.8</td>
+                                <td class="tblrow tblcm tblhide">101</td>
+                                <td class="tblrow tblinch">39.8</td>
+                                <td class="tblrow tblcm tblhide">106</td>
+                                <td class="tblrow tblinch">41.7</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">WAIST</td>
+                                <td class="tblrow tblcm tblhide">58</td>
+                                <td class="tblrow tblinch">22.8</td>
+                                <td class="tblrow tblcm tblhide">60.5</td>
+                                <td class="tblrow tblinch">23.8</td>
+                                <td class="tblrow tblcm tblhide">63</td>
+                                <td class="tblrow tblinch">24.8</td>
+                                <td class="tblrow tblcm tblhide">68</td>
+                                <td class="tblrow tblinch">26.8</td>
+                                <td class="tblrow tblcm tblhide">73</td>
+                                <td class="tblrow tblinch">28.7</td>
+                                <td class="tblrow tblcm tblhide">78</td>
+                                <td class="tblrow tblinch">30.7</td>
+                                <td class="tblrow tblcm tblhide">83</td>
+                                <td class="tblrow tblinch">32.7</td>
+                                <td class="tblrow tblcm tblhide">88</td>
+                                <td class="tblrow tblinch">34.6</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">LOW HIP</td>
+                                <td class="tblrow tblcm tblhide">84</td>
+                                <td class="tblrow tblinch">33.1</td>
+                                <td class="tblrow tblcm tblhide">86.5</td>
+                                <td class="tblrow tblinch">34.1</td>
+                                <td class="tblrow tblcm tblhide">89</td>
+                                <td class="tblrow tblinch">35</td>
+                                <td class="tblrow tblcm tblhide">94</td>
+                                <td class="tblrow tblinch">37</td>
+                                <td class="tblrow tblcm tblhide">99</td>
+                                <td class="tblrow tblinch">39</td>
+                                <td class="tblrow tblcm tblhide">104</td>
+                                <td class="tblrow tblinch">40.9</td>
+                                <td class="tblrow tblcm tblhide">109</td>
+                                <td class="tblrow tblinch">42.9</td>
+                                <td class="tblrow tblcm tblhide">114</td>
+                                <td class="tblrow tblinch">44.9</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion">
+                  <div>
+                    <button id="accordion-button-33" aria-label="Model" aria-expanded="false">
+                      <div class="accordion-title">TALL</div>
+                    </button>
+                    <div class="accordion-text tab-content">
+                      <div class="size-content-info size-content-clothing clothing">
+                        <div class="size-table">
+                          <table style="border-collapse: collapse; width: 100%;">
+                            <tbody class="page" style="font-size: 12px;">
+                              <tr class="tblheading">
+                                <td class="tblheading" style="width: 16%;" rowspan="2">Tall</td>
+                                <td class="tblheading" style="width: 16%;">XS</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;text-align:center;">S</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">M</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">L</td>
+                              </tr>
+                              <tr class="tblheading"></tr>
+                              <tr>
+                                <td class="tblrow">UK</td>
+                                <td class="tblrow">4</td>
+                                <td class="tblrow">6</td>
+                                <td class="tblrow">8</td>
+                                <td class="tblrow">10</td>
+                                <td class="tblrow">12</td>
+                                <td class="tblrow">14</td>
+                                <td class="tblrow">16</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">EU</td>
+                                <td class="tblrow">4</td>
+                                <td class="tblrow">6</td>
+                                <td class="tblrow">8</td>
+                                <td class="tblrow">10</td>
+                                <td class="tblrow">12</td>
+                                <td class="tblrow">14</td>
+                                <td class="tblrow">16</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">USA/CA</td>
+                                <td class="tblrow ">0</td>
+                                <td class="tblrow ">2</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">AUS</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">FR</td>
+                                <td class="tblrow ">32</td>
+                                <td class="tblrow ">34</td>
+                                <td class="tblrow ">36</td>
+                                <td class="tblrow ">38</td>
+                                <td class="tblrow ">40</td>
+                                <td class="tblrow ">42</td>
+                                <td class="tblrow ">44</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">BUST</td>
+                                <td class="tblrow tblcm tblhide">78.5</td>
+                                <td class="tblrow tblinch">30.9</td>
+                                <td class="tblrow tblcm tblhide">81</td>
+                                <td class="tblrow tblinch">31.9</td>
+                                <td class="tblrow tblcm tblhide">86</td>
+                                <td class="tblrow tblinch">33.9</td>
+                                <td class="tblrow tblcm tblhide">91</td>
+                                <td class="tblrow tblinch">35.8</td>
+                                <td class="tblrow tblcm tblhide">96</td>
+                                <td class="tblrow tblinch">37.8</td>
+                                <td class="tblrow tblcm tblhide">101</td>
+                                <td class="tblrow tblinch">39.8</td>
+                                <td class="tblrow tblcm tblhide">106</td>
+                                <td class="tblrow tblinch">41.7</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">WAIST</td>
+                                <td class="tblrow tblcm tblhide">60.5</td>
+                                <td class="tblrow tblinch">23.8</td>
+                                <td class="tblrow tblcm tblhide">63</td>
+                                <td class="tblrow tblinch">24.8</td>
+                                <td class="tblrow tblcm tblhide">68</td>
+                                <td class="tblrow tblinch">26.8</td>
+                                <td class="tblrow tblcm tblhide">73</td>
+                                <td class="tblrow tblinch">28.7</td>
+                                <td class="tblrow tblcm tblhide">78</td>
+                                <td class="tblrow tblinch">30.7</td>
+                                <td class="tblrow tblcm tblhide">83</td>
+                                <td class="tblrow tblinch">32.7</td>
+                                <td class="tblrow tblcm tblhide">88</td>
+                                <td class="tblrow tblinch">34.6</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">LOW HIP</td>
+                                <td class="tblrow tblcm tblhide">86.5</td>
+                                <td class="tblrow tblinch">34.1</td>
+                                <td class="tblrow tblcm tblhide">89</td>
+                                <td class="tblrow tblinch">35</td>
+                                <td class="tblrow tblcm tblhide">94</td>
+                                <td class="tblrow tblinch">37</td>
+                                <td class="tblrow tblcm tblhide">99</td>
+                                <td class="tblrow tblinch">39</td>
+                                <td class="tblrow tblcm tblhide">104</td>
+                                <td class="tblrow tblinch">40.9</td>
+                                <td class="tblrow tblcm tblhide">109</td>
+                                <td class="tblrow tblinch">42.9</td>
+                                <td class="tblrow tblcm tblhide">114</td>
+                                <td class="tblrow tblinch">44.9</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion">
+                  <div>
+                    <button id="accordion-button-34" aria-label="Model" aria-expanded="false">
+                      <div class="accordion-title">SHAPE</div>
+                    </button>
+                    <div class="accordion-text tab-content">
+                      <div class="size-content-info size-content-clothing clothing">
+                        <div class="size-table">
+                          <table style="border-collapse: collapse; width: 100%;">
+                            <tbody class="page" style="font-size: 12px;">
+                              <tr class="tblheading">
+                                <td class="tblheading" style="width: 16%;" rowspan="2">Shape</td>
+                                <td class="tblheading" style="width: 16%;">XS</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;text-align:center;">S</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">M</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">L</td>
+                                <td class="tblheading" style="width: 16%;">XL</td>
+                              </tr>
+                              <tr class="tblheading"></tr>
+                              <tr>
+                                <td class="tblrow">UK</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                                <td class="tblrow ">18</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">EU</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                                <td class="tblrow ">18</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">USA/CA</td>
+                                <td class="tblrow ">0</td>
+                                <td class="tblrow ">2</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">AUS</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                                <td class="tblrow ">18</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">FR</td>
+                                <td class="tblrow ">32</td>
+                                <td class="tblrow ">34</td>
+                                <td class="tblrow ">36</td>
+                                <td class="tblrow ">38</td>
+                                <td class="tblrow ">40</td>
+                                <td class="tblrow ">42</td>
+                                <td class="tblrow ">44</td>
+                                <td class="tblrow ">46</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">BUST</td>
+                                <td class="tblrow tblcm tblhide">78.5</td>
+                                <td class="tblrow tblinch">30.9</td>
+                                <td class="tblrow tblcm tblhide">81</td>
+                                <td class="tblrow tblinch">31.9</td>
+                                <td class="tblrow tblcm tblhide">86</td>
+                                <td class="tblrow tblinch">33.9</td>
+                                <td class="tblrow tblcm tblhide">91</td>
+                                <td class="tblrow tblinch">35.8</td>
+                                <td class="tblrow tblcm tblhide">96</td>
+                                <td class="tblrow tblinch">37.8</td>
+                                <td class="tblrow tblcm tblhide">101</td>
+                                <td class="tblrow tblinch">39.8</td>
+                                <td class="tblrow tblcm tblhide">106</td>
+                                <td class="tblrow tblinch">41.7</td>
+                                <td class="tblrow tblcm tblhide">112</td>
+                                <td class="tblrow tblinch">44.1</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">WAIST</td>
+                                <td class="tblrow tblcm tblhide">55.5</td>
+                                <td class="tblrow tblinch">21.9</td>
+                                <td class="tblrow tblcm tblhide">58</td>
+                                <td class="tblrow tblinch">22.8</td>
+                                <td class="tblrow tblcm tblhide">63</td>
+                                <td class="tblrow tblinch">24.8</td>
+                                <td class="tblrow tblcm tblhide">68</td>
+                                <td class="tblrow tblinch">26.8</td>
+                                <td class="tblrow tblcm tblhide">73</td>
+                                <td class="tblrow tblinch">28.7</td>
+                                <td class="tblrow tblcm tblhide">78</td>
+                                <td class="tblrow tblinch">30.7</td>
+                                <td class="tblrow tblcm tblhide">83</td>
+                                <td class="tblrow tblinch">32.7</td>
+                                <td class="tblrow tblcm tblhide">89</td>
+                                <td class="tblrow tblinch">35</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">LOW HIP</td>
+                                <td class="tblrow tblcm tblhide">86.5</td>
+                                <td class="tblrow tblinch">34.1</td>
+                                <td class="tblrow tblcm tblhide">89</td>
+                                <td class="tblrow tblinch">35</td>
+                                <td class="tblrow tblcm tblhide">94</td>
+                                <td class="tblrow tblinch">37</td>
+                                <td class="tblrow tblcm tblhide">99</td>
+                                <td class="tblrow tblinch">39</td>
+                                <td class="tblrow tblcm tblhide">104</td>
+                                <td class="tblrow tblinch">40.9</td>
+                                <td class="tblrow tblcm tblhide">109</td>
+                                <td class="tblrow tblinch">42.9</td>
+                                <td class="tblrow tblcm tblhide">114</td>
+                                <td class="tblrow tblinch">44.9</td>
+                                <td class="tblrow tblcm tblhide">120</td>
+                                <td class="tblrow tblinch">47.2</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion">
+                  <div>
+                    <button id="accordion-button-35" aria-label="Model" aria-expanded="false">
+                      <div class="accordion-title">Plus</div>
+                    </button>
+                    <div class="accordion-text tab-content">
+                      <div class="size-content-info size-content-clothing clothing">
+                        <div class="size-table">
+                          <table style="border-collapse: collapse; width: 100%;">
+                            <tbody class="page" style="font-size: 12px;">
+                              <tr class="tblheading">
+                                <td class="tblheading" style="width: 16%;" rowspan="2">Plus</td>
+                                <td class="tblheading" style="width: 16%;">L</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;text-align:center;">XL</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">2X</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">3X</td>
+                                <td class="tblheading" style="width: 16%;">4X</td>
+                              </tr>
+                              <tr class="tblheading"></tr>
+                              <tr>
+                                <td class="tblrow">UK</td>
+                                <td class="tblrow ">16</td>
+                                <td class="tblrow ">18</td>
+                                <td class="tblrow ">20</td>
+                                <td class="tblrow ">22</td>
+                                <td class="tblrow ">24</td>
+                                <td class="tblrow ">26</td>
+                                <td class="tblrow ">28</td>
+                                <td class="tblrow ">30</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">EU</td>
+                                <td class="tblrow ">16</td>
+                                <td class="tblrow ">18</td>
+                                <td class="tblrow ">20</td>
+                                <td class="tblrow ">22</td>
+                                <td class="tblrow ">24</td>
+                                <td class="tblrow ">26</td>
+                                <td class="tblrow ">28</td>
+                                <td class="tblrow ">30</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">USA/CA</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                                <td class="tblrow ">18</td>
+                                <td class="tblrow ">20</td>
+                                <td class="tblrow ">22</td>
+                                <td class="tblrow ">24</td>
+                                <td class="tblrow ">26</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">AUS</td>
+                                <td class="tblrow ">16</td>
+                                <td class="tblrow ">18</td>
+                                <td class="tblrow ">20</td>
+                                <td class="tblrow ">22</td>
+                                <td class="tblrow ">24</td>
+                                <td class="tblrow ">26</td>
+                                <td class="tblrow ">28</td>
+                                <td class="tblrow ">30</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">FR</td>
+                                <td class="tblrow ">44</td>
+                                <td class="tblrow ">46</td>
+                                <td class="tblrow ">48</td>
+                                <td class="tblrow ">50</td>
+                                <td class="tblrow ">52</td>
+                                <td class="tblrow ">54</td>
+                                <td class="tblrow ">56</td>
+                                <td class="tblrow ">58</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">BUST</td>
+                                <td class="tblrow tblcm tblhide">106</td>
+                                <td class="tblrow tblinch">41.7</td>
+                                <td class="tblrow tblcm tblhide">112</td>
+                                <td class="tblrow tblinch">44.1</td>
+                                <td class="tblrow tblcm tblhide">118</td>
+                                <td class="tblrow tblinch">46.5</td>
+                                <td class="tblrow tblcm tblhide">124</td>
+                                <td class="tblrow tblinch">48.8</td>
+                                <td class="tblrow tblcm tblhide">130</td>
+                                <td class="tblrow tblinch">51.2</td>
+                                <td class="tblrow tblcm tblhide">136</td>
+                                <td class="tblrow tblinch">53.5</td>
+                                <td class="tblrow tblcm tblhide">142</td>
+                                <td class="tblrow tblinch">55.9</td>
+                                <td class="tblrow tblcm tblhide">148</td>
+                                <td class="tblrow tblinch">58.3</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">WAIST</td>
+                                <td class="tblrow tblcm tblhide">88</td>
+                                <td class="tblrow tblinch">34.6</td>
+                                <td class="tblrow tblcm tblhide">94</td>
+                                <td class="tblrow tblinch">37</td>
+                                <td class="tblrow tblcm tblhide">100</td>
+                                <td class="tblrow tblinch">39.4</td>
+                                <td class="tblrow tblcm tblhide">106</td>
+                                <td class="tblrow tblinch">41.7</td>
+                                <td class="tblrow tblcm tblhide">112</td>
+                                <td class="tblrow tblinch">44.1</td>
+                                <td class="tblrow tblcm tblhide">118</td>
+                                <td class="tblrow tblinch">46.5</td>
+                                <td class="tblrow tblcm tblhide">124</td>
+                                <td class="tblrow tblinch">48.8</td>
+                                <td class="tblrow tblcm tblhide">130</td>
+                                <td class="tblrow tblinch">51.2</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">LOW HIP</td>
+                                <td class="tblrow tblcm tblhide">114</td>
+                                <td class="tblrow tblinch">44.9</td>
+                                <td class="tblrow tblcm tblhide">120</td>
+                                <td class="tblrow tblinch">47.2</td>
+                                <td class="tblrow tblcm tblhide">126</td>
+                                <td class="tblrow tblinch">49.6</td>
+                                <td class="tblrow tblcm tblhide">132</td>
+                                <td class="tblrow tblinch">52</td>
+                                <td class="tblrow tblcm tblhide">138</td>
+                                <td class="tblrow tblinch">54.3</td>
+                                <td class="tblrow tblcm tblhide">144</td>
+                                <td class="tblrow tblinch">56.7</td>
+                                <td class="tblrow tblcm tblhide">150</td>
+                                <td class="tblrow tblinch">59.1</td>
+                                <td class="tblrow tblcm tblhide">156</td>
+                                <td class="tblrow tblinch">61.4</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion">
+                  <div>
+                    <button id="accordion-button-36" aria-label="Model" aria-expanded="false">
+                      <div class="accordion-title">Maternity</div>
+                    </button>
+                    <div class="accordion-text tab-content">
+                      <div class="size-content-info size-content-clothing clothing">
+                        <div class="size-table">
+                          <table style="border-collapse: collapse; width: 100%;">
+                            <tbody class="page" style="font-size: 12px;">
+                              <tr class="tblheading">
+                                <td class="tblheading" style="width: 16%;" rowspan="2">Maternity</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">S</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;text-align:center;">M</td>
+                                <td class="tblheading" colspan="2" style="width: 16%;">L</td>
+                              </tr>
+                              <tr class="tblheading"></tr>
+                              <tr>
+                                <td class="tblrow">UK</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">EU</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">USA/CA</td>
+                                <td class="tblrow ">2</td>
+                                <td class="tblrow ">4</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">AUS</td>
+                                <td class="tblrow ">6</td>
+                                <td class="tblrow ">8</td>
+                                <td class="tblrow ">10</td>
+                                <td class="tblrow ">12</td>
+                                <td class="tblrow ">14</td>
+                                <td class="tblrow ">16</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">FR</td>
+                                <td class="tblrow ">34</td>
+                                <td class="tblrow ">36</td>
+                                <td class="tblrow ">38</td>
+                                <td class="tblrow ">40</td>
+                                <td class="tblrow ">42</td>
+                                <td class="tblrow ">44</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">BUST</td>
+                                <td class="tblrow tblcm tblhide">86</td>
+                                <td class="tblrow tblinch">33.8</td>
+                                <td class="tblrow tblcm tblhide">91</td>
+                                <td class="tblrow tblinch">35.8</td>
+                                <td class="tblrow tblcm tblhide">96</td>
+                                <td class="tblrow tblinch">37.8</td>
+                                <td class="tblrow tblcm tblhide">101</td>
+                                <td class="tblrow tblinch">39.8</td>
+                                <td class="tblrow tblcm tblhide">106</td>
+                                <td class="tblrow tblinch">41.7</td>
+                                <td class="tblrow tblcm tblhide">111</td>
+                                <td class="tblrow tblinch">43.7</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">BUMP (at fullest point)</td>
+                                <td class="tblrow tblcm tblhide">87-96</td>
+                                <td class="tblrow tblinch">34.2-37.7</td>
+                                <td class="tblrow tblcm tblhide">92-101</td>
+                                <td class="tblrow tblinch">36.2-39.7</td>
+                                <td class="tblrow tblcm tblhide">97-106</td>
+                                <td class="tblrow tblinch">38-41.7</td>
+                                <td class="tblrow tblcm tblhide">102-111</td>
+                                <td class="tblrow tblinch">40-43.7</td>
+                                <td class="tblrow tblcm tblhide">107-116</td>
+                                <td class="tblrow tblinch">42-45.6</td>
+                                <td class="tblrow tblcm tblhide">112-121</td>
+                                <td class="tblrow tblinch">44-47.6</td>
+                              </tr>
+                              <tr class="tblgrey">
+                                <td class="tblrow">LOW HIP</td>
+                                <td class="tblrow tblcm tblhide">94</td>
+                                <td class="tblrow tblinch">37</td>
+                                <td class="tblrow tblcm tblhide">99</td>
+                                <td class="tblrow tblinch">39</td>
+                                <td class="tblrow tblcm tblhide">104</td>
+                                <td class="tblrow tblinch">40.9</td>
+                                <td class="tblrow tblcm tblhide">109</td>
+                                <td class="tblrow tblinch">42.9</td>
+                                <td class="tblrow tblcm tblhide">114</td>
+                                <td class="tblrow tblinch">44.9</td>
+                                <td class="tblrow tblcm tblhide">119</td>
+                                <td class="tblrow tblinch">46.9</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <br>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion">
+                  <div>
+                    <button id="accordion-button-36" aria-label="Model" aria-expanded="false">
+                      <div class="accordion-title">SHOES</div>
+                    </button>
+                    <div class="accordion-text tab-content">
+                      <div class="size-content-info size-content-shoes shoes">
+                        <div class="size-table">
+                          <table style="border-collapse: collapse;">
+                            <tbody style="font-size: 11px;">
+                              <tr class="tblheading">
+                                <td class="tblheading dbltbl" style="width: 20%;">UK</td>
+                                <td class="tblheading dbltbl" style="width: 20%;">EUROPE</td>
+                                <td class="tblheading dbltbl" style="width: 20%;">USA/CAN</td>
+                                <td class="tblheading dbltbl" style="width: 20%;">AUS/NZL</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">3</td>
+                                <td class="tblrow">36</td>
+                                <td class="tblrow">5</td>
+                                <td class="tblrow">5</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow tblgrey">4</td>
+                                <td class="tblrow tblgrey">37</td>
+                                <td class="tblrow tblgrey">6</td>
+                                <td class="tblrow tblgrey">6</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">5</td>
+                                <td class="tblrow">38</td>
+                                <td class="tblrow">7</td>
+                                <td class="tblrow">7</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow tblgrey">6</td>
+                                <td class="tblrow tblgrey">39</td>
+                                <td class="tblrow tblgrey">8</td>
+                                <td class="tblrow tblgrey">8</td>
+                              </tr>
+                              <tr>
+                                <td class="tblrow">7</td>
+                                <td class="tblrow">40</td>
+                                <td class="tblrow">9</td>
+                                <td class="tblrow">9</td>
+                              </tr>
+                              <tr class="tr">
+                                <td class="tblrow tblgrey">8</td>
+                                <td class="tblrow tblgrey">41</td>
+                                <td class="tblrow tblgrey">10</td>
+                                <td class="tblrow tblgrey">10</td>
+                              </tr>
+                              <tr class="tr">
+                                <td class="tblrow tblgrey">9</td>
+                                <td class="tblrow tblgrey">42</td>
+                                <td class="tblrow tblgrey">11</td>
+                                <td class="tblrow tblgrey">11</td>
+                              </tr>
+                              <tr class="tr">
+                                <td class="tblrow tblgrey">10</td>
+                                <td class="tblrow tblgrey">43</td>
+                                <td class="tblrow tblgrey">12</td>
+                                <td class="tblrow tblgrey">12</td>
+                              </tr>
+                              <tr class="tr">
+                                <td class="tblrow tblgrey">S=3-4</td>
+                                <td class="tblrow tblgrey">S=36-37</td>
+                                <td class="tblrow tblgrey">S=5-6</td>
+                                <td class="tblrow tblgrey">S=3-4</td>
+                              </tr>
+                              <tr class="tr">
+                                <td class="tblrow tblgrey">M=5-6</td>
+                                <td class="tblrow tblgrey">M=38-39</td>
+                                <td class="tblrow tblgrey">M=7-8</td>
+                                <td class="tblrow tblgrey">M=5-6</td>
+                              </tr>
+                              <tr class="tr">
+                                <td class="tblrow tblgrey">L=7-8</td>
+                                <td class="tblrow tblgrey">L=40-41</td>
+                                <td class="tblrow tblgrey">L=9-10</td>
+                                <td class="tblrow tblgrey">L=7-8</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="size-flex-item gray">
+            <div class="size-content">
+              <div class="size-content-nav">
+                <p class="title">How to measure</p>
+              </div>
+              <div class="size-content-details">
+                <div class="size-content-image">
+                  <img
+                    alt="Size guide"
+                    src="https://cdn-media.prettylittlething.com/wysiwyg/Size-guide/size-guide_copy.jpg"
+                    height="245"
+                    width="189"
+                  >
+                  <!--
+                    <img src="{{media url="wysiwyg/Size-guide/Unknown.png"}}" alt="Size guide" width="189" height="245" />
+                  -->
+                </div>
+                <div class="size-content-text">
+                  <p class="title">Bust</p>
+                  <p>Measure across the fullest part of the bust and across the shoulder blades.</p>
+                  <p class="title">Waist</p>
+                  <p>
+                    Measure around the slimmest part of your natural waistline - above your navel and below your
+                    ribcage.
+                  </p>
+                  <p class="title">Hip</p>
+                  <p>Measure at the widest part.</p>
+                  <p class="title">Inside leg</p>
+                  <p>Measure from the top of the inside leg at the crotch down to the ankle bone.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

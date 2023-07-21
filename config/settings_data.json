@@ -28,6 +28,14 @@
     },
     "content_for_index": [
 
-    ]
+    ],
+    "blocks": {
+      "10249797228608187657": {
+        "type": "shopify:\/\/apps\/ai-search-product-filter-sb\/blocks\/core\/45de52d0-b602-4c6e-aa3b-61524a251869",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   }
 }

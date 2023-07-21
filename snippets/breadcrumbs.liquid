@@ -1,0 +1,101 @@
+{%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
+  {%- assign t = template | split: '.' | first -%}
+
+  <nav
+    class="breadcrumb"
+    role="navigation"
+    aria-label="breadcrumbs">
+    <span class="nav-page">
+      <a class="breadcrumbs__link" href="/">Home</a>
+    </span>
+    <span aria-hidden="true" class="breadcrumb__separator">
+      /</span>
+    {%- case t -%}
+      {%- when 'page' -%}
+      <span class="nav-page">
+        <a
+          class="breadcrumbs__link"
+          href="{{ page.url }}"
+          aria-current="page">{{ page.title }}</a>
+      </span>
+      {%- when 'product' -%}
+      {%- if collection.url -%}
+        <span class="nav-page">
+          {{ collection.title | link_to: collection.url }}
+        </span>
+      {%- endif -%}
+      <span class="nav-page">
+        <a
+          class="breadcrumbs__link"
+          href="{{ product.url }}"
+          aria-current="page">{{ product.title }}</a>
+      </span>
+      {%- when 'collection' and collection.handle -%}
+      {%- if current_tags -%}
+        <span class="nav-page">
+          {{ collection.title | link_to: collection.url }}
+        </span>
+        <span aria-hidden="true" class="breadcrumb__separator">
+          /</span>
+        <span
+          class="nav-page">
+          {%- capture tag_url -%}
+            {{ collection.url }}/{{ current_tags | join: "+" }}{%- endcapture -%}
+          <a
+            class="breadcrumbs__link"
+            href="{{ tag_url }}"
+            aria-current="page">{{ current_tags | join: " + " }}</a>
+        </span>
+      {%- else -%}
+        <span class="nav-page">
+          <a
+            class="breadcrumbs__link"
+            href="{{ collection.url }}"
+            aria-current="page">{{ collection.title }}</a>
+        </span>
+      {%- endif -%}
+      {%- when 'blog' -%}
+      {%- if current_tags -%}
+        <span class="nav-page">
+          {{ blog.title | link_to: blog.url }}
+        </span>
+        <span aria-hidden="true" class="breadcrumb__separator">
+          /</span>
+        <span class="nav-page">
+          {%- capture tag_url -%}
+            {{ blog.url }}/tagged/{{ current_tags | join: "+" }}{%- endcapture -%}
+          <a
+            class="breadcrumbs__link"
+            href="{{ tag_url }}"
+            aria-current="page">{{ current_tags | join: " + " }}</a>
+        </span>
+      {%- else -%}
+        <span class="nav-page">
+          <a
+            class="breadcrumbs__link"
+            href="{{ blog.url }}"
+            aria-current="page">{{ blog.title }}</a>
+        </span>
+      {%- endif -%}
+      {%- when 'article' -%}
+      <span class="nav-page">
+        {{ blog.title | link_to: blog.url }}
+      </span>
+      <span aria-hidden="true" class="breadcrumb__separator">
+        /</span>
+      <span class="nav-page">
+        <a
+          class="breadcrumbs__link"
+          href="{{ article.url }}"
+          aria-current="page">{{ article.title }}</a>
+      </span>
+    {%- else -%}
+      <span class="nav-page">
+        <a
+          class="breadcrumbs__link"
+          href="{{ request.path }}"
+          aria-current="page">{{ page_title }}</a>
+      </span>
+    {%- endcase -%}
+  </nav>
+{%- endunless -%}

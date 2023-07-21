@@ -13,6 +13,7 @@ html,
 body {
     background-color: white;
     color: black; 
+    font-family: Proxima Nova,sans-serif!important;
 }
 
 body, input, textarea, button, select {
@@ -472,7 +473,12 @@ img {
     width: 25px;
     height: 25px;
 }
-
+div#shopify-product-reviews {
+    width: 95%;
+    margin: 10px auto;
+    padding: 0 17px;
+    margin: 30px auto 30px;
+}
 @media only screen and (min-width: 769px) {
     .search-header-mobile,
     .nav-toggle {
@@ -489,6 +495,7 @@ img {
 }
 
 @media only screen and (max-width: 768px) {
+
     .search-header-desk,
     .header-account,
     .header-menu {
@@ -735,7 +742,8 @@ img {
 }
 
 .banner-promotion__wrapper .promo-item strong {
-    font-weight: 700;
+    font-weight: 400;
+    font-family: proxima_nova_altbold, sans-serif;
 }
 
 .banner-promotion__wrapper .buy-now-paylater {
@@ -893,14 +901,14 @@ img {
     clear: both;
     font-size: 11px;
     color: rgb(0, 0, 0);
-    font-weight: bold;
+    font-weight: 400;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     line-height: 1.3em;
     height: 2.6em;
-    font-family: "Proxima Nova", sans-serif;
+    font-family: proxima_nova_altbold, sans-serif;
 }
 
 .top-seller-carousel .product__item .product__price {
@@ -1483,9 +1491,9 @@ img {
     margin-top: 10px;
     font-size: 14px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 25px;
-    font-family: Proxima Nova,sans-serif;
+    font-family: proxima_nova_altbold, sans-serif;
 }
 
 .product-details__wrapper .free-delivery-promotion__banner img {
@@ -1542,6 +1550,7 @@ img {
     align-items: center;
     justify-content: center;
     border: 1px solid #000;
+    color: #000;
 }
 
 .addtocart__block__wrapper .wishlist-btn svg path {
@@ -1578,7 +1587,8 @@ fieldset.js.product-form__input.color {
 legend.form__label {
     text-transform: uppercase;
     padding-bottom: 0;
-    font-weight: 600;
+    font-weight: 400;
+    font-family:ProximaNovaSB, sans-serif;
     font-size: 14px;
 }
 .product-details__wrapper .product__price .price {
@@ -1596,7 +1606,8 @@ legend.form__label {
 }
 
 .product-details__wrapper .product__price .special__price {
-    font-weight: 700;
+    font-weight: 400;
+    font-family: proxima_nova_altbold, sans-serif;
     color: #f388aa;
 }
 
@@ -1730,7 +1741,8 @@ legend.form__label {
 .product-details__wrapper .attribute-block__wrapper .swatch-heading {
     text-transform: uppercase;
     padding-bottom: 0;
-    font-weight: 600;
+    font-weight: 400;
+    font-family:ProximaNovaSB, sans-serif;
 }
 
 .product-details__wrapper .attribute-block {
@@ -1817,7 +1829,7 @@ legend.form__label {
     background: #f2f2f2;
     display: inline-block;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 0;
 }
 .upsell-related-products .tabs {
     position: relative;
@@ -1842,7 +1854,8 @@ legend.form__label {
     text-align: center;
     font-size: 20px;
     text-transform: capitalize;
-    font-weight: 600;
+    font-weight: 400;
+    font-family:ProximaNovaSB, sans-serif;
     display: block;
     color: #000;
     text-decoration: none;
@@ -1907,14 +1920,14 @@ legend.form__label {
     clear: both;
     font-size: 11px;
     color: rgb(0, 0, 0);
-    font-weight: bold;
+    font-weight: 400;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     line-height: 1.3em;
     height: 2.6em;
-    font-family: "Proxima Nova", sans-serif;
+    font-family:proxima_nova_altbold, sans-serif;
 }
 
 .pdp-carousel .product__item .product__price {
@@ -2199,6 +2212,9 @@ body .newsletter-form__message.newsletter-form__message--success {
 
 .site-header .header-right-icons>div.wishlist-icon a.wk-link {
 	position: relative;
+    display: block;
+    height: auto;
+    width: auto;
 }
 
 .site-header .header-right-icons>div.wishlist-icon a.wk-link .wk-icon svg {
@@ -2225,7 +2241,7 @@ body .newsletter-form__message.newsletter-form__message--success {
     justify-content: center;
     width: 22px;
     height: 21px;
-    left: 0;
+    left: 2px;
     font-size: 9px;
     top: 2px;
 }
@@ -2267,13 +2283,15 @@ variant-radios.no-js-hidden {
     margin-left: -5px;
 }
 
-.navigation>ul>li>.submenu li.hassubmenu > a {
-    font-weight: 700;
+.navigation > ul > li > .submenu li.hassubmenu > a {
+	font-weight: 500;
+	font-family: "Proxima Nova", sans-serif;
 }
 
 /* 17-07-23 */
 
 @media only screen and (min-width: 769px) {
+  
     .navigation>ul>li.single-menu {
         position: relative;
     }
@@ -2284,6 +2302,7 @@ variant-radios.no-js-hidden {
     }
     .navigation>ul>li.single-menu>.submenu > .container {
         padding: 0;
+        display: block;
     }
     .navigation>ul>li.single-menu>.submenu li {
         width: 100%;
@@ -2302,4 +2321,164 @@ variant-radios.no-js-hidden {
     .navigation>ul>li.single-menu>.submenu li:last-child a {
         border-bottom: 0;
     }
+    .navigation>ul>li>.submenu .container>ul li {
+        min-width: 150px;
+        margin-right: 15px;
+    }
+    .navigation>ul>li>.submenu .container>ul li:last-child {
+        margin-right: 0;
+    }
+    .navigation>ul>li>.submenu .container>ul li.hassubmenu>ul {
+        margin-left: -3px;
+        margin-top: 20px;
+    }
+}
+
+
+/* Wishlist page */
+
+#kp-items_list {
+    column-gap: 15px;
+    row-gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    list-style: none;
+    padding: 0;
+}
+
+#kp-items_list li.item-list {
+    width: calc(25% - 15px * 3 / 4);
+    max-width: calc(25% - 15px * 3 / 4);
+    position: relative;
+}
+
+body.Wishlist .page-width {
+    max-width: var(--page-width);
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+body.Wishlist .main-page-title {
+    display: none;
+}
+
+#kp-items_list li.item-list .item-image img {
+    width: 100%;
+}
+
+#kp-items_list li.item-list .item-info {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+#kp-items_list li.item-list .item-info .item-title {
+    width: 70%;
+    text-transform: uppercase;
+    white-space: normal;
+    letter-spacing: .65px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    clear: both;
+    font-size: 11px;
+    color: #000;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3em;
+    height: 2.6em;
+    font-family: proxima_nova_altbold,sans-serif;
+}
+
+#kp-items_list li.item-list .item-info .item-title a.item-title-link {
+    text-decoration: none;
+}
+
+#kp-items_list li.item-list .item-info .item-price {
+    width: 30%;
+    letter-spacing: .65px;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    clear: both;
+    font-size: 11px;
+    color: #000;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.3em;
+    height: 2.6em;
+}
+
+#kp-items_list li.item-list .item-info .varinat-selector {
+    width: 100%;
+    padding: 10px 0;
+}
+
+#kp-items_list li.item-list .item-info .varinat-selector select {
+    width: 100%;
+    height: 40px;
+    padding: 5px 10px;
+    background-color: #f9f9f9;
+}
+
+#kp-items_list li.item-list .item-info .add-to-cart {
+    width: 100%;
+}
+
+#kp-items_list li.item-list .kp-wishlist-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-indent: -135000px;
+    width: 20px;
+    font-size: 0;
+}
+
+#kp-items_list li.item-list .kp-wishlist-remove:before {
+    content: "";
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' aria-hidden='true' focusable='false' class='icon icon-close' fill='none' viewBox='0 0 18 17'%3E%3Cpath d='M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z' fill='currentColor'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+
+@media only screen and (max-width: 767px) {
+    #kp-items_list li.item-list {
+        width: calc(50% - 11.25px);
+        max-width: calc(50% - 11.25px);
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    #kp-items_list {
+        column-gap: 0;        
+    }
+    #kp-items_list li.item-list {
+        width: 100%;
+        max-width: 100%;
+        position: relative;
+    }
+}
+
+.spr-starrating {
+    justify-content: flex-start !important;
+    margin-bottom: 10px;
+}
+
+body.modal-open:before {
+    content: "";
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
 }
