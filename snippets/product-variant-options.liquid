@@ -60,10 +60,17 @@
       {% endif %}
     >
     <label
+      class="
+        {% if forloop.length > 1 %}enable-filter {% endif %}
+        {% if option.name == 'color' or option.name == 'Color' or option.name == 'Colour' or option.name == 'colour' %}
+          Color-swatch
+        {% endif %}
+      "
+      data-value="{{ value }}"
       title="{{ value }}"
       for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
       {% if option.name == 'color' or option.name == 'Color' or option.name == 'Colour' or option.name == 'colour' %}
-        style="background-color: {{ value }};"
+        style="background-color: {{ value }};" color-size="{{ forloop.length }}"
       {% endif %}
     >
       {{ value -}}

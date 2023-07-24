@@ -9,6 +9,16 @@
           "settings": {
           }
         },
+        "5176b406-2029-4831-8bc1-de6bda698ba6": {
+          "type": "shopify:\/\/apps\/product-reviews\/blocks\/star_rating\/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {
+            "stars_fill_color": "#000000",
+            "star_size": 15,
+            "text_align": "center",
+            "product": "",
+            "stars_text_empty": "No reviews"
+          }
+        },
         "91916fc3-1134-4bd8-9564-1b8ff17fe6d7": {
           "type": "price",
           "settings": {
@@ -44,6 +54,7 @@
       },
       "block_order": [
         "75a82853-64d5-4c06-818d-8e22a910d20b",
+        "5176b406-2029-4831-8bc1-de6bda698ba6",
         "91916fc3-1134-4bd8-9564-1b8ff17fe6d7",
         "749eafd2-b6a3-4678-af5d-4c1cc37de4fb",
         "61f360cc-12a2-4d5c-82f7-651d4c687669",
@@ -64,10 +75,26 @@
         "heading2": "Shop The Look",
         "collection": "all-new-in"
       }
+    },
+    "1689583101844fe12e": {
+      "type": "apps",
+      "blocks": {
+        "e5ab4ade-4402-4000-a27a-ef63bdfa43d7": {
+          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "e5ab4ade-4402-4000-a27a-ef63bdfa43d7"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "main",
-    "d7a3752e-c112-4fce-9b7e-e1fde0f1fc2c"
+    "d7a3752e-c112-4fce-9b7e-e1fde0f1fc2c",
+    "1689583101844fe12e"
   ]
 }

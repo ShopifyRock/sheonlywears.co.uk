@@ -1,0 +1,194 @@
+.search__input.field__input {
+  padding-right: 9.8rem;
+}
+
+.search__button {
+  right: var(--inputs-border-width);
+  top: var(--inputs-border-width);
+}
+
+.reset__button {
+  right: calc(var(--inputs-border-width) + 4.4rem);
+  top: var(--inputs-border-width);
+}
+
+.reset__button:not(:focus-visible)::after {
+  border-right: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  display: block;
+  height: calc(100% - 1.6rem);
+  content: '';
+  position: absolute;
+  right: 0;
+}
+
+.reset__button:not(:focus)::after {
+  border-right: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  display: block;
+  height: calc(100% - 1.8rem);
+  content: '';
+  position: absolute;
+  right: 0;
+}
+
+.search__button:focus-visible,
+.reset__button:focus-visible {
+  background-color: rgb(var(--color-background));
+  z-index: 4;
+}
+
+.search__button:focus,
+.reset__button:focus {
+  background-color: rgb(var(--color-background));
+  z-index: 4;
+}
+
+.search__button:not(:focus-visible):not(.focused),
+.reset__button:not(:focus-visible):not(.focused) {
+  box-shadow: inherit;
+  background-color: inherit;
+}
+
+.search__button:hover .icon,
+.reset__button:hover .icon {
+  transform: scale(1.07);
+}
+
+.search__button .icon {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+
+.reset__button .icon.icon-close {
+  height: 1.8rem;
+  width: 1.8rem;
+  stroke-width: 0.1rem;
+}
+
+/* Remove extra spacing for search inputs in Safari */
+input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+
+/* Search result page 20-07-23 */
+
+body .template-search {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.template-search .template-search__header {
+  margin-bottom: 0;
+}
+
+.template-search .template-search__results.page-width .product-grid {
+  column-gap: 16px;
+  row-gap: 16px;
+}
+
+.template-search .template-search__results.page-width .product-grid {
+  column-gap: 16px;
+  row-gap: 16px;
+}
+
+@media only screen and (min-width: 990px) {
+  .template-search .template-search__results.page-width .product-grid.grid--4-col-desktop .grid__item {
+      width: calc(25% - 16px * 3 / 4);
+      max-width: calc(25% - 16px * 3 / 4);
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .template-search .template-search__results.page-width .product-grid.grid--4-col-desktop .grid__item {
+      width: calc(50% - 16px / 2);
+      max-width: calc(50% - 16px / 2);
+  }
+}
+
+.template-search__results.page-width .product-card-wrapper .card {
+    border-radius: 0;
+    border: 0;
+}
+
+.template-search__results.page-width .product-card-wrapper .card .card__content {
+  border:0;
+  padding: 0;
+  display: block;
+}
+
+.template-search__results.page-width .product-card-wrapper .card .card__information {
+  padding-bottom: 0;
+  padding-top: 1rem;
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+
+.template-search__results.page-width .product-card-wrapper .card .card__information .card__heading {
+  width: 70%;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 15px;
+  white-space: normal;
+  letter-spacing: .65px;
+  margin-right: 0;
+  font-family: ProximaNovaSB,sans-serif;
+  height: auto;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.template-search__results.page-width .product-card-wrapper .card .card__information .card-information {
+  width: 30%;
+  font-size: 11px;
+  line-height: 15px;
+  text-overflow: initial;
+  letter-spacing: .65px;
+  font-family: ProximaNovaSB,sans-serif;
+  text-align: right;
+}
+
+.template-search__results.page-width .product-card-wrapper .card .card__information .price {
+    font-size: 11px;
+    line-height: 15px;
+    text-overflow: initial;
+    letter-spacing: .65px;
+    font-family: ProximaNovaSB,sans-serif;
+    text-align: right;
+    margin-top: 0;
+}
+
+.template-search__results.page-width .product-card-wrapper .card .card__information .price .price-item {
+  font-family: ProximaNovaSB,sans-serif;
+  font-size: 11px;
+  line-height: 15px;
+  color: #000;
+}
+
+
+.template-search__results.page-width .product-card-wrapper .card .card__inner .card__media {
+    border-radius: 0;
+}
+
+
+@media only screen and (max-width: 749px) {
+  .template-search .template-search__results.page-width .product-grid.grid--4-col-desktop .grid__item {
+    width: calc(50% - 16px / 2);
+    max-width: calc(50% - 16px / 2);
+  }   
+  .disclosure-has-popup[open]>summary+* {
+      z-index: 1000001 !important;
+  }
+}
+
