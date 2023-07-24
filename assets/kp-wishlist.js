@@ -54,11 +54,15 @@ const __kpInsertItemHtml = async(itemHandle) => {
           <a href="javascript:void(0);" class="kp-wishlist-remove" data-product-handle="${item.handle}">Remove</a>
         </div>
     </li>`;
+    if(document.getElementById("kp-items_list") !== null ){
   document.getElementById("kp-items_list").insertAdjacentHTML("afterbegin", __kpWishlistItemHtml);
+    }
 }
 const __kpGetWIshlistData = async() => {
   if (__kpWishlistLocalJson !== null && __kpWishlistLocalJson.length > 0) {
+    if(document.getElementById("kp-items_list") !== null ){
     document.getElementById("kp-items_list").innerHTML = "";
+    }
     __kpWishlistLocalJson.forEach( (item) => {
         __kpInsertItemHtml(item.product_handle);
     });
