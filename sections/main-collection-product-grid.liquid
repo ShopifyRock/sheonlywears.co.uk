@@ -5,634 +5,460 @@
 <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
 
 <main class="collection-section">
-        <div class="collection-page__container">
-            <div class="page-top">
-              {% include 'breadcrumbs' %}
+  <div class="collection-page__container">
+    <div class="page-top">
+      {% include 'breadcrumbs' %}
 
-                <!-- Top content start -->
+      <!-- Top content start -->
 
-                <div class="page-top-content">
-                    <div class="category-title">
-                        <h1>Title here</h1>
-                    </div>
-                    <div id="above-the-fold">
-                        <div class="show-paragraph">
-                            <p>Donec suscipit tortor nulla, at efficitur sapien iaculis ut. Curabitur sit amet leo et orci interdum lacinia. Vestibulum neque ex, malesuada eget imperdiet nec, suscipit a dui. In efficitur lacus dolor, vitae blandit enim consequat quis. Proin vel luctus nunc. Ut et mattis tortor, sed faucibus elit. Cras quis blandit massa, quis porta nunc. Vestibulum et maximus nulla. Phasellus nec magna condimentum, sollicitudin nibh sed, tempus lectus.
-                            </p>
-                        </div>
-                
-                        <div class="expandable">
-                            <div class="atf-links" style="display: flex;">
-                                <p><a href="#" title="Green">Green</a></p>
-                                <p><a href="#" title="Multi/Print">Multi/Print</a></p>
-                                <p><a href="#" title="Blue">Blue</a></p>
-                                <p><a href="#" title="Pink">Pink</a></p>
-                                <p><a href="#" title="White">White</a></p>
-                                <p><a href="#" title="Black">Black</a></p>
-                                <p><a href="#" title="Red">Red</a></p>
-                                <p><a href="#" title="Beige/Cream">Beige/Cream</a></p>
-                                <p><a href="#" title="Orange">Orange</a></p>
-                                <p><a href="#" title="Yellow">Yellow</a></p>                
-                            </div>                
-                        </div>
-                        <span id="view-more-atf" class="view-more">Read more</span>                                
-                        </div>
-                </div>
-
-                <!-- Top content end -->
-
-                <!-- collection product layout start -->
-
-                <div class="collection-grid">
-                    <div class="filter-sidebar">
-                        <div class="filter-title">
-                            <h3>Filters</h3>
-                            <button type="button" class="drawer__close-button">
-                                <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64">
-                                    <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="filter-content">
-                            <div class="selected-filters-options">
-                                <a href="#" title="brand: banbe" class="selected-option-item">
-                                    <span>brand: banbe</span>
-                                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 1L8 8" stroke="#231F20"></path>
-                                        <path d="M8 1L1 8" stroke="#231F20"></path>
-                                    </svg>
-                                </a>
-                                <a href="#" title="brand: banbe" class="selected-option-item">
-                                    <span>brand: banbe</span>
-                                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 1L8 8" stroke="#231F20"></path>
-                                        <path d="M8 1L1 8" stroke="#231F20"></path>
-                                    </svg>
-                                </a>
-                                <a href="#" title="brand: banbe" class="selected-option-item">
-                                    <span>brand: banbe</span>
-                                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 1L8 8" stroke="#231F20"></path>
-                                        <path d="M8 1L1 8" stroke="#231F20"></path>
-                                    </svg>
-                                </a>
-                                <a href="#" title="brand: banbe" class="selected-option-item">
-                                    <span>brand: banbe</span>
-                                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 1L8 8" stroke="#231F20"></path>
-                                        <path d="M8 1L1 8" stroke="#231F20"></path>
-                                    </svg>
-                                </a>
-                                <a href="#" title="brand: banbe" class="selected-option-item">
-                                    <span>brand: banbe</span>
-                                    <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1 1L8 8" stroke="#231F20"></path>
-                                        <path d="M8 1L1 8" stroke="#231F20"></path>
-                                    </svg>
-                                </a>
-                                <a class="clear-all-btn" href="#" title="clear all">clear all</a>
-                            </div>
-
-                            <ul>
-                                <li>
-                                    <a href="javascript:void(0)" class="filter-option-title" title="brand">
-                                        <span>brand</span>
-                                        <span class="filter-icons" role="presentation">
-                                            <svg class="is-opened-hidden" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                              <path d="M6.00708 0.00195312L6.04908 12.054" stroke="#231F20" stroke-width="1"></path>
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04845L0.00268555 6.00745L12.0537 6.04845Z" fill="#F1D5D5"></path>
-                                              <path d="M12.054 6.04895L0.00195312 6.00695" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                            <svg class="is-opened-visible" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04858L0.00268555 6.00758L12.0537 6.04858Z" fill="#F1D5D5"></path>
-                                                <path d="M12.054 6.04883L0.00195312 6.00683" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                          </span>
-                                    </a>
-                                    <div class="filter-option-content">
-                                        <ul class="options-list">
-                                            <li><a class="options-item options-item--active" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" class="filter-option-title" title="Color">
-                                        <span>Color</span>
-                                        <span class="filter-icons" role="presentation">
-                                            <svg class="is-opened-hidden" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                              <path d="M6.00708 0.00195312L6.04908 12.054" stroke="#231F20" stroke-width="1"></path>
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04845L0.00268555 6.00745L12.0537 6.04845Z" fill="#F1D5D5"></path>
-                                              <path d="M12.054 6.04895L0.00195312 6.00695" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                            <svg class="is-opened-visible" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04858L0.00268555 6.00758L12.0537 6.04858Z" fill="#F1D5D5"></path>
-                                                <path d="M12.054 6.04883L0.00195312 6.00683" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                          </span>
-                                    </a>
-                                    <div class="filter-option-content">
-                                        <ul class="options-list">
-                                            <li><a class="options-item white" href="#" title="white">white</a></li>
-                                            <li><a class="options-item green" href="#" title="green">green</a></li>
-                                            <li><a class="options-item red" href="#" title="red">red</a></li>
-                                            <li><a class="options-item orange" href="#" title="orange">orange</a></li>
-                                            <li><a class="options-item grey" href="#" title="grey">grey</a></li>
-                                            <li><a class="options-item light-blue" href="#" title="light-blue">light-blue</a></li>
-                                            <li><a class="options-item blue" href="#" title="blue">blue</a></li>
-                                            <li><a class="options-item purple" href="#" title="purple">purple</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" class="filter-option-title" title="Size">
-                                        <span>Size</span>
-                                        <span class="filter-icons" role="presentation">
-                                            <svg class="is-opened-hidden" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                              <path d="M6.00708 0.00195312L6.04908 12.054" stroke="#231F20" stroke-width="1"></path>
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04845L0.00268555 6.00745L12.0537 6.04845Z" fill="#F1D5D5"></path>
-                                              <path d="M12.054 6.04895L0.00195312 6.00695" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                            <svg class="is-opened-visible" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04858L0.00268555 6.00758L12.0537 6.04858Z" fill="#F1D5D5"></path>
-                                                <path d="M12.054 6.04883L0.00195312 6.00683" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                          </span>
-                                    </a>
-                                    <div class="filter-option-content">
-                                        <ul class="options-list">
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" class="filter-option-title" title="Length">
-                                        <span>Length</span>
-                                        <span class="filter-icons" role="presentation">
-                                            <svg class="is-opened-hidden" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                              <path d="M6.00708 0.00195312L6.04908 12.054" stroke="#231F20" stroke-width="1"></path>
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04845L0.00268555 6.00745L12.0537 6.04845Z" fill="#F1D5D5"></path>
-                                              <path d="M12.054 6.04895L0.00195312 6.00695" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                            <svg class="is-opened-visible" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04858L0.00268555 6.00758L12.0537 6.04858Z" fill="#F1D5D5"></path>
-                                                <path d="M12.054 6.04883L0.00195312 6.00683" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                          </span>
-                                    </a>
-                                    <div class="filter-option-content">
-                                        <ul class="options-list">
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" class="filter-option-title" title="SEASON">
-                                        <span>SEASON</span>
-                                        <span class="filter-icons" role="presentation">
-                                            <svg class="is-opened-hidden" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                              <path d="M6.00708 0.00195312L6.04908 12.054" stroke="#231F20" stroke-width="1"></path>
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04845L0.00268555 6.00745L12.0537 6.04845Z" fill="#F1D5D5"></path>
-                                              <path d="M12.054 6.04895L0.00195312 6.00695" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                            <svg class="is-opened-visible" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04858L0.00268555 6.00758L12.0537 6.04858Z" fill="#F1D5D5"></path>
-                                                <path d="M12.054 6.04883L0.00195312 6.00683" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                          </span>
-                                    </a>
-                                    <div class="filter-option-content">
-                                        <ul class="options-list">
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0)" class="filter-option-title" title="Occasion">
-                                        <span>Occasion</span>
-                                        <span class="filter-icons" role="presentation">
-                                            <svg class="is-opened-hidden" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                              <path d="M6.00708 0.00195312L6.04908 12.054" stroke="#231F20" stroke-width="1"></path>
-                                              <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04845L0.00268555 6.00745L12.0537 6.04845Z" fill="#F1D5D5"></path>
-                                              <path d="M12.054 6.04895L0.00195312 6.00695" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                            <svg class="is-opened-visible" width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.04882 12.0542L6.00782 0.00219727L6.04882 12.0542Z" fill="#F1D5D5"></path>
-                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0537 6.04858L0.00268555 6.00758L12.0537 6.04858Z" fill="#F1D5D5"></path>
-                                                <path d="M12.054 6.04883L0.00195312 6.00683" stroke="#231F20" stroke-width="1"></path>
-                                            </svg>
-                                          </span>
-                                    </a>
-                                    <div class="filter-option-content">
-                                        <ul class="options-list">
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                            <li><a class="options-item" href="#" title="banbe">banbe</a></li>
-                                        </ul>
-                                    </div>
-                                </li>                                
-                            </ul>
-
-<form class="filter-form">
-  {%- for filter in collection.filters -%}
-    <details class="filter-group">
-      <summary class="filter-group-summary">
-        <div>
-          <span>{{ filter.label }}</span>
-
-          {%- if filter.active_values.size > 0 -%}
-            <span>({{ filter.active_values.size }})</span>
-          {%- endif -%}
+      <div class="page-top-content">
+        <div class="category-title">
+          <h1>{{ collection.title }}</h1>
         </div>
-      </summary>
+        <div id="above-the-fold">
+          <div class="show-paragraph">
+            <p>{{ collection.description }}</p>
+          </div>
 
-      <div class="filter-group-display">
-        <div class="filter-group-display__header">
-          <span class="filter-group-display__header-selected">{{ filter.active_values.size }} selected</span>
-
-          {%- if filter.active_values.size > 0 -%}
-            <a href="{{ filter.url_to_remove }}" class="filter-group-display__header-reset">Reset</a>
-          {%- endif -%}
+          <div class="expandable">
+            <div class="atf-links" style="display: flex;">
+                {% for tag in collection.all_tags %}
+                    {% if tag contains 'swatchcolour_' %}
+                      <p><a href="{{ tag | handleize | prepend:'/' | within: collection }}" title="{{ tag | remove: 'swatchcolour_' | replace: "-", "/" | capitalize}}">{{ tag | remove: 'swatchcolour_' | replace: "-", "/" | capitalize}}</a></p>  
+                    {% endif %}
+                {% endfor %} 
+            </div>
+          </div>
+          <span id="view-more-atf" class="view-more">Read more</span>
         </div>
-
-        {%- case filter.type -%}
-          {%- when 'boolean' or 'list' -%}
-            <ul class="filter-group-display__list">
-              {%- for filter_value in filter.values -%}
-                <li class="filter-group-display__list-item">
-                  <label for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
-                  <input type="checkbox"
-                    name="{{ filter_value.param_name }}"
-                    value="{{ filter_value.value }}"
-                    id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
-                    {% if filter_value.active -%}checked{%- endif %}
-                    {% if filter_value.count == 0 and filter_value.active == false -%}disabled{%- endif %}
-                  >{{ filter_value.label }}</label>
-                </li>
-              {%- endfor -%}
-            </ul>
-
-            <div class="filter-group-display__submit">
-              <input type="submit" value="Apply">
-            </div>
-          {%- when 'price_range' -%}
-            <div class="filter-group-display__price-range">
-              <div class="filter-group-display__price-range-from">
-                <span>{{ cart.currency.symbol }}</span>
-
-                <input name="{{ filter.min_value.param_name }}"
-                  id="Filter-{{ filter.min_value.param_name }}"
-                  {% if filter.min_value.value -%}
-                    value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
-                  {%- endif %}
-                  type="number"
-                  placeholder="0"
-                  min="0"
-                  max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                >
-
-                <label for="Filter-{{ filter.min_value.param_name }}">From</label>
-              </div>
-              <div class="filter-group-display__price-range-to">
-                <span>{{ cart.currency.symbol }}</span>
-
-                <input name="{{ filter.max_value.param_name }}"
-                  id="Filter-{{ filter.max_value.param_name }}"
-                  {% if filter.max_value.value -%}
-                    value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
-                  {%- endif %}
-                  type="number"
-                  placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                  min="0"
-                  max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
-                >
-
-                <label for="Filter-{{ filter.max_value.param_name }}">To</label>
-              </div>
-            </div>
-
-            <div class="filter-group-display__submit">
-              <input type="submit" value="Apply">
-            </div>
-        {%- endcase -%}
       </div>
-    </details>
-  {%- endfor -%}
 
-  <div class="active-filters">
-    <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="active-filters__clear">Clear all</a>
+      <!-- Top content end -->
 
-    {%- for filter in collection.filters -%}
-      {%- if filter.type == "price_range" -%}
-        {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
-          <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
-            {%- assign min_value = filter.min_value.value | default: 0 -%}
-            {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
-            {{ min_value | money }} - {{ max_value | money }} X
-          </a>
-        {%- endif -%}
-      {%- else -%}
-        {%- for filter_value in filter.active_values -%}
-          <a class="active-filters__remove-filter" href="{{ filter_value.url_to_remove }}">
-            {{ filter.label }}: {{ filter_value.label }} X
-          </a>
-        {%- endfor -%}
-      {%- endif- %}
-    {%- endfor -%}
-  </div>
-</form>
-                          
-                        </div>
+      <!-- collection product layout start -->
+      {%- paginate collection.products by 12 -%}
+        <div class="collection-grid">
+          <div class="filter-sidebar">
+            <div class="filter-title">
+              <h3>Filters</h3>
+              <button type="button" class="drawer__close-button">
+                <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64">
+                  <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="filter-content">
+              {% render 'collection-filter' %}
+            </div>
+          </div>
+
+          <div class="collection-grid__wrapper">
+            <div class="toolbar-options-wrapper">
+              <div class="grid-display-type">
+                <a href="javascript:void(0)" class="display__4__items display__active">
+                  <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.25" y="0.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
+                    <rect x="0.25" y="13.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
+                    <rect x="12.25" y="0.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
+                    <rect x="12.25" y="13.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
+                  </svg>
+                </a>
+                <a href="javascript:void(0)" class="display__3__items">
+                  <svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.25" y="0.25" width="8.5" height="22.5" stroke="black" stroke-width="0.5"></rect>
+                    <rect x="12.25" y="0.25" width="8.5" height="22.5" stroke="black" stroke-width="0.5"></rect>
+                    <rect x="24.25" y="0.25" width="8.5" height="22.5" stroke="black" stroke-width="0.5"></rect>
+                  </svg>
+                </a>
+              </div>
+
+              <div class="toolbar-options">
+                <div class="sort-options">
+                  <a class="filter-mobile-title" href="javascript:void(0)">
+                    <span>Filters</span>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="icon icon-chevron-right"
+                      viewBox="0 0 284.49 498.98"
+                    >
+                      <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
+                    </svg>
+                  </a>
+                  {% comment %}
+                    <div class="sortBy">
+                      <label for="SortBy" class="uppercase1">popular</label>
+                      <select name="SortBy" id="SortBy">
+                        {% for option in collection.sort_options %}
+                          <option
+                            value="{{ option.value }}"
+                            {% if sort_by == option.value %}
+                              selected="selected"
+                            {% endif %}
+                          >
+                            {{ option.name }}
+                          </option>
+                        {% endfor %}
+                      </select>
                     </div>
-                  {%- paginate collection.products by 12 -%}
-                    <div class="collection-grid__wrapper">
-                        
-                        <div class="toolbar-options-wrapper">
-
-                            <div class="grid-display-type">
-                                <a href="javascript:void(0)" class="display__4__items display__active">
-                                    <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.25" y="0.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
-                                        <rect x="0.25" y="13.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
-                                        <rect x="12.25" y="0.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
-                                        <rect x="12.25" y="13.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
-                                    </svg>
-                                </a>
-                                <a href="javascript:void(0)" class="display__3__items">
-                                    <svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect x="0.25" y="0.25" width="8.5" height="22.5" stroke="black" stroke-width="0.5"></rect>
-                                        <rect x="12.25" y="0.25" width="8.5" height="22.5" stroke="black" stroke-width="0.5"></rect>
-                                        <rect x="24.25" y="0.25" width="8.5" height="22.5" stroke="black" stroke-width="0.5"></rect>
-                                    </svg>
-                                </a>
-                            </div>
-
-                            <div class="toolbar-options">
-                                
-                                <div class="sort-options">
-                                    <a class="filter-mobile-title" href="javascript:void(0)">
-                                        <span>Filters</span>
-                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
-                                            <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
-                                        </svg>
-                                    </a>
-                                    <div class="sort-options-container">                                       
-                                        <div class="sort-options-dropdown" id="sort-options-dropdown">
-                                            <a id="sort-options-dropdown-title" onclick="sortDropdown()" class="sort-options-dropdown-title">
-                                                popular
-                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
-                                                    <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
-                                                </svg>
-                                            </a>
-                                            <div class="sort-options-dropdown-content">
-                                                <div class="sort-title">
-                                                    <span>sort</span>
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
-                                                        <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
-                                                    </svg>
-                                                    <button type="button" class="drawer__close-button">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64">
-                                                            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path>
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                                <a href="#" title="Popular"><span>Popular</span></a>
-                                                <a href="#" title="Price, low to high"><span>Price, low to high</span></a>
-                                                <a href="#" title="Price, high to low"><span>Price, high to low</span></a>
-                                                <a href="#" title="Date, old to new"><span>Date, old to new</span></a>
-                                                <a href="#" title="Date, new to old"><span>Date, new to old</span></a>
-                                            </div>
-                                        </div>
-                                    </div>                                  
-                                </div>
-                    
-                                <div class="selected-filters-options selected-filters-options-mobile">
-                                    <a href="#" title="brand: banbe" class="selected-option-item">
-                                        <span>brand: banbe</span>
-                                        <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 1L8 8" stroke="#231F20"></path>
-                                            <path d="M8 1L1 8" stroke="#231F20"></path>
-                                        </svg>
-                                    </a>
-                                    <a href="#" title="brand: banbe" class="selected-option-item">
-                                        <span>brand: banbe</span>
-                                        <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 1L8 8" stroke="#231F20"></path>
-                                            <path d="M8 1L1 8" stroke="#231F20"></path>
-                                        </svg>
-                                    </a>
-                                    <a href="#" title="brand: banbe" class="selected-option-item">
-                                        <span>brand: banbe</span>
-                                        <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 1L8 8" stroke="#231F20"></path>
-                                            <path d="M8 1L1 8" stroke="#231F20"></path>
-                                        </svg>
-                                    </a>
-                                    <a href="#" title="brand: banbe" class="selected-option-item">
-                                        <span>brand: banbe</span>
-                                        <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 1L8 8" stroke="#231F20"></path>
-                                            <path d="M8 1L1 8" stroke="#231F20"></path>
-                                        </svg>
-                                    </a>
-                                    <a href="#" title="brand: banbe" class="selected-option-item">
-                                        <span>brand: banbe</span>
-                                        <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M1 1L8 8" stroke="#231F20"></path>
-                                            <path d="M8 1L1 8" stroke="#231F20"></path>
-                                        </svg>
-                                    </a>
-                                    <a class="clear-all-btn" href="#" title="clear all">clear all</a>
-                                </div>
-
-                               {%- if paginate.pages > 1 -%}
-                                  {% render 'pagination', paginate: paginate, anchor: '' %}
-                                {%- endif -%}
-
-                            </div>
-
-                        </div>                        
-                      
-                        <div class="collection__grid">
-                            {%- for product in collection.products -%}
-                            <div class="product__content">
-
-                                <div class="product-collection-image__wrapper">
-                                    
-                                  <div class="wishlist-btn">         
-                              <a href="javascript:void(0)" class="kp-wishlist_btn {{ template.name }}"  data-product-handle="{{product.handle}}" title="wishlist">
-                                <svg
-                                  width="24"
-                                  height="24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill-rule="evenodd"
-                                  clip-rule="evenodd"
-                                >
-                                  <path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181"/>
-                                </svg>
-                            </a></div>
-                                    
-                                    <div class="product-collection-image__carousel">
-                                        
-                                        <a href="javascript:void(0)" class="product--url">
-                                            <div class="collection-product-slider">
-                                              {% for media in product.media %}
-                                                <div class="{{ media.alt | handleize }}"><img  src="{{ media |img_url: '' }}" width="800" height="1200"  alt="{{ media.alt }}"></div>                                                
-                                              {% endfor %}
-                                            </div>
-                                        </a>
-
-                                        <div class="attribute-options">
-                                        {%- unless product.has_only_default_variant -%}
-                                           {% for option in product.options_with_values %}
-                                            <div class="attribute-options__wrapper {{ option.name | handleize }}">
-                                               {% for value in option.values %}
-                                                  {% assign radio_id = 'option-' | append: option_name | append: '-' | append: value | handleize %}
-                                      
-                                                  {%- for variant in product.variants -%}
-                                                    {%- if variant.title contains value -%}
-                                                      {%- assign variantImgSrc = variant.image.src | img_url: '20x20', scale: 3, crop: 'center' -%}
-                                                      {%- break -%}
-                                                    {%- endif -%}
-                                                  {%- endfor -%}
-                                                  <a href="javascript:void(0)" data-option-value="{{ value }}" data-product-handle="{{ product.handle }}">
-                                                    <label for="{{ radio_id }}" class="color-swatch-list">
-                                                      {% if option.name == "Colour" %}
-                                                        <img src="{{ variantImgSrc }}">                                 
-                                                      {% else %}
-                                                        {{ value }}
-                                                      {% endif %}
-                                                    </label>
-                                                  </a>
-                                              {% endfor %}
-                                            </div>
-                                          {% endfor %}
-                                        {% endunless %}
-                                        </div>
-
-                                        <div class="product-actions-container">
-                                            <div class="added-to-cart-notice">added to bag</div>
-                                            <button class="quick-add-button" type="button" title="quick add">QUICK ADD +</button>
-                                        </div>
-
-                                    </div>
-                                    
-                                </div>
-
-                                <div class="product--link">
-                                    <a href="{{ product.url }}">
-                                        <div class="product__title-wrapper">
-                                            <h3 class="product__title">{{ product.title }}</h3>
-                                            <span class="product__price">{{ product.price | money_with_currency }}</span>
-                                        </div>
-                                        <div class="product__brand">{{ product.vendor }}</div>
-                                    </a>
-                                </div>  
-
-                            </div> 
-                           {% endfor %}
+                  {% endcomment %}
+                  <div class="sort-options-container">
+                    <div class="sort-options-dropdown sort-options-dropdown-bottom" id="sort-options-dropdown-bottom">
+                      <a
+                        id="sort-options-dropdown-title-bottom"
+                        onclick="sortDropdownBottom()"
+                        class="sort-options-dropdown-title sort-options-dropdown-title-bottom"
+                      >
+                        <span> popular</span>
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          role="presentation"
+                          class="icon icon-chevron-right"
+                          viewBox="0 0 284.49 498.98"
+                        >
+                          <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
+                        </svg>
+                      </a>
+                      <div class="sort-options-dropdown-content">
+                        <div class="sort-title">
+                          <span>sort</span>
+                          <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            role="presentation"
+                            class="icon icon-chevron-right"
+                            viewBox="0 0 284.49 498.98"
+                          >
+                            <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
+                          </svg>
                         </div>
-
-                        <div class="toolbar-options-wrapper">
-
-                            <div class="toolbar-options">
-                                
-                                <div class="sort-options">
-                                    <div class="sort-options-container">                                       
-                                        <div class="sort-options-dropdown sort-options-dropdown-bottom" id="sort-options-dropdown-bottom">
-                                            <a id="sort-options-dropdown-title-bottom" onclick="sortDropdownBottom()" class="sort-options-dropdown-title sort-options-dropdown-title-bottom">
-                                                popular
-                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
-                                                    <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
-                                                </svg>
-                                            </a>
-                                            <div class="sort-options-dropdown-content">
-                                                <div class="sort-title">
-                                                    <span>sort</span>
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
-                                                        <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
-                                                    </svg>
-                                                </div>
-                                                <a href="#" title="Popular"><span>Popular</span></a>
-                                                <a href="#" title="Price, low to high"><span>Price, low to high</span></a>
-                                                <a href="#" title="Price, high to low"><span>Price, high to low</span></a>
-                                                <a href="#" title="Date, old to new"><span>Date, old to new</span></a>
-                                                <a href="#" title="Date, new to old"><span>Date, new to old</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {%- if paginate.pages > 1 -%}
-                                  {% render 'pagination', paginate: paginate, anchor: '' %}
-                                {%- endif -%}
-
-                            </div>
-
-                        </div>
+                        {% comment %}
+                           <a href="#" title="Popular"><span>Popular</span></a>
+                          <a href="#" title="Price, low to high"><span>Price, low to high</span></a>
+                          <a href="#" title="Price, high to low"><span>Price, high to low</span></a>
+                           <a href="#" title="Date, old to new"><span>Date, old to new</span></a>
+                           <a href="#" title="Date, new to old"><span>Date, new to old</span></a>
+                        {% endcomment %}
+                        <a
+                          class="shadowSort__option  active"
+                          href="?sort_by=default"
+                          data-value="default"
+                          title="Popular"
+                          ><span>Popular</span></a
+                        >
+                        <a
+                          class="shadowSort__option"
+                          href="?sort_by=price-ascending"
+                          data-value="price-ascending"
+                          title="Price, low to high"
+                          ><span>Price, low to high</span></a
+                        >
+                        <a
+                          class="shadowSort__option"
+                          href="?sort_by=price-descending"
+                          data-value="price-descending"
+                          title="Price, high to low"
+                          ><span>Price, high to low</span></a
+                        >
+                        <a
+                          class="shadowSort__option"
+                          href="?sort_by=created-ascending"
+                          data-value="created-ascending"
+                          title="Date, old to new"
+                          ><span>Date, old to new</span></a
+                        >
+                        <a
+                          class="shadowSort__option"
+                          href="?sort_by=created-descending"
+                          data-value="created-descending"
+                          title="Date, new to old"
+                          ><span>Date, new to old</span></a
+                        >
+                      </div>
                     </div>
-                  {% endpaginate %}
+                  </div>
                 </div>
 
-                <!-- collection product layout end -->
+                <div class="selected-filters-options selected-filters-options-mobile">
+                  <form class="filter-form " id="collection-sidebar-filter">
+                    <div class="active-filters selected-filters-options">
+                      {%- for filter in collection.filters -%}
+                        {%- if filter.type == 'price_range' -%}
+                          {%- if filter.min_value.value != null or filter.max_value.value != null -%}
+                            <a
+                              class="active-filters__remove-filter selected-option-item"
+                              href="{{ filter.url_to_remove }}"
+                            >
+                              {%- assign min_value = filter.min_value.value | default: 0 -%}
+                              {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+                              {{ min_value | money }} - {{ max_value | money }} X
+                            </a>
+                          {%- endif -%}
+                        {%- else -%}
+                          {%- for filter_value in filter.active_values -%}
+                            <a
+                              class="active-filters__remove-filter selected-option-item "
+                              href="{{ filter_value.url_to_remove }}"
+                            >
+                              {{ filter.label }}: {{ filter_value.label }} X
+                            </a>
+                          {%- endfor -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                      {%- for filter in collection.filters -%}
+                        {% if filter.active_values.size > 0 %}
+                          {% break %}
+                        {% endif %}
+                      {%- endfor -%}
+                      <a
+                        href="{{ collection.url }}?sort_by={{ collection.sort_by }}"
+                        class="active-filters__clear clear-all-btn"
+                        >Clear all</a
+                      >
+                    </div>
+                  </form>
+                  {% comment %}
+                    <a href="#" title="brand: banbe" class="selected-option-item">
+                      <span>brand: banbe</span>
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L8 8" stroke="#231F20"></path>
+                        <path d="M8 1L1 8" stroke="#231F20"></path>
+                      </svg>
+                    </a>
+                    <a href="#" title="brand: banbe" class="selected-option-item">
+                      <span>brand: banbe</span>
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L8 8" stroke="#231F20"></path>
+                        <path d="M8 1L1 8" stroke="#231F20"></path>
+                      </svg>
+                    </a>
+                    <a href="#" title="brand: banbe" class="selected-option-item">
+                      <span>brand: banbe</span>
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L8 8" stroke="#231F20"></path>
+                        <path d="M8 1L1 8" stroke="#231F20"></path>
+                      </svg>
+                    </a>
+                    <a href="#" title="brand: banbe" class="selected-option-item">
+                      <span>brand: banbe</span>
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L8 8" stroke="#231F20"></path>
+                        <path d="M8 1L1 8" stroke="#231F20"></path>
+                      </svg>
+                    </a>
+                    <a href="#" title="brand: banbe" class="selected-option-item">
+                      <span>brand: banbe</span>
+                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L8 8" stroke="#231F20"></path>
+                        <path d="M8 1L1 8" stroke="#231F20"></path>
+                      </svg>
+                    </a>
+                    <a class="clear-all-btn" href="#" title="clear all">clear all</a>
+                  {% endcomment %}
+                </div>
 
-
+                {%- if paginate.pages > 1 -%}
+                  {% render 'pagination', paginate: paginate, anchor: '' %}
+                {%- endif -%}
+              </div>
             </div>
-        </div> 
-    </main>
+
+            <div class="collection__grid">
+              {%- for product in collection.products -%}
+                <div class="product__content">
+                  <div class="product-collection-image__wrapper">
+                    <div class="wishlist-btn">
+                      <a
+                        href="javascript:void(0)"
+                        class="kp-wishlist_btn {{ template.name }}"
+                        data-product-handle="{{product.handle}}"
+                        title="wishlist"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                        >
+                          <path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402m5.726-20.583c-2.203 0-4.446 1.042-5.726 3.238-1.285-2.206-3.522-3.248-5.719-3.248-3.183 0-6.281 2.187-6.281 6.191 0 4.661 5.571 9.429 12 15.809 6.43-6.38 12-11.148 12-15.809 0-4.011-3.095-6.181-6.274-6.181"/>
+                        </svg>
+                      </a>
+                    </div>
+
+                    <div class="product-collection-image__carousel">
+                      <a href="javascript:void(0)" class="product--url">
+                        <div class="collection-product-slider">
+                          {% for media in product.media %}
+                            <div class="{{ media.alt | handleize }}">
+                              <img src="{{ media |img_url: '' }}" width="800" height="1200" alt="{{ media.alt }}">
+                            </div>
+                          {% endfor %}
+                        </div>
+                      </a>
+
+                      <div class="attribute-options">
+                        {%- unless product.has_only_default_variant -%}
+                          {% for option in product.options_with_values %}
+                            <div class="attribute-options__wrapper {{ option.name | handleize }} {% for tag in collection.all_tags%}{% if tag contains 'diff_size' %}diff_size{% endif %}{% endfor %}">
+                              {% for value in option.values %}
+                                {% assign radio_id = 'option-'
+                                  | append: option_name
+                                  | append: '-'
+                                  | append: value
+                                  | handleize
+                                %}
+
+                                {%- for variant in product.variants -%}
+                                  {%- if variant.title contains value -%}
+                                    {%- assign variantImgSrc = variant.image.src
+                                      | img_url: '20x20', scale: 3, crop: 'center'
+                                    -%}
+                                    {%- break -%}
+                                  {%- endif -%}
+                                {%- endfor -%}
+                                <a
+                                  href="javascript:void(0)"
+                                  data-option-value="{{ value }}"
+                                  data-product-handle="{{ product.handle }}"
+                                >
+                                  <label for="{{ radio_id }}" class="color-swatch-list">
+                                    {% if option.name == 'Colour' %}
+                                      <img src="{{ variantImgSrc }}">
+                                    {% else %}
+                                      {{ value }}
+                                    {% endif %}
+                                  </label>
+                                </a>
+                              {% endfor %}
+                            </div>
+                          {% endfor %}
+                        {% endunless %}
+                      </div>
+
+                      <div class="product-actions-container">
+                        <div class="added-to-cart-notice">added to bag</div>
+                        <button class="quick-add-button" type="button" title="quick add">QUICK ADD +</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="product--link">
+                    <a href="{{ product.url }}">
+                      <div class="product__title-wrapper">
+                        <h3 class="product__title">{{ product.title }}</h3>
+                        <span class="product__price">{{ product.price | money_with_currency }}</span>
+                      </div>
+                      <div class="product__brand">{{ product.vendor }}</div>
+                    </a>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+
+            <div class="toolbar-options-wrapper">
+              <div class="toolbar-options">
+                <div class="sort-options">
+                  <div class="sort-options-container">
+                    <div class="sort-options-dropdown sort-options-dropdown-bottom" id="sort-options-dropdown-bottom">
+                      <a
+                        id="sort-options-dropdown-title-bottom"
+                        onclick="sortDropdownBottom()"
+                        class="sort-options-dropdown-title sort-options-dropdown-title-bottom"
+                      >
+                        popular
+                        <svg
+                          aria-hidden="true"
+                          focusable="false"
+                          role="presentation"
+                          class="icon icon-chevron-right"
+                          viewBox="0 0 284.49 498.98"
+                        >
+                          <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
+                        </svg>
+                      </a>
+                      <div class="sort-options-dropdown-content">
+                        <div class="sort-title">
+                          <span>sort</span>
+                          <svg
+                            aria-hidden="true"
+                            focusable="false"
+                            role="presentation"
+                            class="icon icon-chevron-right"
+                            viewBox="0 0 284.49 498.98"
+                          >
+                            <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
+                          </svg>
+                        </div>
+                        <a href="#" title="Popular"><span>Popular</span></a>
+                        <a href="#" title="Price, low to high"><span>Price, low to high</span></a>
+                        <a href="#" title="Price, high to low"><span>Price, high to low</span></a>
+                        <a href="#" title="Date, old to new"><span>Date, old to new</span></a>
+                        <a href="#" title="Date, new to old"><span>Date, new to old</span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {%- if paginate.pages > 1 -%}
+                  {% render 'pagination', paginate: paginate, anchor: '' %}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- collection product layout end -->
+      {% endpaginate %}
+    </div>
+  </div>
+</main>
+<script>
+    $(document).ready(function(){
+    $(function() {
+
+        if ( document.location.href.indexOf('sort_by=default') > -1 ) {
+
+           $(".shadowSort__option[data-value='default']").addClass("active");
+          $("#sort-options-dropdown-title-bottom>span").text("popular");
+        }
+        if ( document.location.href.indexOf('sort_by=price-ascending') > -1 ) {
+          $(".shadowSort__option").removeClass("active");
+          $(".shadowSort__option[data-value='price-ascending']").addClass("active");
+           $("#sort-options-dropdown-title-bottom>span").text("Price, low to high");
+        }
+        if ( document.location.href.indexOf('sort_by=price-descending') > -1 ) {
+          $(".shadowSort__option").removeClass("active");
+          $(".shadowSort__option[data-value='price-descending']").addClass("active");
+          $("#sort-options-dropdown-title-bottom>span").text("Price, high to low");
+        }
+        if ( document.location.href.indexOf('sort_by=created-ascending') > -1 ) {
+          $(".shadowSort__option").removeClass("active");
+          $(".shadowSort__option[data-value='created-ascending']").addClass("active");
+           $("#sort-options-dropdown-title-bottom>span").text("Date, old to new");
+        }
+        if ( document.location.href.indexOf('sort_by=created-descending') > -1 ) {
+          $(".shadowSort__option").removeClass("active");
+          $(".shadowSort__option[data-value='created-descending']").addClass("active");
+          $("#sort-options-dropdown-title-bottom>span").text("Date, new to old");
+        }
+    });
+    $(function() {
+      if ( document.location.href.indexOf('?filter') > -1 ) {
+        $(".active-filters__clear.clear-all-btn").show();
+      }
+    });
+  });
+</script>
+<style>
+    .sort-options .sort-options-dropdown-content>a.active span {
+      background: #F9C8D3;
+  }
+  .active-filters__clear.clear-all-btn{
+    display:none;
+  }
+</style>
 
 {% schema %}
 {

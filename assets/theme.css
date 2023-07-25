@@ -2482,3 +2482,42 @@ body.modal-open:before {
     background: rgba(0, 0, 0, 0.75);
     z-index: 9999;
 }
+
+.swatch-options.sizes.diff_size {
+    align-items: self-start;
+}
+
+.swatch-options.sizes.diff_size label {
+    line-height: 1;
+    text-align: center;
+    width: auto;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 95px;
+}
+
+.swatch-options.sizes.diff_size .size-chart-btn {
+    margin-top: 10px;
+}
+
+.collection__grid .attribute-options .attribute-options__wrapper.diff_size > a {
+    width: auto;
+    padding: 5px;
+    line-height: normal;
+    max-width: 70px;
+}
+
+.collection__grid .attribute-options .attribute-options__wrapper.diff_size.colour > a {
+    padding: 0;
+    width: 33px;
+}
+
+@media only screen and (max-width: 768px) {
+    .swatch-options.sizes.diff_size > div {
+        width: 100%;
+    }
+    .swatch-options.sizes.diff_size label {
+        max-width: 80px;
+    }
+}

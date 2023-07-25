@@ -106,7 +106,7 @@
 }
 #above-the-fold .atf-links {
     display: none;
-    flex-direction: row;
+/*     flex-direction: row; */
     gap: 12px;
     overflow: auto;
     padding: 10px 0;
@@ -114,6 +114,7 @@
     scrollbar-width: none;
     cursor: grab;
     justify-content: center;
+    flex-wrap: wrap;
 }
 #above-the-fold .atf-links p {
     margin-bottom: 0;
@@ -1141,3 +1142,136 @@
 }
 
 /* collection end */
+
+
+/* Filter CSS */
+
+.filter-sidebar .filter-content > .filter-form > .filter-group {
+    border-bottom: 1px solid #979797;
+    margin-bottom: 5px;
+}
+
+.filter-sidebar .filter-group .options-list {
+    padding: 10px 0;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.filter-sidebar .filter-group .options-list li {
+    margin-bottom: 5px;
+    list-style: none;
+    font-family: Proxima Nova,sans-serif;
+}
+
+.filter-sidebar .filter-group .options-list > li > label {
+    display: block;
+    line-height: 2;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    padding-left: 25px;
+    font-size: 14px;
+}
+
+.filter-sidebar .filter-group .options-list > li > label:hover {
+    text-decoration: underline;
+}
+
+.filter-sidebar .filter-content>.filter-form>.filter-group .filter-group-display .filter-group-display__header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.filter-sidebar .filter-group .options-list>li>label input[type="checkbox"] {
+    opacity: 0;
+    visibility: hidden;
+    margin: 0;
+    display: none;
+}
+
+.filter-sidebar .filter-group .options-list>li>label input[type="checkbox"] + span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid #e8e8e1;
+    height: 16px;
+    width: 16px;
+}
+
+.filter-sidebar .filter-group .options-list>li>label input[type="checkbox"]:disabled + span {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.filter-sidebar .filter-group .options-list>li>label input[type="checkbox"]:checked + span:before {
+    background-color: #000;
+    border-color: #000;
+}
+
+.filter-form .filter-group-display__price-range {
+    font-size: 14px;
+    display: flex;
+    color: #000;
+    background: #f3f3f3;
+    padding: 15px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.filter-form .filter-group-display__price-range > div {
+    width: calc(50% - 5px);
+    display: flex;
+    align-items: center;
+}
+
+.filter-form .filter-group-display__price-range > div >span {
+    width: 15px;
+}
+
+.filter-form .filter-group-display__price-range input {
+    height: 30px;
+    border-radius: 0;
+    border: #ddd solid 1px;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: normal;
+    width: 100%;
+    padding: 5px 10px;
+}
+
+.filter-form .filter-group-display__price-range + .filter-group-display__submit input[type="submit"] {
+    padding: 5px 10px;
+    border: solid 1px #979797;
+    margin: 4px 6px 3px 0;
+    font-size: 11px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    background-color: #f1f1f1;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .filter-sidebar .filter-group .options-list li {
+      padding-left: 22px;
+      padding-right: 22px;
+  }
+  .filter-sidebar .filter-content>.filter-form>.filter-group .filter-group-display .filter-group-display__header {
+      padding: 0 22px 10px;
+      margin-bottom: 0;
+  }
+  .filter-form .filter-group-display__price-range {
+      padding: 15px 22px;  
+  }
+  .filter-form .filter-group-display__price-range + .filter-group-display__submit {
+    padding: 0 22px;
+}  
+}

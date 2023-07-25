@@ -25,7 +25,7 @@
         
         <fieldset class="js product-form__input {{ option.name }} {% if option.name == 'color' or option.name == 'Color' or option.name == 'Colour' or option.name == 'colour' %}color{% endif %}" >
           <legend class="form__label">{{ option.name }}</legend>
-         {% if option.name == 'size' or option.name == 'Size'  %} <div class="swatch-options sizes"><div>{% endif %}
+         {% if option.name == 'size' or option.name == 'Size'  %} <div class="swatch-options sizes {% for tag in product.tags%}{% if tag contains 'diff_size' %}diff_size{% endif %}{% endfor %}"><div>{% endif %}
           {% render 'product-variant-options', product: product, option: option, block: block %}
          {% if option.name == 'size' or option.name == 'Size'  %}
          </div>
