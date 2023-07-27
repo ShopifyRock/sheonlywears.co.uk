@@ -254,12 +254,20 @@ details[open] .modal-overlay:after {
 .header-search input.search__input {
   border: 0;
   box-shadow: none;
+  -webkit-appearnce: none;
+  appearance:none;
   border-bottom: solid 1px #979797;
   height: 32px;
   padding-right: 40px;
   padding-left: 0;
   padding-top: 0;
   padding-bottom: 0;
+  border-radius: 0;
+}
+
+input[type="search"] {
+  -webkit-appearnce: none;
+  appearance:none;
 }
 
 .header-search input.search__input::-webkit-input-placeholder {
@@ -525,4 +533,8 @@ details[open] .modal-overlay:after {
       width: 100%;
       text-align: center;
   }
+}
+
+fieldset.color.js.product-form__input input[type=radio]:checked+label {
+    font-size: 0;
 }

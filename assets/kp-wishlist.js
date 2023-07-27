@@ -60,6 +60,8 @@ const __kpInsertItemHtml = async(itemHandle) => {
 }
 const __kpGetWIshlistData = async() => {
   if (__kpWishlistLocalJson !== null && __kpWishlistLocalJson.length > 0) {
+    document.querySelector(".kp-wishlist_count").style.opacity = "1";
+    document.querySelector(".header__icon--wishlist svg path").setAttribute("fill-opacity","1");
     if(document.getElementById("kp-items_list") !== null ){
     document.getElementById("kp-items_list").innerHTML = "";
     }
@@ -74,6 +76,8 @@ const __kpGetWIshlistData = async() => {
     if(document.getElementById("kp-items_list") !== null){
     document.getElementById("kp-items_list").innerHTML = `<li class="empty-wishlist">There is no item in wishlist</li>`;
     }
+    document.querySelector(".kp-wishlist_count").style.opacity = "0";
+    document.querySelector(".header__icon--wishlist svg path").setAttribute("fill-opacity","0");
   }
 }
 const __kpCheckWishlist = () => {
@@ -142,6 +146,8 @@ const __kpRemoveFromWishlistByLink = () => {
           __kpWishlistCountDecrement();
           __kpCheckWishlist();
           if(document.querySelectorAll("#kp-items_list li.item-list").length < 1){
+             document.querySelector(".kp-wishlist_count").style.opacity = "0";
+            document.querySelector(".header__icon--wishlist svg path").setAttribute("fill-opacity","0");
             document.getElementById("kp-items_list").innerHTML = `<li class="empty-wishlist">There is no item in wishlist</li>`;
           }
           setTimeout(()=>{

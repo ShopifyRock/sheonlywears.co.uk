@@ -15,17 +15,54 @@
   
 
 $(document).ready(function () {
- 
+ var previous_grid=getCookie();
+
+  if(previous_grid=="grid3"){
+    $('.display__4__items').removeClass('display__active');
+    $('.display__3__items').addClass('display__active');
+    $('.collection-grid__wrapper').find('.collection__grid').addClass('collection__grid--3');
+  }
+  // console.log("griddata: "+previous_grid);
     $('.grid-display-type').on('click', 'a' ,function(){
         $(this).addClass('display__active').siblings().removeClass('display__active');
         if($('.display__3__items.display__active').length > 0){
+          setCookie("grid3");
           $(this).closest('.collection-grid__wrapper').find('.collection__grid').addClass('collection__grid--3');
         } else {
+           setCookie("grid4");
           $(this).closest('.collection-grid__wrapper').find('.collection__grid').removeClass('collection__grid--3');
         }
         $('.collection-product-slider').slick('refresh');
     });
-    
+
+  // cookie-function
+  function setCookie(cvalue) {
+  const d = new Date();
+  d.setTime(d.getTime() + (10 * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = "gridtype" + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie() {
+  let name = "gridtype" + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+    // cookie-function
+
+
+
+  
     $('.filter-option-title').click(function (e) {
         $(this).toggleClass('filter-active')
         $(this).next().slideToggle(500)
@@ -50,8 +87,8 @@ $(document).ready(function () {
 
 const viewMore = document.getElementById("view-more-atf");
 const atf = document.getElementById('above-the-fold');
-
-viewMore.onclick = function () {
+if(viewMore !== null){
+ viewMore.onclick = function () {
     viewMore.classList.toggle('show-content')
     atf.classList.toggle('show-content')
 
@@ -60,12 +97,14 @@ viewMore.onclick = function () {
     } else {
         viewMore.innerHTML = "Read More"
     }
-}
-
+  }
+ }
 // sort dropdown bottom
  
 function sortDropdownBottom() {
-    document.getElementById("sort-options-dropdown-bottom").classList.toggle("show");
+  // alert("hey");
+    // document.getElementByClass("sort-options-dropdown-bottom").classList.toggle("show");
+  $(".sort-options-dropdown-bottom").toggleClass("show");
 }
 
 window.onclick = function(event) {
@@ -183,5 +222,7 @@ $('.collection__grid .product__content').each(function(){
         });
     });
 });
+
+
 
 

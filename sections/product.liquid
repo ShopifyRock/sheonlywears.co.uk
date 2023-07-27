@@ -1,22 +1,24 @@
 <script src="{{ 'product-info.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 <script src="{{ 'product.js' | asset_url }}" defer="defer"></script>
-
 <style>
-  div.zoom {
-  & img:hover {
-    opacity: 0 !important;
+    div.zoom {
+    & img:hover {
+      opacity: 0 !important;
+    }
+    img {
+      transition: opacity .5s !important;
+      display: block !important;
+      width: 100% !important;
+    }
+    background-position: 50% 50% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    cursor: zoom-in !important;
   }
-  img {
-    transition: opacity .5s !important;
-    display: block !important;
-    width: 100% !important;
+  .no-js-hidden.visibility-hidden {
+      visibility: visible;
   }
-  background-position: 50% 50% !important;
-  position: relative !important;
-  overflow: hidden !important;
-  cursor: zoom-in !important;
-}
 </style>
 
 {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
@@ -31,7 +33,7 @@
           {% endcomment %}
           <div class="product-thumb">
             {% for media in product.media %}
-              <div class="item-slick {{ media.alt | replace: '/', ''}}">
+              <div class="item-slick {{ media.alt | replace: '/', '' | remove:" " }}">
                 <img
                   src="{{ media |img_url: ''   }}"
                   alt="{{ media.alt }}"
@@ -41,7 +43,12 @@
           </div>
           <div class="product-main-image">
             {% for media in product.media %}
-              <div onmousemove="zoom(event)" style="background-image: url({{ media |img_url: '' }})" data-src="{{ media |img_url: '' }}" class="zoom item-slick {{ media.alt | replace: '/', ''}}">
+              <div
+                onmousemove="zoom(event)"
+                style="background-image: url({{ media |img_url: '' }})"
+                data-src="{{ media |img_url: '' }}"
+                class="zoom item-slick {{ media.alt | replace: '/', '' | remove:" " }}"
+              >
                 <img
                   class="item-slick {{ media.alt | replace: '/', ''}}"
                   src="{{ media |img_url: ''   }}"
@@ -79,83 +86,43 @@
             {{ product.description }}
           </div>
           <div class="pdp-accordion">
-            <div class="tab">
-              <button id="accordion-button-1" aria-label="size chart" aria-expanded="false">
-                <span class="accordion-title">Size Chart</span><span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="tab-content">
-                <div class="tab-content-inner">
-                  <div class="size-chart-wrapper">
-                    <table class="size-chart">
-                      <thead>
-                        <tr>
-                          <th>SIZE</th>
-                          <th>AU</th>
-                          <th>US</th>
-                          <th>UK</th>
-                          <th>EUR</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>XS</td>
-                          <td>6</td>
-                          <td>2</td>
-                          <td>6</td>
-                          <td>34</td>
-                        </tr>
-                        <tr>
-                          <td>S</td>
-                          <td>8</td>
-                          <td>4</td>
-                          <td>8</td>
-                          <td>36</td>
-                        </tr>
-                        <tr>
-                          <td>M</td>
-                          <td>10</td>
-                          <td>6</td>
-                          <td>10</td>
-                          <td>38</td>
-                        </tr>
-                        <tr>
-                          <td>L</td>
-                          <td>12</td>
-                          <td>8</td>
-                          <td>12</td>
-                          <td>40</td>
-                        </tr>
-                        <tr>
-                          <td>XL</td>
-                          <td>14</td>
-                          <td>10</td>
-                          <td>14</td>
-                          <td>42</td>
-                        </tr>
-                      </tbody>
-                    </table>
+            {% if section.settings.tab_title_1 != blank and section.settings.meta_1 != blank %}
+              <div class="tab">
+                <button id="accordion-button-1" aria-label="size chart" aria-expanded="false">
+                  <span class="accordion-title">{{ section.settings.tab_title_1 }}</span
+                  ><span class="icon" aria-hidden="true"></span>
+                </button>
+                <div class="tab-content">
+                  <div class="tab-content-inner">
+                    {{ section.settings.meta_1 }}
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="tab">
-              <button id="accordion-button-2" aria-label="Delivery &amp; Returns" aria-expanded="false">
-                <span class="accordion-title">Delivery &amp; Returns</span><span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="tab-content">
-                <div class="tab-content-inner">
-                  {{ pages[section.settings.delreturn].content }}
+            {% endif %}
+            {% if section.settings.tab_title_2 != blank and section.settings.delreturn != blank %}
+              <div class="tab">
+                <button id="accordion-button-2" aria-label="Delivery &amp; Returns" aria-expanded="false">
+                  <span class="accordion-title">{{ section.settings.tab_title_2 }}</span
+                  ><span class="icon" aria-hidden="true"></span>
+                </button>
+                <div class="tab-content">
+                  <div class="tab-content-inner">
+                    {{ pages[section.settings.delreturn].content }}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="tab">
-              <button id="accordion-button-3" aria-label="Model" aria-expanded="false">
-                <span class="accordion-title">Model</span><span class="icon" aria-hidden="true"></span>
-              </button>
-              <div class="tab-content">
-                <div class="tab-content-inner">dummy text</div>
+            {% endif %}
+            {% if section.settings.tab_title_3 != blank and section.settings.meta_2 != blank %}
+              <div class="tab">
+                <button id="accordion-button-3" aria-label="Model" aria-expanded="false">
+                  <span class="accordion-title">{{ section.settings.tab_title_3 }}</span
+                  ><span class="icon" aria-hidden="true"></span>
+                </button>
+                <div class="tab-content">
+                  <div class="tab-content-inner">{{ section.settings.meta_2 }}</div>
+                </div>
               </div>
-            </div>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -169,30 +136,55 @@
   "settings": [
     {
       "type": "header",
-      "content": "Coupon code block"
+      "content": "ANNOUNCEMENT TEXT 1"
     },
     {
-       "type": "html",
+      "type": "html",
       "id": "couponcode",
-      "label": "coupon code text "
+      "label": "Announcement"
     },
     {
       "type": "header",
-      "content": "Next Delevery block"
+      "content": "ANNOUNCEMENT TEXT 2"
     },
     {
        "type": "html",
       "id": "nextday",
-      "label": "Next Delevery Text"
+      "label": "Announcement"
     },
     {
       "type": "header",
-      "content": "Delevery return Block"
+      "content": "TABS"
+    },
+    {
+      "type": "text",
+      "id": "tab_title_1",
+      "label": "Tab 1 Title"
+    },
+    {
+      "type": "richtext",
+      "id": "meta_1",
+      "label": "Tab 2"
+    },
+    {
+      "type": "text",
+      "id": "tab_title_2",
+      "label": "Tab 2 Title"
     },
     {
        "type": "page",
       "id": "delreturn",
-      "label": "Delevery and return"
+      "label": "Tab 2"
+    },
+    {
+      "type": "text",
+      "id": "tab_title_3",
+      "label": "Tab 3 Title"
+    },
+    {
+      "type": "richtext",
+      "id": "meta_2",
+      "label": "Tab 3"
     }
   ],
    "blocks": [
