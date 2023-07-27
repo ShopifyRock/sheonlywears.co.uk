@@ -701,6 +701,9 @@ div#shopify-product-reviews {
 }
 
 @media only screen and (min-width:769px) {
+  .selected-filters-options.selected-filters-options-mobile {
+    display: none !important;
+}
     .main-banner__wrapper .desk-banner {
         display: block;
     }
@@ -2297,7 +2300,7 @@ variant-radios.no-js-hidden {
     }
     
     .navigation>ul>li.single-menu>.submenu {
-        width: 150px;
+        width: 200px;
         padding-top: 0;
     }
     .navigation>ul>li.single-menu>.submenu > .container {
@@ -2309,11 +2312,11 @@ variant-radios.no-js-hidden {
         display: inline-block;
     }
     .navigation>ul>li.single-menu>.submenu li a {
-        padding: 15px;
-        display: block;
-        border-bottom: 1px solid #ddd;
-        width: 100%;
-        transition: all 0.5s;
+            padding: 7px 15px;
+          display: block;
+          border-bottom: 0;
+          width: 100%;
+          transition: all .5s;
     }
     .navigation>ul>li.single-menu>.submenu li a:hover {
         background: #fadfe5;
@@ -2512,7 +2515,18 @@ body.modal-open:before {
     padding: 0;
     width: 33px;
 }
-
+.filter-sidebar .filter-group .options-list>li>label input[type=checkbox]:checked+span.color-box{
+    border-color: #000 !important;
+}
+a#sort-options-dropdown-title-bottom:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  z-index: 9999;
+}
 @media only screen and (max-width: 768px) {
     .swatch-options.sizes.diff_size > div {
         width: 100%;

@@ -18,7 +18,15 @@
             class="active-filters__remove-filter selected-option-item "
             href="{{ filter_value.url_to_remove }}"
           >
-            {{ filter.label }}: {{ filter_value.label }} X
+            {% if filter.label == 'Colour' %}
+              <span
+                class="color-box"
+                style="border: 1px solid #e8e8e1;height: 16px;width: 16px;display: inline-block;background-color:{{- filter_value.label -}}; background-image:url({{  filter_value.label |  replace: " ", "-" | append: '.png' | file_img_url }});"
+              ></span>
+            {% else %}
+              {{ filter.label }}: {{ filter_value.label -}}
+            {%- endif %}
+            X
           </a>
         {%- endfor -%}
       {%- endif -%}
@@ -91,7 +99,7 @@
                 <li class="filter-group-display__list-item">
                   <label
                     for="Filter-{{ filter.param_name }}-{{ forloop.index }}"
-                    class="{{ filter_value.label}}"
+                    class="{{ filter_value.label}} filter_{{ filter.label }}"
                   >
                     <input
                       type="checkbox"
@@ -106,6 +114,12 @@
                         disabled
                       {%- endif %}
                     >
+                    {% if filter.label == 'Colour' %}
+                      <span
+                        class="color-box"
+                        style="border: 1px solid #e8e8e1;height: 16px;width: 16px;display: inline-block;background-color:{{- filter_value.label -}}; background-image:url({{  filter_value.label |  replace: " ", "-" | append: '.png' | file_img_url }});"
+                      ></span>
+                    {% endif %}
                     <span>{{- filter_value.label -}}</span>
                   </label>
                 </li>

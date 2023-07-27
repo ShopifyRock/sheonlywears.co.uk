@@ -22,11 +22,18 @@
 
           <div class="expandable">
             <div class="atf-links" style="display: flex;">
-                {% for tag in collection.all_tags %}
-                    {% if tag contains 'swatchcolour_' %}
-                      <p><a href="{{ tag | handleize | prepend:'/' | within: collection }}" title="{{ tag | remove: 'swatchcolour_' | replace: "-", "/" | capitalize}}">{{ tag | remove: 'swatchcolour_' | replace: "-", "/" | capitalize}}</a></p>  
-                    {% endif %}
-                {% endfor %} 
+              {% for tag in collection.all_tags %}
+                {% if tag contains 'swatchcolour_' %}
+                  <p>
+                    <a
+                      href="{{ tag | handleize | prepend:'/' | within: collection }}"
+                      title="{{ tag | remove: 'swatchcolour_' | replace: "-", "/" | capitalize}}"
+                    >
+                      {{- tag | remove: 'swatchcolour_' | replace: '-', '/' | capitalize -}}
+                    </a>
+                  </p>
+                {% endif %}
+              {% endfor %}
             </div>
           </div>
           <span id="view-more-atf" class="view-more">Read more</span>
@@ -55,7 +62,7 @@
           <div class="collection-grid__wrapper">
             <div class="toolbar-options-wrapper">
               <div class="grid-display-type">
-                <a href="javascript:void(0)" class="display__4__items display__active">
+                <a href="javascript:void(0)" class="display__4__items display__active" data-view="grid">
                   <svg width="21" height="24" viewBox="0 0 21 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.25" y="0.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
                     <rect x="0.25" y="13.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
@@ -63,7 +70,7 @@
                     <rect x="12.25" y="13.75" width="8.5" height="9.5" stroke="black" stroke-width="0.5"></rect>
                   </svg>
                 </a>
-                <a href="javascript:void(0)" class="display__3__items">
+                <a href="javascript:void(0)" class="display__3__items" data-view="list">
                   <svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.25" y="0.25" width="8.5" height="22.5" stroke="black" stroke-width="0.5"></rect>
                     <rect x="12.25" y="0.25" width="8.5" height="22.5" stroke="black" stroke-width="0.5"></rect>
@@ -106,6 +113,7 @@
                   <div class="sort-options-container">
                     <div class="sort-options-dropdown sort-options-dropdown-bottom" id="sort-options-dropdown-bottom">
                       <a
+                        href="javascript:void(0)"
                         id="sort-options-dropdown-title-bottom"
                         onclick="sortDropdownBottom()"
                         class="sort-options-dropdown-title sort-options-dropdown-title-bottom"
@@ -133,6 +141,11 @@
                           >
                             <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
                           </svg>
+                          <button type="button" class="drawer__close-button">
+                            <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64">
+                              <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path>
+                            </svg>
+                          </button>
                         </div>
                         {% comment %}
                            <a href="#" title="Popular"><span>Popular</span></a>
@@ -181,7 +194,7 @@
                   </div>
                 </div>
 
-                <div class="selected-filters-options selected-filters-options-mobile">
+                <div class="selected-filters-options selected-filters-options-mobile" style="display:none;">
                   <form class="filter-form " id="collection-sidebar-filter">
                     <div class="active-filters selected-filters-options">
                       {%- for filter in collection.filters -%}
@@ -202,7 +215,15 @@
                               class="active-filters__remove-filter selected-option-item "
                               href="{{ filter_value.url_to_remove }}"
                             >
-                              {{ filter.label }}: {{ filter_value.label }} X
+                              {% if filter.label == 'Colour' %}
+                                <span
+                                  class="color-box"
+                                  style="border: 1px solid #e8e8e1;height: 16px;width: 16px;display: inline-block;background-color:{{- filter_value.label -}}; background-image:url({{  filter_value.label |  replace: " ", "-" | append: '.png' | file_img_url }});"
+                                ></span>
+                              {% else %}
+                                {{ filter.label }}: {{ filter_value.label -}}
+                              {%- endif %}
+                              X
                             </a>
                           {%- endfor -%}
                         {%- endif -%}
@@ -289,20 +310,20 @@
                     </div>
 
                     <div class="product-collection-image__carousel">
-                      <a href="javascript:void(0)" class="product--url">
-                        <div class="collection-product-slider">
-                          {% for media in product.media %}
-                            <div class="{{ media.alt | handleize }}">
+                      <div class="collection-product-slider">
+                        {% for media in product.media %}
+                          <div class="{{ media.alt | handleize }}">
+                            <a href="{{ product.url }}" class="product--url">
                               <img src="{{ media |img_url: '' }}" width="800" height="1200" alt="{{ media.alt }}">
-                            </div>
-                          {% endfor %}
-                        </div>
-                      </a>
+                            </a>
+                          </div>
+                        {% endfor %}
+                      </div>
 
                       <div class="attribute-options">
                         {%- unless product.has_only_default_variant -%}
                           {% for option in product.options_with_values %}
-                            <div class="attribute-options__wrapper {{ option.name | handleize }} {% for tag in collection.all_tags%}{% if tag contains 'diff_size' %}diff_size{% endif %}{% endfor %}">
+                            <div class="attribute-options__wrapper {{ option.name | handleize }}{% for product in collection.products %}{% for tag in product.tags %}{% if tag contains 'diff_size' %}diff_size{% endif %}{% endfor %}{% endfor %}">
                               {% for value in option.values %}
                                 {% assign radio_id = 'option-'
                                   | append: option_name
@@ -364,6 +385,7 @@
                   <div class="sort-options-container">
                     <div class="sort-options-dropdown sort-options-dropdown-bottom" id="sort-options-dropdown-bottom">
                       <a
+                        href="javascript:void(0)"
                         id="sort-options-dropdown-title-bottom"
                         onclick="sortDropdownBottom()"
                         class="sort-options-dropdown-title sort-options-dropdown-title-bottom"
@@ -392,11 +414,41 @@
                             <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
                           </svg>
                         </div>
-                        <a href="#" title="Popular"><span>Popular</span></a>
-                        <a href="#" title="Price, low to high"><span>Price, low to high</span></a>
-                        <a href="#" title="Price, high to low"><span>Price, high to low</span></a>
-                        <a href="#" title="Date, old to new"><span>Date, old to new</span></a>
-                        <a href="#" title="Date, new to old"><span>Date, new to old</span></a>
+                        <a
+                          class="shadowSort__option  active"
+                          href="?sort_by=default"
+                          data-value="default"
+                          title="Popular"
+                          ><span>Popular</span></a
+                        >
+                        <a
+                          class="shadowSort__option"
+                          href="?sort_by=price-ascending"
+                          data-value="price-ascending"
+                          title="Price, low to high"
+                          ><span>Price, low to high</span></a
+                        >
+                        <a
+                          class="shadowSort__option"
+                          href="?sort_by=price-descending"
+                          data-value="price-descending"
+                          title="Price, high to low"
+                          ><span>Price, high to low</span></a
+                        >
+                        <a
+                          class="shadowSort__option"
+                          href="?sort_by=created-ascending"
+                          data-value="created-ascending"
+                          title="Date, old to new"
+                          ><span>Date, old to new</span></a
+                        >
+                        <a
+                          class="shadowSort__option"
+                          href="?sort_by=created-descending"
+                          data-value="created-descending"
+                          title="Date, new to old"
+                          ><span>Date, new to old</span></a
+                        >
                       </div>
                     </div>
                   </div>
@@ -415,48 +467,104 @@
   </div>
 </main>
 <script>
-    $(document).ready(function(){
-    $(function() {
+           $(document).ready(function(){
+           $(function() {
 
-        if ( document.location.href.indexOf('sort_by=default') > -1 ) {
+               if ( document.location.href.indexOf('sort_by=default') > -1 ) {
 
-           $(".shadowSort__option[data-value='default']").addClass("active");
-          $("#sort-options-dropdown-title-bottom>span").text("popular");
-        }
-        if ( document.location.href.indexOf('sort_by=price-ascending') > -1 ) {
-          $(".shadowSort__option").removeClass("active");
-          $(".shadowSort__option[data-value='price-ascending']").addClass("active");
-           $("#sort-options-dropdown-title-bottom>span").text("Price, low to high");
-        }
-        if ( document.location.href.indexOf('sort_by=price-descending') > -1 ) {
-          $(".shadowSort__option").removeClass("active");
-          $(".shadowSort__option[data-value='price-descending']").addClass("active");
-          $("#sort-options-dropdown-title-bottom>span").text("Price, high to low");
-        }
-        if ( document.location.href.indexOf('sort_by=created-ascending') > -1 ) {
-          $(".shadowSort__option").removeClass("active");
-          $(".shadowSort__option[data-value='created-ascending']").addClass("active");
-           $("#sort-options-dropdown-title-bottom>span").text("Date, old to new");
-        }
-        if ( document.location.href.indexOf('sort_by=created-descending') > -1 ) {
-          $(".shadowSort__option").removeClass("active");
-          $(".shadowSort__option[data-value='created-descending']").addClass("active");
-          $("#sort-options-dropdown-title-bottom>span").text("Date, new to old");
-        }
-    });
-    $(function() {
-      if ( document.location.href.indexOf('?filter') > -1 ) {
-        $(".active-filters__clear.clear-all-btn").show();
-      }
-    });
-  });
+                  $(".shadowSort__option[data-value='default']").addClass("active");
+                 $("#sort-options-dropdown-title-bottom>span").text("popular");
+               }
+               if ( document.location.href.indexOf('sort_by=price-ascending') > -1 ) {
+                 $(".shadowSort__option").removeClass("active");
+                 $(".shadowSort__option[data-value='price-ascending']").addClass("active");
+                  $("#sort-options-dropdown-title-bottom>span").text("Price, low to high");
+               }
+               if ( document.location.href.indexOf('sort_by=price-descending') > -1 ) {
+                 $(".shadowSort__option").removeClass("active");
+                 $(".shadowSort__option[data-value='price-descending']").addClass("active");
+                 $("#sort-options-dropdown-title-bottom>span").text("Price, high to low");
+               }
+               if ( document.location.href.indexOf('sort_by=created-ascending') > -1 ) {
+                 $(".shadowSort__option").removeClass("active");
+                 $(".shadowSort__option[data-value='created-ascending']").addClass("active");
+                  $("#sort-options-dropdown-title-bottom>span").text("Date, old to new");
+               }
+               if ( document.location.href.indexOf('sort_by=created-descending') > -1 ) {
+                 $(".shadowSort__option").removeClass("active");
+                 $(".shadowSort__option[data-value='created-descending']").addClass("active");
+                 $("#sort-options-dropdown-title-bottom>span").text("Date, new to old");
+               }
+           });
+           $(function() {
+             if ( document.location.href.indexOf('?filter') > -1 ) {
+               $(".active-filters__clear.clear-all-btn").show();
+               $(".selected-filters-options-mobile").show();
+             }
+           });
+           // $(function() {
+           //   if ( document.location.href.indexOf('#grid3') > -1 ) {
+           //      $('.display__3__items').addClass('display__active').siblings().removeClass('display__active');
+           //      $('.display__3__items').closest('.collection-grid__wrapper').find('.collection__grid').addClass('collection__grid--3');
+           //   }
+           // });
+         });
+
+
+  //     $(".display__3__items").click(function(){
+  //      $(".collection-grid__wrapper .collection__grid").removeClass("collection__grid--4");
+  //       $(".collection-grid__wrapper .collection__grid").addClass("collection__grid--3");
+  //       // $(this).addClass('display__active');
+  //       $('.collection__grid--4, .collection__grid--4').toggleClass('display__active');
+  //      // $(this).addClass("working");
+  //      localStorage.ClassName = "collection__grid--3";
+  //       // localStorage.ClassName2 = "display__active";
+  //    });
+  // $(".display__4__items").click(function(){
+  //      $(".collection-grid__wrapper .collection__grid").removeClass("collection__grid--3");
+  //       $(".collection-grid__wrapper .collection__grid").addClass("collection__grid--4");
+  //       // $(this).addClass('display__active');
+  //       // $('.collection__grid--3').removeClass('display__active');
+  //      // $(this).addClass("working");
+  //      localStorage.ClassName3 = "collection__grid--3";
+  //       // localStorage.ClassName4 = "display__active";
+  //    });
+
+  //  $(document).ready(function() {
+  //      SetClass();
+  //  });
+
+  //  function SetClass() {
+  //  //before assigning class check local storage if it has any value
+  //      $(".collection-grid__wrapper .collection__grid").addClass(localStorage.ClassName);
+  //    $(".display__3__items, .collection__grid--4").toggleClass(localStorage.ClassName2);
+  //     $(".collection-grid__wrapper .collection__grid").addClass3(localStorage.ClassName);
+  //    $(".display__3__items").addClass(localStorage.ClassName4);
+  //  }
 </script>
 <style>
-    .sort-options .sort-options-dropdown-content>a.active span {
-      background: #F9C8D3;
+          .sort-options .sort-options-dropdown-content>a.active span {
+            background: #F9C8D3;
+        }
+        .active-filters__clear.clear-all-btn{
+          display:none;
+        }
+
+      label.filter_Colour {
+          padding: 0 !important;
+      }
+      .filter_Colour span:before{
+          display:none;
+      }
+      span.color-box {
+        margin-right: 9px;
+    }
+    .filter-sidebar .filter-group .options-list>li>label span {
+      line-height: 17px !important;
   }
-  .active-filters__clear.clear-all-btn{
-    display:none;
+   label.filter_Colour {
+      margin-bottom: 12px;
+      display: flex !important;
   }
 </style>
 

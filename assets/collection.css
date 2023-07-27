@@ -1258,7 +1258,10 @@
     background-color: #f1f1f1;
     margin-bottom: 10px;
 }
-
+.collection-grid__wrapper .collection__grid .product__content:hover .collection-product-slider .slick-arrow {
+    opacity: 1;
+    visibility: visible;
+}
 @media only screen and (max-width: 768px) {
   .filter-sidebar .filter-group .options-list li {
       padding-left: 22px;

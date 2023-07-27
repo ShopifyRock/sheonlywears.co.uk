@@ -169,7 +169,11 @@
     </ul>
     <div class="mobile-login">
         <div class="mobile-login__wrapper">
+          {%- if customer -%}
+            <a href="{{ routes.account_logout_url }}" class="mobile-link" title="{{ 'customer.log_out' | t }}">{{ 'customer.log_out' | t }}</a>
+          {%- else -%}
             <a href="{{ routes.account_login_url }}" class="mobile-link" title="Login/Register">Login/Register</a>
+          {%- endif -%}
         </div>
     </div>
 </div>	

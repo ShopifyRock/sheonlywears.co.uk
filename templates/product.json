@@ -64,7 +64,12 @@
       "settings": {
         "couponcode": "up to 40% off almost everything* newbie? extra 10% off code:\n            <strong>NEW10<\/strong>",
         "nextday": "Get Unlimited Free Next Day Delivery For a Year for only £9.99",
-        "delreturn": "delivery-and-returns"
+        "tab_title_1": "Size Chart",
+        "meta_1": "{{ product.metafields.custom.tab_1 | metafield_tag }}",
+        "tab_title_2": "Delivery and Returns",
+        "delreturn": "delivery-and-returns",
+        "tab_title_3": "Model",
+        "meta_2": "{{ product.metafields.custom.tab_3 | metafield_tag }}"
       }
     },
     "d7a3752e-c112-4fce-9b7e-e1fde0f1fc2c": {
@@ -90,11 +95,22 @@
       ],
       "settings": {
       }
+    },
+    "00d5c1d0-2a5b-4ff8-aa84-ab804f5f2874": {
+      "type": "newsletter-subscribe",
+      "settings": {
+        "headimg": "shopify:\/\/shop_images\/Join-Us-updated.png",
+        "email": "Your email address",
+        "emailbtn": "join",
+        "checkbox_enable": true,
+        "promosiontext": "I consent to receive promotional communications related to my purchase history, website browsing activity, and\/or engagement with marketing materials."
+      }
     }
   },
   "order": [
     "main",
     "d7a3752e-c112-4fce-9b7e-e1fde0f1fc2c",
-    "1689583101844fe12e"
+    "1689583101844fe12e",
+    "00d5c1d0-2a5b-4ff8-aa84-ab804f5f2874"
   ]
 }
