@@ -1,3 +1,10 @@
+setTimeout(()=>{
+  document.querySelector(".collection__grid").style.visibility = "visible";
+  document.querySelector(".attribute-options.outside").style.visibility = "visible";
+  document.querySelector(".collection__grid").classList.add("attr-display");   
+  document.querySelector("#collection-loader").style.display = "none";
+},2000);
+
 (function () {
     $(document).ready(function () {
         return $('.collection-product-slider').slick({
@@ -182,13 +189,16 @@ const variantATC = (self, variantId) => {
 }
 $('.collection__grid .product__content').each(function(){
     let pc = $(this);
-    let pcColor = pc.find('.attribute-options .attribute-options__wrapper.colour a');
+    let pcColor = pc.find('.attribute-options.inside .attribute-options__wrapper.colour a');
+    let pcColorOutside = pc.find('.attribute-options.outside .attribute-options__wrapper.colour a');
     let pcSize = pc.find('.attribute-options .attribute-options__wrapper.size a');
     let selfSlider = pc.find('.collection-product-slider');
     let selectedColor = pcColor .length > 0 ? pcColor.eq(0).attr('data-option-value') : "";
     let selectedSize ="";
+
     if(pcColor.length > 0){
       pcColor.eq(0).addClass('active');
+      pcColorOutside.eq(0).addClass('active');
       if(pcColor.length > 1){
         let optionAlt = 'color_'+selectedColor.toLowerCase().replace(/ /g,'-');
         setTimeout(()=>{ filter(selfSlider, optionAlt); },200);
@@ -196,15 +206,29 @@ $('.collection__grid .product__content').each(function(){
           let thisClick = $(this);
           thisClick.click(function(){
               pcColor.removeClass('active');
+              pcColorOutside.removeClass('active');
               $(this).addClass('active');
+              $('.attribute-options.outside .attribute-options__wrapper.colour a[ data-option-value="' + $(this).attr("data-option-value") + '"]' ).addClass( 'active' );
               selectedColor = $(this).attr("data-option-value");
               optionAlt = 'color_'+selectedColor.toLowerCase().replace(/ /g,'-');
               filter(selfSlider, optionAlt);
           });
         });
+        pcColorOutside.each(function(){
+          let thisOutsideClick = $(this);
+          thisOutsideClick.click(function(){
+            pcColor.removeClass('active');
+            pcColorOutside.removeClass('active');
+            $(this).addClass('active');
+            $('.attribute-options.inside .attribute-options__wrapper.colour a[ data-option-value="' + $(this).attr("data-option-value") + '"]' ).addClass( 'active' );
+            selectedColor = $(this).attr("data-option-value");
+            optionAlt = 'color_'+selectedColor.toLowerCase().replace(/ /g,'-');
+            filter(selfSlider, optionAlt);
+          });
+        });
       }
     }
-    
+  
     pcSize.each(function(){
         let thisClick = $(this);
         thisClick.click(async function(){
@@ -222,7 +246,3 @@ $('.collection__grid .product__content').each(function(){
         });
     });
 });
-
-
-
-

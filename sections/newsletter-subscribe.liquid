@@ -24,17 +24,39 @@
     justify-content: center;
     margin-top: 25px;
   }
+  div#empty_input {
+    /* display: block !important; */
+    margin: 10px 0;
+    color: #f00;
+    font-size: 14px;
+}
+  news-letter_msg{
+    margin: 10px 0;
+    color: #f00;
+    font-size: 14px;
+  }
+  .footer-newsletter__wrapper {
+    background: {{ section.settings.bg_color }};  
+}
+  .footer-newsletter__title h2,
+  .newsletter-form__check label.form-label {
+    color: {{ section.settings.text_color }};
+}
+
+  .footer-newsletter-form__wrapper  .footer__newsletter-btn {
+    background: {{ section.settings.btn_bg_color }};
+}
+  .footer-newsletter-form__wrapper  .footer__newsletter-btn {
+    color: {{ section.settings.btn_text_color }};
+}      
+  
 </style>
+
 <section class="footer-newsletter__wrapper">
   <div class="footer-newsletter__container">
     <div class="footer-newsletter__title">
       {% if section.settings.headimg != blank %}
-        <img
-          src="{{ section.settings.headimg | img_url: 'master' }}"
-          width="320"
-          height="79"
-          alt="Newsletter"
-        >
+        <h2>{{ section.settings.headimg }} </h2>         
       {% endif %}
     </div>
     <div class="newsletter-form">
@@ -46,25 +68,27 @@
             value="newsletter"
           >
           <div class="floating-label-wrap">
-            <input
-              type="email"
-              pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
-              name="contact[email]"
-              id="{{ formId }}-email"
-              class="footer__newsletter-input"
-              value="{{ form.email }}"
-              placeholder="Enter your email"
-              aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
-              aria-required="true"
-              autocorrect="off"
-              autocapitalize="off"
-              {% if form.errors %}
-                aria-invalid="true"
-                aria-describedby="{{ formId }}-email-error"
-                data-form-status
-              {% endif %}
-              required
-            >
+            <input                  
+                    type="email"
+                    pattern="/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/"
+                    name="contact[email]"
+                    class="field__input footer__newsletter-input"
+                    id="-email"                    
+                    value="{{ form.email }}"
+                    placeholder="Enter your email"
+                    aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+                    aria-required="true"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    autocomplete="email"
+                    {% if form.errors %}
+                      autofocus
+                      aria-invalid="true"
+                      aria-describedby="Newsletter-error--{{ section.id }}"
+                    {% elsif form.posted_successfully? %}
+                      aria-describedby="Newsletter-success--{{ section.id }}"
+                    {% endif %}                                      
+                  >
             <label class="floating-label">{{ section.settings.email }}</label>
             <button
               type="submit"
@@ -72,8 +96,11 @@
               title="join"
             >
               {{ section.settings.emailbtn }}
-            </button>
+            </button>         
           </div>
+          <div id="empty_input1"></div>
+          <div id="empty_input"></div>
+          <div id="news-letter_msg"></div>
           {% if section.settings.checkbox_enable %}
             <div class="newsletter-form__check">
               <input
@@ -81,7 +108,8 @@
                 id="newsletter_footer_accept_terms"
                 name="contact[tags]"
                 class="styled-checkbox"
-                value="Newsletter subscribed"
+                value="Newsletter subscribed"                
+                required
               >
               <label for="newsletter_footer_accept_terms" class="form-label">
                 {{- section.settings.promosiontext -}}
@@ -93,7 +121,7 @@
               {{- form.errors.translated_fields.email | capitalize }}
               {{ form.errors.messages.email -}}
             </small>
-          {%- endif -%}
+          {%- endif -%}       
           {%- if form.posted_successfully? -%}
             <h3
               class="newsletter-form__message newsletter-form__message--success form__message"
@@ -110,14 +138,69 @@
   </div>
 </section>
 
+<script>
+  
+var emailInput;
+$(".footer-newsletter-form__wrapper .field__input").on("change", function() {
+  emailInput = $(this).val();
+});
+
+  $('.footer__newsletter-input').keyup(function(){
+    $('#empty_input').show();
+   if($.trim($('.footer__newsletter-input').val()) == ''){
+     $('#empty_input').text('Please provide an email address!');
+   }    
+    else{$('#empty_input').text('');}
+});
+  
+$('.footer__newsletter-btn').click(function(){
+   var pattern = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+  $('#empty_input').show();
+   if($.trim($('.footer__newsletter-input').val()) == ''){
+    $('#empty_input').text('Please provide an email address!');    
+     return false;
+   }  
+  else if (!$.trim(emailInput).match(pattern)) {
+    $("#empty_input").text('Invalid Email Id!');
+    $('#empty_input').delay(5000).hide(0);
+    return false;
+  }
+});
+</script>
+
 {% schema %}
 {
   "name": "Newsletter",
-  "settings": [
+  "settings": [   
     {
-      "type": "image_picker",
+     "type": "color",
+      "id": "bg_color",
+      "label": "Section background color",
+      "default": "#fff6ef"
+    },
+    {
+     "type": "color",
+      "id": "text_color",
+      "label": "text color",
+      "default": "#000000"
+    },
+    {
+     "type": "color",
+      "id": "btn_bg_color",
+      "label": "Button background color",
+      "default": "#000000"
+    },
+    {
+     "type": "color",
+      "id": "btn_text_color",
+      "label": "Button Text color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
       "id": "headimg",
-      "label": "heading image"
+      "label": "heading Text",
+      "default": "Subscribe to our emails"
     },
     {
       "type": "text",

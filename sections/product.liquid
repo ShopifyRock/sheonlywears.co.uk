@@ -62,10 +62,23 @@
       <div class="col-12 col-md-6">
         <div class="product-details__wrapper">
           {% render 'prod-block' %}
-          <div class="discount-code">
+          <div
+            class="discount-code"
+
+            style="
+              background-color:{{ section.settings.annouce-bgc }};
+              color:{{ section.settings.annouce-textc }};
+            "
+          >
             {{ section.settings.couponcode }}
           </div>
-          <div class="free-delivery-promotion__banner">
+          <div
+            class="free-delivery-promotion__banner"
+            style="
+              background-color:{{ section.settings.annouce-bgc2 }};
+              color:{{ section.settings.annouce-textc2 }};
+            "
+          >
             <img
               src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/Vectorcrown.avif?v=1688994752"
               alt="Vectorcrown"
@@ -136,12 +149,37 @@
   "settings": [
     {
       "type": "header",
-      "content": "ANNOUNCEMENT TEXT 1"
+      "content": "Add to cart button style"
+    },
+     {
+      "type": "color",
+      "id": "addcart-bgc",
+      "label": " background color"
     },
     {
+      "type": "color",
+      "id": "addcart-textc",
+      "label": " text color"
+    },
+    {
+      "type": "header",
+      "content": "ANNOUNCEMENT TEXT 1"
+    },
+
+      {
       "type": "html",
       "id": "couponcode",
-      "label": "Announcement"
+      "label": "coupon Announcement"
+    },
+     {
+      "type": "color",
+      "id": "annouce-bgc",
+      "label": " background color"
+    },
+    {
+      "type": "color",
+      "id": "annouce-textc",
+      "label": " text color"
     },
     {
       "type": "header",
@@ -151,6 +189,16 @@
        "type": "html",
       "id": "nextday",
       "label": "Announcement"
+    },
+     {
+      "type": "color",
+      "id": "annouce-bgc2",
+      "label": " background color"
+    },
+    {
+      "type": "color",
+      "id": "annouce-textc2",
+      "label": " text color"
     },
     {
       "type": "header",

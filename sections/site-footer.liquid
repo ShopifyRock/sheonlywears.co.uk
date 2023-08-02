@@ -24,8 +24,7 @@
         </div>
     
         <div class="footer__copyright caption">
-            {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
-             {{ powered_by_link }}
+           &copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}          
             {%- if section.settings.show_policy -%}
             <ul class="policies list-unstyled">
                 {%- for policy in shop.policies -%}

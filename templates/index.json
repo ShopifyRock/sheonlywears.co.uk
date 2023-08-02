@@ -80,7 +80,7 @@
     "3a160135-cef5-4961-a26d-31af15b81f36": {
       "type": "newsletter-subscribe",
       "settings": {
-        "headimg": "shopify:\/\/shop_images\/Join-Us-updated.png",
+        "headimg": "Subscribe to our emails",
         "email": "Your email address",
         "emailbtn": "join",
         "checkbox_enable": true,

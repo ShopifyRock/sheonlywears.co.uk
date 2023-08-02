@@ -62,8 +62,14 @@
         "259af0dc-2345-4a8a-adb0-71e20029fa36"
       ],
       "settings": {
+        "addcart-bgc": "#000000",
+        "addcart-textc": "#fff",
         "couponcode": "up to 40% off almost everything* newbie? extra 10% off code:\n            <strong>NEW10<\/strong>",
+        "annouce-bgc": "#f8f8f8",
+        "annouce-textc": "#333333",
         "nextday": "Get Unlimited Free Next Day Delivery For a Year for only £9.99",
+        "annouce-bgc2": "#f7b6ce",
+        "annouce-textc2": "#000000",
         "tab_title_1": "Size Chart",
         "meta_1": "{{ product.metafields.custom.tab_1 | metafield_tag }}",
         "tab_title_2": "Delivery and Returns",
@@ -86,6 +92,7 @@
       "blocks": {
         "e5ab4ade-4402-4000-a27a-ef63bdfa43d7": {
           "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
+          "disabled": true,
           "settings": {
           }
         }
@@ -99,7 +106,7 @@
     "00d5c1d0-2a5b-4ff8-aa84-ab804f5f2874": {
       "type": "newsletter-subscribe",
       "settings": {
-        "headimg": "shopify:\/\/shop_images\/Join-Us-updated.png",
+        "headimg": "Subscribe to our emails",
         "email": "Your email address",
         "emailbtn": "join",
         "checkbox_enable": true,

@@ -13,6 +13,12 @@
         "type": "announcement-bar",
         "settings": {
           "show_announcement": true,
+          "option-announce": "show-message",
+          "annouce-text": "<p>EXTRA 20% OFF EVERYTHING - ENDS IN 07H 52M 03S<\/p>",
+          "annouce-bgc": "#000000",
+          "annouce-textc": "#ffffff",
+          "text-fonts": 18,
+          "sec-padding": 5,
           "image_desk": "shopify:\/\/shop_images\/announcement-bar.jpg",
           "image_mob": "shopify:\/\/shop_images\/pexels-markus-spiske-3806753.jpg",
           "link": "#"
