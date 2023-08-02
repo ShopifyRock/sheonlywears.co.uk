@@ -77,6 +77,7 @@
             {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
               disabled
             {% endif %}
+            style="background-color:{{ section.settings.addcart-bgc }};color:{{ section.settings.addcart-textc }};"
           >
             <span>
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
@@ -97,8 +98,13 @@
               </svg>
             </div>
           </button>
-     
-          <a href="javascript:void(0)" class="wishlist-btn kp-wishlist_btn {{ template.name }}"  data-product-handle="{{product.handle}}" title="wishlist">
+
+          <a
+            href="javascript:void(0)"
+            class="wishlist-btn kp-wishlist_btn {{ template.name }}"
+            data-product-handle="{{product.handle}}"
+            title="wishlist"
+          >
             <svg
               width="24"
               height="24"

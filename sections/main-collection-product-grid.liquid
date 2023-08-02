@@ -36,14 +36,16 @@
               {% endfor %}
             </div>
           </div>
-          <span id="view-more-atf" class="view-more">Read more</span>
+          {% if collection.description != blank %}
+            <span id="view-more-atf" class="view-more">Read more</span>
+          {% endif %}  
         </div>
       </div>
 
       <!-- Top content end -->
 
       <!-- collection product layout start -->
-      {%- paginate collection.products by 12 -%}
+      {%- paginate collection.products by section.settings.per_page_product -%}
         <div class="collection-grid">
           <div class="filter-sidebar">
             <div class="filter-title">
@@ -92,24 +94,7 @@
                     >
                       <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
                     </svg>
-                  </a>
-                  {% comment %}
-                    <div class="sortBy">
-                      <label for="SortBy" class="uppercase1">popular</label>
-                      <select name="SortBy" id="SortBy">
-                        {% for option in collection.sort_options %}
-                          <option
-                            value="{{ option.value }}"
-                            {% if sort_by == option.value %}
-                              selected="selected"
-                            {% endif %}
-                          >
-                            {{ option.name }}
-                          </option>
-                        {% endfor %}
-                      </select>
-                    </div>
-                  {% endcomment %}
+                  </a>                 
                   <div class="sort-options-container">
                     <div class="sort-options-dropdown sort-options-dropdown-bottom" id="sort-options-dropdown-bottom">
                       <a
@@ -146,14 +131,7 @@
                               <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path>
                             </svg>
                           </button>
-                        </div>
-                        {% comment %}
-                           <a href="#" title="Popular"><span>Popular</span></a>
-                          <a href="#" title="Price, low to high"><span>Price, low to high</span></a>
-                          <a href="#" title="Price, high to low"><span>Price, high to low</span></a>
-                           <a href="#" title="Date, old to new"><span>Date, old to new</span></a>
-                           <a href="#" title="Date, new to old"><span>Date, new to old</span></a>
-                        {% endcomment %}
+                        </div>                       
                         <a
                           class="shadowSort__option  active"
                           href="?sort_by=default"
@@ -239,45 +217,7 @@
                         >Clear all</a
                       >
                     </div>
-                  </form>
-                  {% comment %}
-                    <a href="#" title="brand: banbe" class="selected-option-item">
-                      <span>brand: banbe</span>
-                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L8 8" stroke="#231F20"></path>
-                        <path d="M8 1L1 8" stroke="#231F20"></path>
-                      </svg>
-                    </a>
-                    <a href="#" title="brand: banbe" class="selected-option-item">
-                      <span>brand: banbe</span>
-                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L8 8" stroke="#231F20"></path>
-                        <path d="M8 1L1 8" stroke="#231F20"></path>
-                      </svg>
-                    </a>
-                    <a href="#" title="brand: banbe" class="selected-option-item">
-                      <span>brand: banbe</span>
-                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L8 8" stroke="#231F20"></path>
-                        <path d="M8 1L1 8" stroke="#231F20"></path>
-                      </svg>
-                    </a>
-                    <a href="#" title="brand: banbe" class="selected-option-item">
-                      <span>brand: banbe</span>
-                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L8 8" stroke="#231F20"></path>
-                        <path d="M8 1L1 8" stroke="#231F20"></path>
-                      </svg>
-                    </a>
-                    <a href="#" title="brand: banbe" class="selected-option-item">
-                      <span>brand: banbe</span>
-                      <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L8 8" stroke="#231F20"></path>
-                        <path d="M8 1L1 8" stroke="#231F20"></path>
-                      </svg>
-                    </a>
-                    <a class="clear-all-btn" href="#" title="clear all">clear all</a>
-                  {% endcomment %}
+                  </form>                  
                 </div>
 
                 {%- if paginate.pages > 1 -%}
@@ -285,7 +225,7 @@
                 {%- endif -%}
               </div>
             </div>
-
+            <img src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/ZKZg.gif?v=1690891203" id="collection-loader">
             <div class="collection__grid">
               {%- for product in collection.products -%}
                 <div class="product__content">
@@ -320,7 +260,7 @@
                         {% endfor %}
                       </div>
 
-                      <div class="attribute-options">
+                      <div class="attribute-options inside">
                         {%- unless product.has_only_default_variant -%}
                           {% for option in product.options_with_values %}
                             <div class="attribute-options__wrapper {{ option.name | handleize }}{% for product in collection.products %}{% for tag in product.tags %}{% if tag contains 'diff_size' %}diff_size{% endif %}{% endfor %}{% endfor %}">
@@ -375,6 +315,42 @@
                       <div class="product__brand">{{ product.vendor }}</div>
                     </a>
                   </div>
+                <div class="attribute-options outside">
+                        {%- unless product.has_only_default_variant -%}
+                          {% for option in product.options_with_values %}
+                             {% if option.name == 'Colour' %}
+                            <div class="attribute-options__wrapper {{ option.name | handleize }}{% for product in collection.products %}{% for tag in product.tags %}{% if tag contains 'diff_size' %}diff_size{% endif %}{% endfor %}{% endfor %}">
+                              {% for value in option.values %}
+                                {% assign radio_id = 'option-'
+                                  | append: option_name
+                                  | append: '-'
+                                  | append: value
+                                  | handleize
+                                %}
+
+                                {%- for variant in product.variants -%}
+                                  {%- if variant.title contains value -%}
+                                    {%- assign variantImgSrc = variant.image.src
+                                      | img_url: '20x20', scale: 3, crop: 'center'
+                                    -%}
+                                    {%- break -%}
+                                  {%- endif -%}
+                                {%- endfor -%}
+                                <a
+                                  href="javascript:void(0)"
+                                  data-option-value="{{ value }}"
+                                  data-product-handle="{{ product.handle }}"
+                                >
+                                  <label for="{{ radio_id }}" class="color-swatch-list">                                   
+                                      <img src="{{ variantImgSrc }}">                                   
+                                  </label>
+                                </a>
+                              {% endfor %}
+                            </div>                               
+                            {% endif %}
+                          {% endfor %}
+                        {% endunless %}
+                      </div>
                 </div>
               {% endfor %}
             </div>
@@ -573,6 +549,15 @@
   "name": "t:sections.main-collection-product-grid.name",
   "class": "section",
   "settings": [
+    {
+      "type": "range",
+      "id": "per_page_product",
+      "min": 12,
+      "max": 32,
+      "step": 4,
+      "label": "Per page Product show",
+      "default": 12
+    }
   ]
 }
 {% endschema %}

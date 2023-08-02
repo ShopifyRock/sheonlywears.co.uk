@@ -3323,3 +3323,13 @@ details-disclosure > details {
     --sparkle: url('./sparkle.gif');
   }
 }
+
+.announcement-bar a {
+    text-decoration: none;
+}
+.announcement-bar p.text-center {
+    margin-bottom: 0;
+}
+.add-to-cart-btn:before, .add-to-cart-btn:after {
+    box-shadow: none !important;
+}

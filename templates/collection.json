@@ -3,12 +3,17 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
+        "per_page_product": 24
       }
     },
     "68f04b03-0eb7-460b-9b71-b705b96189da": {
       "type": "newsletter-subscribe",
       "settings": {
-        "headimg": "shopify:\/\/shop_images\/Join-Us-updated.png",
+        "bg_color": "#fff6ef",
+        "text_color": "#000000",
+        "btn_bg_color": "#000000",
+        "btn_text_color": "#fff",
+        "headimg": "Subscribe to our emails",
         "email": "Your email address",
         "emailbtn": "join",
         "checkbox_enable": true,

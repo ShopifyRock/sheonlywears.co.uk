@@ -6,9 +6,20 @@
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "8fb49a92-f190-4b29-8ecf-922fe62291f1": {
+      "type": "newsletter-subscribe",
+      "settings": {
+        "headimg": "Subscribe to our emails",
+        "email": "Your email address",
+        "emailbtn": "join",
+        "checkbox_enable": true,
+        "promosiontext": "I consent to receive promotional communications related to my purchase history, website browsing activity, and\/or engagement with marketing materials."
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "8fb49a92-f190-4b29-8ecf-922fe62291f1"
   ]
 }
