@@ -358,7 +358,7 @@
 
 .collection__grid .product__content .product__title-wrapper .product__title {
     margin-bottom: 5px;
-    width: 70%;
+    width: 100%;
     text-transform: uppercase;
     font-size: 12px;
     line-height: 15px;
@@ -382,7 +382,7 @@
     line-height: 15px;
     text-overflow: initial;
     letter-spacing: .65px;
-    text-align: right;
+    text-align: left;
 }
 
 .collection__grid .product__content .product__brand {
@@ -645,7 +645,7 @@
 
 .selected-filters-options.selected-filters-options-mobile {
     margin: 10px 0;
-    border-bottom: dashed 1px #979797;
+    /* border-bottom: dashed 1px #979797; */
     padding-bottom: 10px;
     width: 100%;
     justify-content: center;
@@ -836,7 +836,7 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 0;
-        border-bottom: 1px solid #979797;
+        /* border-bottom: 1px solid #979797; */
         padding-bottom: 10px;
     }
 
@@ -1163,7 +1163,12 @@
     border-width: 2px;
     color: #873232;
 }
-
+.collection__grid .attribute-options .attribute-options__wrapper>a {
+    border-radius: 100%;
+}
+label.color-swatch-list {
+    border-radius: 100%;
+}
 /* collection end */
 
 
@@ -1285,6 +1290,9 @@
     opacity: 1;
     visibility: visible;
 }
+ .collection-grid__wrapper .collection__grid .product--link .product__price-wrapper .product_discount_price, .collection-grid__wrapper .collection__grid .product--link .product__price-wrapper .product_save_price {
+    font-size: 14px;
+}
 @media only screen and (max-width: 768px) {
   .filter-sidebar .filter-group .options-list li {
       padding-left: 22px;
@@ -1302,6 +1310,26 @@
 }  
 }
 
+/* 08-08-23 */
 
-
-  
+@media only screen and (max-width: 768px) {
+  .collection__grid .product__content .product__title-wrapper .product__title {
+      max-width: 170px;
+  }
+  .collection__grid .product__content .product__title-wrapper .product__title {
+      -webkit-line-clamp: 3;
+  }
+  .collection__grid .product__content .product__title-wrapper .product__title {
+      height: 45px!important;
+  }
+  .collection-grid__wrapper .collection__grid .product--link .product__price-wrapper .product_discount_price, .collection-grid__wrapper .collection__grid .product--link .product__price-wrapper .product_save_price {
+    font-size: 12px;
+}
+}
+/* 09-08-23 */
+  .product_discount_price del {
+    color: #999;
+}
+.product_save_price span {
+    color: #f388aa;
+}

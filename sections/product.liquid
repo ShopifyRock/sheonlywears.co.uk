@@ -79,19 +79,23 @@
               color:{{ section.settings.annouce-textc2 }};
             "
           >
+              {% comment %}
             <img
               src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/Vectorcrown.avif?v=1688994752"
               alt="Vectorcrown"
               width="25"
               height="20"
             >
+            {% endcomment %}
             {{ section.settings.nextday }}
+             {% comment %}
             <img
               src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/Vectorcrown.avif?v=1688994752"
               alt="Vectorcrown"
               width="25"
               height="20"
             >
+            {% endcomment %}
           </div>
           {% assign current_variant = product.selected_or_first_available_variant %}
           <div class="product-sku">SKU: {{ current_variant.sku }}</div>
@@ -239,7 +243,7 @@
     {
       "type": "@app"
     },
-     {
+    {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
       "limit": 1
@@ -247,7 +251,37 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Change The color of Prices"
+        },
+        {
+          "type": "color",
+          "id": "color_regular",
+          "label": "Regular Price",
+          "default": "#000"
+        },
+        {
+          "type": "color",
+          "id": "color_sale_regular",
+          "label": "Regular Price in sale Price",
+          "default": "#000"
+        },
+        {
+          "type": "color",
+          "id": "color_old__price",
+          "label": "Old Price in sale Price",
+          "default": "#999"
+        },
+        {
+          "type": "color",
+          "id": "color_special__price",
+          "label": "Special Price in sale Price",
+          "default": "#f388aa"
+        }
+      ]
     },
     {
       "type": "sku",

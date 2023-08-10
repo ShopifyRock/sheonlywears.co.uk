@@ -98,6 +98,9 @@ const __kpCheckWishlist = () => {
       });
     }
   }
+  else{
+    document.querySelector("#kp-wishlist_icon .kp-wishlist_count").textContent = 0;
+  }
 }
 
 const __kpWishlistCountIncrement = () => {
