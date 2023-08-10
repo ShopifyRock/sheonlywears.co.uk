@@ -48,13 +48,13 @@
     {%- endcomment -%}
     <div class="price__regular">
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
-      <span class="price-item price-item--regular">
+      <span class="price-item price-item--regular" style="color: {{ color_1 }}">
         {{ money_price }}
       </span>
     </div>
     <div class="price__sale">
       <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-      <span class="price-item price-item--sale price-item--last">
+        <span class="price-item price-item--sale price-item--last" style="color: {{ color_2 }}">
         {{ money_price }}
       </span>
       {%- unless product.price_varies == false and product.compare_at_price_varies %}
@@ -72,9 +72,9 @@
         -->
         <div class="product__price">
           <div class="old__price ">
-            <span class="price price-item price-item--regular">{{ compare_at_price | money_with_currency }}</span>
+            <span class="price price-item price-item--regular" style="color: {{ color_3 }}">{{ compare_at_price | money_with_currency }}</span>
           </div>
-          <div class="special__price">
+          <div class="special__price" style="color: {{ color_4 }}">
             <span class="price">
               {{- compare_at_price | minus: price | difference: compare_at_price_max | money_with_currency -}}
             </span>

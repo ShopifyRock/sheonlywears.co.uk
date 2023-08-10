@@ -228,7 +228,7 @@
             <img src="https://cdn.shopify.com/s/files/1/0282/8166/7663/files/ZKZg.gif?v=1690891203" id="collection-loader">
             <div class="collection__grid">
               {%- for product in collection.products -%}
-                <div class="product__content">
+                <div class="product__content" data-product-handle="{{ product.handle }}">
                   <div class="product-collection-image__wrapper">
                     <div class="wishlist-btn">
                       <a
@@ -276,7 +276,7 @@
                                   {%- if variant.title contains value -%}
                                     {%- assign variantImgSrc = variant.image.src
                                       | img_url: '20x20', scale: 3, crop: 'center'
-                                    -%}
+                                    -%}                                   
                                     {%- break -%}
                                   {%- endif -%}
                                 {%- endfor -%}
@@ -285,9 +285,15 @@
                                   data-option-value="{{ value }}"
                                   data-product-handle="{{ product.handle }}"
                                 >
-                                  <label for="{{ radio_id }}" class="color-swatch-list">
+                                  <label for="{{ radio_id }}" class="color-swatch-list"
+                                    {% if option.name == 'color' or option.name == 'Color' or option.name == 'Colour' or option.name == 'colour' %}
+                                    style="background-color: {{ value }}; background-image:url({{ value |  replace: " ", "-" | append: '.png' | file_img_url }});height: 100%;width: 100%;"
+                                    {% endif %}
+                                >
                                     {% if option.name == 'Colour' %}
+                                      {% comment %}
                                       <img src="{{ variantImgSrc }}">
+                                       {% endcomment %}
                                     {% else %}
                                       {{ value }}
                                     {% endif %}
@@ -310,10 +316,26 @@
                     <a href="{{ product.url }}">
                       <div class="product__title-wrapper">
                         <h3 class="product__title">{{ product.title }}</h3>
-                        <span class="product__price">{{ product.price | money_with_currency }}</span>
+                      </div>
+                      <div class="product__price-wrapper">
+                          {% if product.compare_at_price %}
+                            <div class="product_sale_price">
+                              <div class="product_discount_price">
+                                <span>{{ product.price | money_with_currency }}</span>
+                                <del>{{ product.compare_at_price | money_with_currency }}</del>
+                              </div>
+                              <div class="product_save_price">
+                                <span class="amount_discount">{{- product.compare_at_price | minus: product.price | money_with_currency -}}</span>
+                                <span class="percent_discount">({{- product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price -}} % OFF)</span>
+                              </div>
+                            </div>
+                          {% else %}
+                          <div class="product_regular_price">{{ product.price | money_with_currency }}</div>
+                          {% endif %}
                       </div>
                       <div class="product__brand">{{ product.vendor }}</div>
                     </a>
+                    <!-- <span class="product__atc">{% render 'icon-cart-empty' %}</span> -->
                   </div>
                 <div class="attribute-options outside">
                         {%- unless product.has_only_default_variant -%}
@@ -341,8 +363,13 @@
                                   data-option-value="{{ value }}"
                                   data-product-handle="{{ product.handle }}"
                                 >
-                                  <label for="{{ radio_id }}" class="color-swatch-list">                                   
-                                      <img src="{{ variantImgSrc }}">                                   
+                                  <label for="{{ radio_id }}" class="color-swatch-list"
+                                {% if option.name == 'color' or option.name == 'Color' or option.name == 'Colour' or option.name == 'colour' %}
+                                    style="background-color: {{ value }}; background-image:url({{ value |  replace: " ", "-" | append: '.png' | file_img_url }});height: 100%;width: 100%;"
+                                    {% endif %} >
+                                {% comment %}
+                                      <img src="{{ variantImgSrc }}">
+                                       {% endcomment %}                                 
                                   </label>
                                 </a>
                               {% endfor %}
@@ -358,6 +385,18 @@
             <div class="toolbar-options-wrapper">
               <div class="toolbar-options">
                 <div class="sort-options">
+                  <a class="filter-mobile-title" href="javascript:void(0)">
+                    <span>Filters</span>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      role="presentation"
+                      class="icon icon-chevron-right"
+                      viewBox="0 0 284.49 498.98"
+                    >
+                      <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
+                    </svg>
+                  </a>                 
                   <div class="sort-options-container">
                     <div class="sort-options-dropdown sort-options-dropdown-bottom" id="sort-options-dropdown-bottom">
                       <a
@@ -366,7 +405,7 @@
                         onclick="sortDropdownBottom()"
                         class="sort-options-dropdown-title sort-options-dropdown-title-bottom"
                       >
-                        popular
+                        <span> popular</span>
                         <svg
                           aria-hidden="true"
                           focusable="false"
@@ -389,7 +428,12 @@
                           >
                             <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"></path>
                           </svg>
-                        </div>
+                          <button type="button" class="drawer__close-button">
+                            <svg aria-hidden="true" focusable="false" role="presentation" viewBox="0 0 64 64">
+                              <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"></path>
+                            </svg>
+                          </button>
+                        </div>                       
                         <a
                           class="shadowSort__option  active"
                           href="?sort_by=default"

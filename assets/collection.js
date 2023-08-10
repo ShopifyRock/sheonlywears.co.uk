@@ -154,7 +154,22 @@ const getProductById = async(handle) => {
 const filter = (currentSlider, optionAlt) => {
   currentSlider.slick('slickUnfilter');
   currentSlider.slick('slickFilter', `.${optionAlt}`);
-};
+}
+const moneyFormate = (price) => {
+    return __kpWishlist.money_format.replace("\{\{amount\}\}", (price/100).toFixed(2)) + " " + Shopify.currency.active;
+}
+const variantPriceChange = (self, selectedOption, variantJSON) => {
+  const selectedVariantPrice = variantJSON.filter(variant => variant.title === selectedOption).map(variant => variant.price);
+  const selectedVariantCompAtPrice = variantJSON.filter(variant => variant.title === selectedOption).map(variant => variant.compare_at_price);
+  if(selectedVariantCompAtPrice){
+    self.find('.product__price-wrapper .product_discount_price span').text(moneyFormate(selectedVariantPrice));
+    self.find('.product__price-wrapper .product_discount_price del').text(moneyFormate(selectedVariantCompAtPrice));
+    self.find('.product__price-wrapper .product_save_price .amount_discount').text(moneyFormate(selectedVariantCompAtPrice - selectedVariantPrice));
+    self.find('.product__price-wrapper .product_save_price .percent_discount').text(`(${Math.floor((selectedVariantCompAtPrice - selectedVariantPrice) * 100 / selectedVariantCompAtPrice)}% OFF)`);
+  } else {
+    self.find('.product__price-wrapper .product_regular_price').text(moneyFormate(selectedVariantPrice));
+  }
+}
 const variantATC = (self, variantId) => {
   $.ajax({
     type: 'POST',
@@ -187,14 +202,16 @@ const variantATC = (self, variantId) => {
     }
   });
 }
-$('.collection__grid .product__content').each(function(){
+$('.collection__grid .product__content').each(async function(){
     let pc = $(this);
     let pcColor = pc.find('.attribute-options.inside .attribute-options__wrapper.colour a');
     let pcColorOutside = pc.find('.attribute-options.outside .attribute-options__wrapper.colour a');
     let pcSize = pc.find('.attribute-options .attribute-options__wrapper.size a');
     let selfSlider = pc.find('.collection-product-slider');
+    const productHandle = pc.attr("data-product-handle");
+    const variantJSON = await getProductById(productHandle);
     let selectedColor = pcColor .length > 0 ? pcColor.eq(0).attr('data-option-value') : "";
-    let selectedSize ="";
+    let selectedSize = pcSize .length > 0 ? pcSize.eq(0).attr('data-option-value') : "";
 
     if(pcColor.length > 0){
       pcColor.eq(0).addClass('active');
@@ -210,6 +227,9 @@ $('.collection__grid .product__content').each(function(){
               $(this).addClass('active');
               $('.attribute-options.outside .attribute-options__wrapper.colour a[ data-option-value="' + $(this).attr("data-option-value") + '"]' ).addClass( 'active' );
               selectedColor = $(this).attr("data-option-value");
+              // const selectedOptionColor = selectedColor +" / " + selectedSize;
+              const selectedOptionColor = pcSize.length > 0 ? selectedColor +" / "+selectedSize : selectedColor;
+              variantPriceChange(pc, selectedOptionColor, variantJSON);
               optionAlt = 'color_'+selectedColor.toLowerCase().replace(/ /g,'-');
               filter(selfSlider, optionAlt);
           });
@@ -222,27 +242,52 @@ $('.collection__grid .product__content').each(function(){
             $(this).addClass('active');
             $('.attribute-options.inside .attribute-options__wrapper.colour a[ data-option-value="' + $(this).attr("data-option-value") + '"]' ).addClass( 'active' );
             selectedColor = $(this).attr("data-option-value");
+            // const selectedOptionColorOs = selectedColor +" / " + selectedSize;
+            const selectedOptionColorOs = pcSize.length > 0 ? selectedColor +" / "+selectedSize : selectedColor;
+            variantPriceChange(pc, selectedOptionColorOs, variantJSON);
             optionAlt = 'color_'+selectedColor.toLowerCase().replace(/ /g,'-');
             filter(selfSlider, optionAlt);
           });
         });
       }
     }
-  
-    pcSize.each(function(){
-        let thisClick = $(this);
-        thisClick.click(async function(){
-            // pcSize.removeClass('active');
-            // $(this).addClass('active');
-            selectedSize = $(this).attr("data-option-value");
-            const selectedOption = pcColor.length > 0 ? selectedColor +" / "+selectedSize : selectedSize ;
-            const selectedHandle=$(this).attr("data-product-handle");
-            const variantJSON = await getProductById(selectedHandle);
-            const selectedVariantId = variantJSON.filter(variant => variant.title === selectedOption).map(variant => variant.id);
-            await variantATC(pc, selectedVariantId);
-            setTimeout(()=>{
-              pc.find('.product-actions-container .added-to-cart-notice').removeClass('active-note');
-            },3000);
-        });
+    if(pcSize.length > 0){
+      pcSize.eq(0).addClass('active');
+      pcSize.each(function(){
+          let thisClick = $(this);
+          thisClick.click(async function(){
+              pcSize.removeClass('active');
+              $(this).addClass('active');
+              selectedSize = $(this).attr("data-option-value");
+              // const selectedOptionSize = selectedColor +" / " + selectedSize;
+              const selectedOptionSize = pcColor.length > 0 ? selectedColor +" / "+selectedSize : selectedSize;
+              variantPriceChange(pc, selectedOptionSize, variantJSON);
+              // const selectedOption = pcColor.length > 0 ? selectedColor +" / "+selectedSize : selectedSize ;
+          });
+      });
+    }
+    
+    
+    pc.find('.product__atc').click(async function(){
+      // const selectedOption = selectedColor +" / " + selectedSize;
+      let selectedOption;
+      if(pcColor.length > 0 && pcSize.length < 1) {
+        selectedOption = selectedColor;
+      } else if(pcSize.length > 0 && pcColor.length < 1) {
+        selectedOption = selectedSize;
+      } else {
+        selectedOption = selectedColor +" / " + selectedSize;
+      }
+      const selectedVariantId = variantJSON.filter(variant => variant.title === selectedOption).map(variant => variant.id);
+      const selectedVariantAvailable = variantJSON.filter(variant => variant.title === selectedOption).map(variant => variant.available);
+      if(selectedVariantAvailable == 'true'){
+        await variantATC(pc, selectedVariantId);
+      }else{
+        pc.find('.product-actions-container .added-to-cart-notice').text('sold out');
+        pc.find('.product-actions-container .added-to-cart-notice').addClass('active-note');              
+        }
+      setTimeout(()=>{
+        pc.find('.product-actions-container .added-to-cart-notice').removeClass('active-note');
+      },3000);
     });
 });

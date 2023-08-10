@@ -360,10 +360,6 @@ img {
     height: 70px;
 }
 
-.site-header .header-logo {
-    max-width: 110px;
-}
-
 @media only screen and (min-width: 769px) {
     .site-header .container-fluid {
         padding-left: 30px;
@@ -506,14 +502,7 @@ div#shopify-product-reviews {
     }
     .site-header .container-fluid>div {
         height: 60px;
-    }
-    .site-header .header-logo {
-        max-width: 80px;
-    }
-
-    .site-header .header-logo img {
-        max-width: 80px;
-    }
+    }   
     .mobile-header a {
         padding: 6px;
         text-decoration: none;
@@ -1221,8 +1210,7 @@ div#shopify-product-reviews {
 
 /* Footer */
 
-.site-footer {
-    background: #fff;
+.site-footer {    
     padding: 20px 0;
 }
 
@@ -1987,7 +1975,7 @@ fieldset.js.product-form__input.Colour label {
     text-indent: -10000px;
 }
 fieldset.js.product-form__input.Colour input[type=radio]:checked+label:before {
-    /* content: "\2714";
+    content: "\2714";
     width: 100%;
     display: inline-block;
     z-index: 1;
@@ -1997,11 +1985,11 @@ fieldset.js.product-form__input.Colour input[type=radio]:checked+label:before {
     text-indent: 0;
     text-align: center;
     vertical-align: middle;
-    font-size: 32px; */
+    font-size: 32px;
 }
 fieldset.js.product-form__input.Colour label {
-    border-radius: 0 !important;
-  height:auto !important;
+    /* border-radius: 0 !important; */
+  /* height:auto !important; */
 }
 
 fieldset.js.product-form__input.Colour input[type=radio]:checked+label{
@@ -2576,6 +2564,10 @@ a#sort-options-dropdown-title-bottom:before {
   }
 
   @media only screen and (max-width: 768px) {
+    .filter-form .filter-group-display__price-range+.filter-group-display__submit input[type=submit] {
+    color: #000;
+    border-radius: 0;
+}
   .collection-grid__wrapper .collection__grid .product__content .product--link + .attribute-options {
       margin-top: 35px;
     }

@@ -126,11 +126,23 @@
     </script>
     {% include 'size-chart' %}
 
-    <script>// $('#myModal').on('shown.bs.modal', function () {
-// $('#myInput').trigger('focus')
-// })
+  <script>
+      if ($(".customer.addresses")) {
+        $(".customer.addresses .address, .customer.addresses .edit").on('click', function() {
+        $(this).attr('aria-expanded', $(this).attr('aria-expanded') === 'true' ? false : true);
+        });
+      }
+
+     $(function () {
+       $('.cancel').on('click', function () {
+             $(".customer.addresses .address, .customer.addresses .edit").attr('aria-expanded', false);
+       });
+    });
   </script>
+    
   {{ 'kp-wishlist.js' | asset_url | script_tag }}
   <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
   <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-</body></html>
+    
+</body>
+</html>

@@ -17,7 +17,7 @@
                     </a>                    
                 </div>
               
-                <div class="header-logo">
+                <div class="header-logo" style="max-width: {{ section.settings.logo_width }}px;">
                   {% if section.settings.logo %}
                     <a class="logo" href="{{ routes.root_url }}" title="Welcome to SOW">
                         <img class="site-header__logo-link-primary" src="{{section.settings.logo | img_url: 'master' }}" width="140" height="52" alt="Hello she only wears">
@@ -170,6 +170,7 @@
     <div class="mobile-login">
         <div class="mobile-login__wrapper">
           {%- if customer -%}
+            <a href="{{ routes.account_url }}" class="mobile-link" title="{{ 'customer.account.title' | t }}">{{ 'customer.account.title' | t }}</a>
             <a href="{{ routes.account_logout_url }}" class="mobile-link" title="{{ 'customer.log_out' | t }}">{{ 'customer.log_out' | t }}</a>
           {%- else -%}
             <a href="{{ routes.account_login_url }}" class="mobile-link" title="Login/Register">Login/Register</a>
@@ -183,6 +184,16 @@
   {
     "name": "Header",
     "settings": [
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 100,
+        "max": 140,
+        "step": 5,
+        "unit": "px",
+        "label": "Logo size",
+        "default": 110
+      },
       {
          "type": "image_picker",
          "id": "logo",

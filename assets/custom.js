@@ -104,7 +104,7 @@ jQuery(document).ready(function () {
         nextArrow: '<div class="slick-next slick-arrow"><svg width="30" height="30" viewBox="0 0 26 45" fill="none" xmlns="https://static.barilliance.com/img/common/next.svg"><path d="M1.18084 1L26 22.4995L1 44" stroke="#231F20" stroke-width="1.2"></path></svg></div>',
         responsive: [
             {
-              breakpoint: 769,
+              breakpoint: 768,
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,

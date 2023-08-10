@@ -1,9 +1,7 @@
  // Remove active class from all thumbnail slides
  $('.product-thumb .slick-slide').removeClass('slick-active');
-
- // Set active class to first thumbnail slides
  $('.product-thumb .slick-slide').eq(0).addClass('slick-active');
-
+    
  // On before slide change match active thumbnail to current slide
  $('.product-main-image').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
      var mySlideNumber = nextSlide;
@@ -19,10 +17,19 @@
      var color_calss = '.color_' + color;
 // alert(color_size);
    if(color_size > 1){
+      $('.product-thumb .slick-slide').removeClass('slick-active');
+ $('.product-thumb .slick-slide').eq(0).addClass('slick-active');
        $(".product-thumb").slick('slickFilter', color_calss);
        $('.product-thumb').slick('resize');
        $(".product-main-image").slick('slickFilter', color_calss);
        $('.product-main-image').slick('resize');
+     
+     $(".product-thumb .slick-slide:not(.slick-cloned)").each(function (index, slide) {
+    $(slide).attr("data-slick-index", index);
+});
+     $(".product-main-image .slick-slide:not(.slick-cloned)").each(function (index, slide) {
+    $(slide).attr("data-slick-index", index);
+});
    }
  });  
 $(document).ready(function() {
@@ -35,8 +42,14 @@ $('.product-thumb').slick('slickUnfilter');
  $('.product-main-image').slick('slickUnfilter');
  $(".product-thumb").slick('slickFilter', color_calss);
  $('.product-thumb').slick('resize');
+  $(".product-thumb .slick-slide:not(.slick-cloned)").each(function (index, slide) {
+    $(slide).attr("data-slick-index", index);
+});
  $(".product-main-image").slick('slickFilter', color_calss);
  $('.product-main-image').slick('resize');
+   $(".product-main-image .slick-slide:not(.slick-cloned)").each(function (index, slide) {
+    $(slide).attr("data-slick-index", index);
+});
 }
 });
 // PDP accordion

@@ -74,6 +74,7 @@
         color-size="{{ forloop.length }}"
       {% endif %}
     >
+    {% comment %}
       {%- for variant in product.variants -%}
         {%- if variant.title contains value -%}
           {%- assign variantImgSrc = variant.image.src | img_url: '300x' -%}
@@ -85,6 +86,8 @@
       {% else %}
         {{ value }}
       {% endif %}
+     {% endcomment %}
+    {{ value }}
       <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
     </label>
   {%- elsif block.settings.picker_type == 'dropdown' -%}
